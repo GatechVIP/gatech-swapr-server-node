@@ -1,0 +1,22 @@
+{
+  "name": "gatech-swapr-server-node",
+  "version": "1.0.0",
+  "description": "node.js server for swapr",
+  "main": "index.js",
+  "dependencies": {
+    "sqlite3": "^3.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.gatech.edu/sdouglas6/gatech-swapr-server-node.git"
+  },
+  "keywords": [
+    "swapr"
+  ],
+  "author": "GT VIP SWAPR team",
+  "license": "ISC"
+}

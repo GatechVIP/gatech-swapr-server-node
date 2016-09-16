@@ -1,0 +1,6 @@
+
+*.h
+
+*.cc
+
+node_modules/

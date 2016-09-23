@@ -63,10 +63,6 @@ db.serialize(function(){
     db.run("INSERT INTO id_map (id, username, email, full_name, pwd_hash, pwd_salt, token) VALUES (3, 'user_3', 'test3@email.com', 'Ipswitch, Isambard', 'aa35tn', 'qrwefag','3gtw3')");
     db.run("INSERT INTO id_map (id, username, email, full_name, pwd_hash, pwd_salt, token) VALUES (4, 'user_4', 'test4@email.com', 'McDonald, Carlotta May', '23grwhtsa', 'f23q5th','fdgsfdafg')");
 
-    //check the id_map table
-    db.each("SELECT id, username, full_name FROM id_map", function(err,row) {
-        console.log("id: " + row.id + ", username: " + row.username + ", full_name: "+ row.full_name);
-    });
 });
 
-db.close()
+module.exports = db;

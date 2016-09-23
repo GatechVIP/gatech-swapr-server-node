@@ -9,4 +9,10 @@ Our API lives on [apiary.io](http://docs.swaprapi.apiary.io/#)
 On OS X, install Homebrew, then do
 `brew install node`
 
+## Installing the project dependencies
+`npm install -d`
+
+## Running the test suite
+`npm test`
+
 Note: Please go to company_practice_server/models/user.js to see an example of password hashing.

@@ -1,0 +1,415 @@
+FORMAT: 1A
+
+# SWAPR API
+
+API for the MOOC SWAPR application. REMEMBER: always authenticate and include token in the header
+
+
+# Group Auth Token
+Get an Authorization Token, there are three types of users: root, SWAPRInstructor, SWAPRUser (students). Yes, the root password and username is 'root', and 'root' respectively
+
+## Token [/api-token-auth/]
+
+## Get Token [POST]
++ Request (application/json)
+
+    + Body
+    
+            {
+                'password': 'root',
+                'username': 'root'
+            }
+
++ Response 201 (application/json)
+
+    + Body
+    
+            {
+                "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
+            }
+
+
+# Group Instructor Creation
+Creating students, will be deprecated after GT authentication provided
+
+## SWAPRInstructor Endpoint [/swaprinstructors/]
+
+## Create SWAPRInstructor [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'username': 'teacher0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
+
++ Response 201 (application/json)
+
+    + Body 
+    
+            {"id": 1, "username": "teacher0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+
++ Response 400 (application/json)
+
+    + Body 
+    
+            {"error": "django user with username already exists"}
+         
+         
+# Group SWAPRUser Creation
+Creating students, will be deprecated after GT authenticaiton provided
+
+## Student Endpoint [/swaprusers/]
+
+## Create SWAPRUser [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'username': 'student0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
+
++ Response 201 (application/json)
+
+    + Body 
+    
+            {"id": 1, "username": "student0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+
++ Response 400 (application/json)
+
+    + Body 
+    
+            {"error": "django user with username already exists"}
+
+
+# Group Grades
+Deprecated, look in assignments
+
+## Grade [/grades/{id}]
+Deprecated, look in assignments
+
+
+# Group Assignments
+## Assignments [/assignments]
+Assignments related resources of the **SWAPR API**
+
+### List ALL Assignments, no grades [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1, 
+                "swaprinstructor": "teacher", 
+                "description": "submission assignment number 1 for courseNumber 1", 
+                "type": "submission", 
+                "course": "course0", 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-03-16T04:52:00.108Z", 
+                "related_assignment": null, 
+                "grade": null
+            }, 
+            {
+                "id": 2, 
+                "swaprinstructor": "teacher", 
+                "description": "evaluation assignment submission assignment number 1", 
+                "type": "evaluation", 
+                "course": "course0", 
+                "due_date": "2014-01-02T04:56:00Z", 
+                "date_posted": "2015-03-16T04:52:00.108Z", 
+                "related_assignment": 1, 
+                "grade": null
+            }
+        ]
+
+## Assignment [/assignments/{id}]
+A single Assignment object with all its details. this DOES NOT get an video url for the student to grade
+
++ Parameters
+    + id (required, string) ... String `id` of the assignment to retrieve.
+
+### Retrieve an Assignment [GET]
++ Response 200 (application/json)
+
+        {
+            "id": 2, 
+            "swaprinstructor": 1, 
+            "description": "evaluation assignment submission assignment number 1", 
+            "type": "evaluation", 
+            "course": 1, 
+            "due_date": "2014-01-02T04:56:00Z", 
+            "date_posted": "2015-03-16T04:52:00.108Z", 
+            "related_assignment": 1, 
+            "items": [
+                {
+                    "id": 1, 
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 2, 
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 3, 
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 4, 
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }
+            ], 
+            "grade": null
+        }
+
+## Create Submission Assignment [/assignments/]
+make sure type is submission, regular post request
+
+## Make Submission Assignment [POST]
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            {
+                'assigner': 'chris wang setupscript',
+                 'course': 1,
+                 'description': 'submission assignment number 1 for courseNumber 1',
+                 'due_date': datetime.datetime(2014, 1, 2, 0, 0),
+                 'type': 'submission'
+            }
+
++ Response 201
+
+    + Body
+    
+            {
+                'course': 1,
+                 'date_posted': '2015-03-16T01:01:03.775-04:00',
+                 'description': 'submission assignment number 1 for courseNumber 1',
+                 'due_date': '2014-01-02T00:00:00-04:56',
+                 'id': 1,
+                 'related_assignment': None,
+                 'swaprinstructor': 1,
+                 'type': 'submission'
+            }
+
+
+## Create Evaluation Assignment [/assignmentsTHISMAKESITNOTDUPLICATE/]
+make sure type is evaluation! this call is JSON
+## Make Evaluation Assignment [POST]
++ Request (application/json)
+
+    + Body
+    
+            {'course': 1,
+             'description': 'evaluation assignment submission assignment number 1',
+             'due_date': '2014-01-02T00:00:00-04:56',
+             'items': [{'max_value': 5,
+                        'question': 'item #1 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #2 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #3 for assignment number: 2 for class number 1 related to assignment number:1'},
+                       {'max_value': 5,
+                        'question': 'item #4 for assignment number: 2 for class number 1 related to assignment number:1'}],
+             'related_assignment': 1,
+             'type': 'evaluation'}
++ Response 201
+
+    + Body
+    
+            {
+                'course': 1,
+                'date_posted': '2015-03-16T01:09:59.096-04:00',
+                'description': 'evaluation assignment submission assignment number 2',
+                'due_date': '2014-01-03T00:00:00-04:56',
+                'id': 4,
+                'related_assignment': 2,
+                'swaprinstructor': 1,
+                'type': 'evaluation'
+            }
+
+# Group getURLToGrade
+get assignment meta data
+
+## getURLToGrade [/getUrlToGrade/?assignment={assignment_id}]
+Get assignment meta-data for a specific course
+
++ Parameters
+    + id (required, string) ... String ASSIGNMENT_ID of an evaluation assignment
+
+### retrieve assignment metadata for a course [GET]
++ Response 200 (application/json)
+
+        {
+            "url": "url for student 3 for assignment 1", 
+            "items": [
+                {
+                    "id": 1, 
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 2, 
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 3, 
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }, 
+                {
+                    "id": 4, 
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
+                    "max_value": 5, 
+                    "assignment": 2
+                }
+            ], 
+            "submission": 1
+        }
+        
+# Group EvaluationItems
+After you get a url to grade, this is how you submit your evaluations
+
+## EvaluationItems [/evaluationItems/]
+list of items that you are evaluating
+### Enroll a Course [POST]
+
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            [{'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 1,
+              'item': 1,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 2,
+              'item': 2,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 3,
+              'item': 3,
+              'rating': 2},
+             {'comment': 'comment from chris setupscript',
+              'evaluation': 1,
+              'id': 4,
+              'item': 4,
+              'rating': 2}]
++ Response 201
+
+
+# Group Courses
+All operations that have to do with getting grade information.
+
+## Courses [/courses]
+### List ALL Courses [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1, 
+                "name": "course0", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    1, 2
+                ]
+            }, 
+            {
+                "id": 2, 
+                "name": "course1", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    2, 3
+                ]
+            }, 
+            {
+                "id": 3, 
+                "name": "course2", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    3
+                ]
+            }, 
+            {
+                "id": 4, 
+                "name": "course3", 
+                "active": true, 
+                "year": 2015, 
+                "semester": "spring", 
+                "students": [
+                    4
+                ]
+            }
+        ]
+        
+## Create Course [POST]
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            {
+                'active': True,
+                'name': 'Apiary for Dummies 101',
+                'semester': 'spring',
+                'year': 2015
+            }
+
++ Response 201
+
+        
+## Course [/courses/{id}]
+A single course
+
++ Parameters
+    + id (required, string) ... String `id` of the assignment to retrieve.
+
+### Retrieve a Course [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1, 
+            "name": "course0", 
+            "active": true, 
+            "year": 2015, 
+            "semester": "spring", 
+            "students": [
+                1, 5, 6, 8, 2
+            ]
+        }
+        
+## Course [/coursesNOTDUPLICATE/{id}]
+A single course
+
++ Parameters
+    + id (required, string) ... String `id` of the assignment to retrieve.
+
+### Enroll a Course [POST]
+
++ Request (application/x-www-form-urlencoded)
+
+    + Body
+    
+            {
+                'enroll': True
+            }
+
++ Response 201

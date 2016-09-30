@@ -281,6 +281,6 @@ describe('Auth Token', function() {
         res.body[3].students.length.should.equal(1);
         res.body[3].students[0].should.equal(4);
         done();
-      })
+      });
   });
 });

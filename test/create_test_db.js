@@ -49,6 +49,15 @@ db.serialize(function(){
             );
 
         db.run(
+            "CREATE TABLE course_participation\
+            (course_id int, session_id int, user_id int,\
+            FOREIGN KEY(course_id) REFERENCES course_map(course_id),\
+            FOREIGN KEY(session_id) REFERENCES session_map(session_id),\
+            FOREIGN KEY(user_id) REFERENCES id_map(id),\
+            PRIMARY KEY(course_id, session_id, user_id))"
+            );
+
+        db.run(
             "CREATE TABLE peer_submissions\
             (id text not null, session_id int not null, URL text unique not null,\
             FOREIGN KEY(id) REFERENCES id_map(id)\

@@ -54,6 +54,11 @@ db.serialize(function(){
             FOREIGN KEY(id) REFERENCES id_map(id)\
             constraint unq unique (id, session_id))"
             );
+        db.run(
+            "CREATE TABLE instructor\
+            (id text not null, course_id int not null,\
+            FOREIGN KEY(id) REFERENCES id_map(id)"
+            );
     }
 
     //Insert some test students

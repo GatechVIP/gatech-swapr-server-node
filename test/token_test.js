@@ -159,6 +159,23 @@ describe('Auth Token', function() {
       });
   });
 
+  it ('should not allow any kind of access for entering an inappropriate data type for username (test 4)', function(done) {
+    var reqBody = {
+      "username": {},
+      "password": 'sl88d9'
+    };
+    request(url)
+      .post("/api-token-auth")
+      .send(reqBody)
+      .end(function(err, res) {
+        /*if (err) {
+          throw err;
+        }*/
+        res.should.have.status(400);
+        done();
+      });
+  });
+
   it ('should not allow any kind of access for entering an inappropriate data type for password (test 1)', function(done) {
     var reqBody = {
       "username": "user_1",
@@ -197,6 +214,23 @@ describe('Auth Token', function() {
     var reqBody = {
       "username": "user_1",
       "password": true
+    };
+    request(url)
+      .post("/api-token-auth")
+      .send(reqBody)
+      .end(function(err, res) {
+        /*if (err) {
+          throw err;
+        }*/
+        res.should.have.status(400);
+        done();
+      });
+  });
+
+  it ('should not allow any kind of access for entering an inappropriate data type for password (test 4)', function(done) {
+    var reqBody = {
+      "username": "user_1",
+      "password": {}
     };
     request(url)
       .post("/api-token-auth")

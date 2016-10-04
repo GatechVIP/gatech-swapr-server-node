@@ -57,7 +57,7 @@ db.serialize(function(){
             );
         db.run(
             "CREATE TABLE instructor\
-            (id text not null, course_id int not null, URL text unique not null,\
+            (id text not null, course_id int not null,\
             FOREIGN KEY(id) REFERENCES id_map(id)"
             );
     }

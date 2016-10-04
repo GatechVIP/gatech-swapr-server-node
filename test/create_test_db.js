@@ -49,7 +49,7 @@ db.serialize(function(){
             );
 
         db.run(
-            "CREATE TABLE course_participation\
+            "CREATE TABLE course_enrollment\
             (course_id int, session_id int, user_id int,\
             FOREIGN KEY(course_id) REFERENCES course_map(course_id),\
             FOREIGN KEY(session_id) REFERENCES session_map(session_id),\

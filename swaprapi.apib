@@ -14,7 +14,7 @@ Get an Authorization Token, there are three types of users: root, SWAPRInstructo
 + Request (application/json)
 
     + Body
-    
+
             {
                 'password': 'root',
                 'username': 'root'
@@ -23,7 +23,7 @@ Get an Authorization Token, there are three types of users: root, SWAPRInstructo
 + Response 201 (application/json)
 
     + Body
-    
+
             {
                 "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
             }
@@ -38,22 +38,22 @@ Creating students, will be deprecated after GT authentication provided
 + Request (application/json)
 
     + Body
-    
+
             {'username': 'teacher0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
 
 + Response 201 (application/json)
 
-    + Body 
-    
+    + Body
+
             {"id": 1, "username": "teacher0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
 
 + Response 400 (application/json)
 
-    + Body 
-    
+    + Body
+
             {"error": "django user with username already exists"}
-         
-         
+
+
 # Group SWAPRUser Creation
 Creating students, will be deprecated after GT authenticaiton provided
 
@@ -63,19 +63,19 @@ Creating students, will be deprecated after GT authenticaiton provided
 + Request (application/json)
 
     + Body
-    
+
             {'username': 'student0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
 
 + Response 201 (application/json)
 
-    + Body 
-    
+    + Body
+
             {"id": 1, "username": "student0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
 
 + Response 400 (application/json)
 
-    + Body 
-    
+    + Body
+
             {"error": "django user with username already exists"}
 
 
@@ -95,25 +95,25 @@ Assignments related resources of the **SWAPR API**
 
         [
             {
-                "id": 1, 
-                "swaprinstructor": "teacher", 
-                "description": "submission assignment number 1 for courseNumber 1", 
-                "type": "submission", 
-                "course": "course0", 
-                "due_date": "2014-01-02T04:56:00Z", 
-                "date_posted": "2015-03-16T04:52:00.108Z", 
-                "related_assignment": null, 
+                "id": 1,
+                "swaprinstructor": "teacher",
+                "description": "submission assignment number 1 for courseNumber 1",
+                "type": "submission",
+                "course": "course0",
+                "due_date": "2014-01-02T04:56:00Z",
+                "date_posted": "2015-03-16T04:52:00.108Z",
+                "related_assignment": null,
                 "grade": null
-            }, 
+            },
             {
-                "id": 2, 
-                "swaprinstructor": "teacher", 
-                "description": "evaluation assignment submission assignment number 1", 
-                "type": "evaluation", 
-                "course": "course0", 
-                "due_date": "2014-01-02T04:56:00Z", 
-                "date_posted": "2015-03-16T04:52:00.108Z", 
-                "related_assignment": 1, 
+                "id": 2,
+                "swaprinstructor": "teacher",
+                "description": "evaluation assignment submission assignment number 1",
+                "type": "evaluation",
+                "course": "course0",
+                "due_date": "2014-01-02T04:56:00Z",
+                "date_posted": "2015-03-16T04:52:00.108Z",
+                "related_assignment": 1,
                 "grade": null
             }
         ]
@@ -128,40 +128,40 @@ A single Assignment object with all its details. this DOES NOT get an video url 
 + Response 200 (application/json)
 
         {
-            "id": 2, 
-            "swaprinstructor": 1, 
-            "description": "evaluation assignment submission assignment number 1", 
-            "type": "evaluation", 
-            "course": 1, 
-            "due_date": "2014-01-02T04:56:00Z", 
-            "date_posted": "2015-03-16T04:52:00.108Z", 
-            "related_assignment": 1, 
+            "id": 2,
+            "swaprinstructor": 1,
+            "description": "evaluation assignment submission assignment number 1",
+            "type": "evaluation",
+            "course": 1,
+            "due_date": "2014-01-02T04:56:00Z",
+            "date_posted": "2015-03-16T04:52:00.108Z",
+            "related_assignment": 1,
             "items": [
                 {
-                    "id": 1, 
-                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 1,
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 2, 
-                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 2,
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 3, 
-                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 3,
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 4, 
-                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 4,
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
                 }
-            ], 
+            ],
             "grade": null
         }
 
@@ -172,7 +172,7 @@ make sure type is submission, regular post request
 + Request (application/x-www-form-urlencoded)
 
     + Body
-    
+
             {
                 'assigner': 'chris wang setupscript',
                  'course': 1,
@@ -184,7 +184,7 @@ make sure type is submission, regular post request
 + Response 201
 
     + Body
-    
+
             {
                 'course': 1,
                  'date_posted': '2015-03-16T01:01:03.775-04:00',
@@ -203,7 +203,7 @@ make sure type is evaluation! this call is JSON
 + Request (application/json)
 
     + Body
-    
+
             {'course': 1,
              'description': 'evaluation assignment submission assignment number 1',
              'due_date': '2014-01-02T00:00:00-04:56',
@@ -220,7 +220,7 @@ make sure type is evaluation! this call is JSON
 + Response 201
 
     + Body
-    
+
             {
                 'course': 1,
                 'date_posted': '2015-03-16T01:09:59.096-04:00',
@@ -245,36 +245,36 @@ Get assignment meta-data for a specific course
 + Response 200 (application/json)
 
         {
-            "url": "url for student 3 for assignment 1", 
+            "url": "url for student 3 for assignment 1",
             "items": [
                 {
-                    "id": 1, 
-                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 1,
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 2, 
-                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 2,
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 3, 
-                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 3,
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
-                }, 
+                },
                 {
-                    "id": 4, 
-                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1", 
-                    "max_value": 5, 
+                    "id": 4,
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1",
+                    "max_value": 5,
                     "assignment": 2
                 }
-            ], 
+            ],
             "submission": 1
         }
-        
+
 # Group EvaluationItems
 After you get a url to grade, this is how you submit your evaluations
 
@@ -285,7 +285,7 @@ list of items that you are evaluating
 + Request (application/x-www-form-urlencoded)
 
     + Body
-    
+
             [{'comment': 'comment from chris setupscript',
               'evaluation': 1,
               'id': 1,
@@ -319,52 +319,52 @@ All operations that have to do with getting grade information.
 
         [
             {
-                "id": 1, 
-                "name": "course0", 
-                "active": true, 
-                "year": 2015, 
-                "semester": "spring", 
+                "id": 1,
+                "name": "course0",
+                "active": true,
+                "year": 2015,
+                "semester": "spring",
                 "students": [
                     1, 2
                 ]
-            }, 
+            },
             {
-                "id": 2, 
-                "name": "course1", 
-                "active": true, 
-                "year": 2015, 
-                "semester": "spring", 
+                "id": 2,
+                "name": "course1",
+                "active": true,
+                "year": 2015,
+                "semester": "spring",
                 "students": [
                     2, 3
                 ]
-            }, 
+            },
             {
-                "id": 3, 
-                "name": "course2", 
-                "active": true, 
-                "year": 2015, 
-                "semester": "spring", 
+                "id": 3,
+                "name": "course2",
+                "active": true,
+                "year": 2015,
+                "semester": "spring",
                 "students": [
                     3
                 ]
-            }, 
+            },
             {
-                "id": 4, 
-                "name": "course3", 
-                "active": true, 
-                "year": 2015, 
-                "semester": "spring", 
+                "id": 4,
+                "name": "course3",
+                "active": true,
+                "year": 2015,
+                "semester": "spring",
                 "students": [
                     4
                 ]
             }
         ]
-        
+
 ## Create Course [POST]
 + Request (application/x-www-form-urlencoded)
 
     + Body
-    
+
             {
                 'active': True,
                 'name': 'Apiary for Dummies 101',
@@ -374,7 +374,7 @@ All operations that have to do with getting grade information.
 
 + Response 201
 
-        
+
 ## Course [/courses/{id}]
 A single course
 
@@ -386,16 +386,16 @@ A single course
 + Response 200 (application/json)
 
         {
-            "id": 1, 
-            "name": "course0", 
-            "active": true, 
-            "year": 2015, 
-            "semester": "spring", 
+            "id": 1,
+            "name": "course0",
+            "active": true,
+            "year": 2015,
+            "semester": "spring",
             "students": [
                 1, 5, 6, 8, 2
             ]
         }
-        
+
 ## Course [/coursesNOTDUPLICATE/{id}]
 A single course
 
@@ -407,7 +407,7 @@ A single course
 + Request (application/x-www-form-urlencoded)
 
     + Body
-    
+
             {
                 'enroll': True
             }

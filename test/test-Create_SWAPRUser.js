@@ -5,16 +5,10 @@ var supertest = require('supertest');
 var URL = 'http://localhost:3000';
 var request = supertest(URL);
 
-function expectErrorResponse(err, res) {
-  res.should.have.status(400);
-  res.should.have.body({"error": "django user with username already exists"});
-  done(err);
-}
-
 describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('returns username, first_name, last_name, and email when given valid input'
-      + 'for those fields along with a password', function(done) {
+      + ' for those fields along with a password', function(done) {
     var requestBody = {
       "username": "user_6",
       "first_name": "User",
@@ -23,6 +17,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password6"
     };
     var expectedResponseBody = {
+      "id": 5,
       "username": "user_6",
       "first_name": "User",
       "last_name": "Six",
@@ -36,8 +31,9 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function(err, res) {
         if (err) {
           return done(err);
+        } else {
+          done();
         }
-        done();
       });
   });
 
@@ -52,7 +48,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('returns an error when a duplicate email is input', function(done) {
@@ -66,7 +68,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('allows duplicate passwords', function(done) {
@@ -78,6 +86,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password1"
     };
     var expectedResponseBody = {
+      "id": 6,
       "username": "user_7",
       "first_name": "Seventh",
       "last_name": "User",
@@ -91,8 +100,9 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function(err, res) {
         if (err) {
           return done(err);
+        } else {
+          done();
         }
-        done();
       });
   });
 
@@ -105,6 +115,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password8"
     };
     var expectedResponseBody = {
+      "id": 7,
       "username": "user_8",
       "first_name": "User",
       "last_name": "Eight",
@@ -118,8 +129,9 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function(err, res) {
         if (err) {
           return done(err);
+        } else {
+          done();
         }
-        done();
       });
   });
 
@@ -132,6 +144,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password9"
     };
     var expectedResponseBody = {
+      "id": 8,
       "username": "user_9",
       "first_name": "Ninth",
       "last_name": "User",
@@ -145,8 +158,9 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function(err, res) {
         if (err) {
           return done(err);
+        } else {
+          done();
         }
-        done();
       });
   });
 
@@ -161,7 +175,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('requires that a first_name be provided', function(done) {
@@ -175,7 +195,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('requires that a last_name be provided', function(done) {
@@ -189,7 +215,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('requires that an email address be provided', function(done) {
@@ -203,7 +235,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('requires that the email address input take the form of an email address',
@@ -218,7 +256,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('returns an error when given an empty password field', function(done) {
@@ -232,7 +276,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept numerical values as inputs for username', function(done) {
@@ -246,7 +296,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept boolean values as inputs for username', function(done) {
@@ -260,7 +316,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept arrays as inputs for username', function(done) {
@@ -274,7 +336,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept numerical values as inputs for first_name', function(done) {
@@ -288,7 +356,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept boolean values as inputs for first_name', function(done) {
@@ -302,7 +376,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept arrays as inputs for first_name', function(done) {
@@ -316,7 +396,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept numerical values as inputs for last_name', function(done) {
@@ -330,7 +416,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept boolean values as inputs for last_name', function(done) {
@@ -344,7 +436,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept arrays as inputs for last_name', function(done) {
@@ -358,7 +456,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept numerical values as inputs for email', function(done) {
@@ -372,7 +476,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept boolean values as inputs for email', function(done) {
@@ -386,7 +496,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept arrays as inputs for email', function(done) {
@@ -400,7 +516,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept numerical values as inputs for password', function(done) {
@@ -414,7 +536,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept boolean values as inputs for password', function(done) {
@@ -428,7 +556,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not accept arrays as inputs for password', function(done) {
@@ -442,7 +576,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not allow username to be undefined', function(done) {
@@ -455,7 +595,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not allow first_name to be undefined', function(done) {
@@ -468,7 +614,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not allow last_name to be undefined', function(done) {
@@ -481,7 +633,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not allow email to be undefined', function(done) {
@@ -494,7 +652,13 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
   it('does not allow password to be undefined', function(done) {
@@ -502,12 +666,18 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_0",
       "first_name": "Mister",
       "last_name": "Zero",
-      "email": "test0@email.com",
+      "email": "test0@email.com"
     };
     request
       .post('/swaprusers')
       .send(requestBody)
-      .end(expectErrorResponse(err, res));
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "django user with username already exists"
+        });
+        done(err);
+      });
   });
 
 });

@@ -1,10 +1,10 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:'); //create db in memory, volatile!
-var exists = false //TODO: when we write the db to disk, then we need to check if it exists
+var exists = false; //TODO: when we write the db to disk, then we need to check if it exists
 
 db.serialize(function(){
     if(!exists){
-        //stores student accounts. usernam, full_name, email are PII, so protect them!
+        //stores student accounts. username, full_name, email are PII, so protect them!
         db.run(
             "CREATE TABLE id_map \
             (id TEXT PRIMARY KEY ON CONFLICT ROLLBACK NOT NULL UNIQUE ON CONFLICT ROLLBACK, \
@@ -66,6 +66,7 @@ db.serialize(function(){
         db.run(
             "CREATE TABLE instructor\
             (id text not null, course_id int not null,\
+            institution text, department text,\
             FOREIGN KEY(id) REFERENCES id_map(id)"
             );
     }

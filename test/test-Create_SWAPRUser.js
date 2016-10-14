@@ -51,7 +51,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -71,7 +71,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -178,7 +178,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -198,7 +198,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -218,7 +218,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -238,7 +238,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -259,7 +259,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -279,7 +279,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -299,7 +299,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -319,7 +319,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -339,7 +339,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -359,7 +359,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -379,7 +379,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -399,7 +399,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -419,7 +419,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -439,7 +439,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -459,7 +459,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -479,7 +479,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -499,7 +499,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -519,7 +519,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -539,7 +539,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -559,7 +559,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -579,7 +579,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -598,7 +598,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -617,7 +617,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -636,7 +636,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -655,7 +655,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });
@@ -674,7 +674,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .end(function expectErrorResponse(err, res) {
         res.should.have.status(400);
         res.should.have.body({
-          "error": "django user with username already exists"
+          "error": "unable to create new user"
         });
         done(err);
       });

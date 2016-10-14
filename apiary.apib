@@ -227,7 +227,7 @@ make sure type is evaluation! this call is JSON
                 'description': 'evaluation assignment submission assignment number 2',
                 'due_date': '2014-01-03T00:00:00-04:56',
                 'id': 4,
-                'related_assignment': 1C,
+                'related_assignment': 2,
                 'swaprinstructor': 1,
                 'type': 'evaluation'
             }
@@ -366,13 +366,33 @@ All operations that have to do with getting grade information.
     + Body
 
             {
-                'active': True,
-                'name': 'Apiary for Dummies 101',
-                'semester': 'spring',
-                'year': 2015
+                "active": true,
+                "name": "course5",
+                "instructor": 1,
+                "semester": "spring",
+                "year": 2015
             }
 
-+ Response 201
++ Response 201 (application/json)
+
+    + Body
+            
+            {
+                "id": 5,
+                "name": "course5",
+                "instructor": 1,
+                "semester": "spring",
+                "year": 2015,
+                "active": true,
+                "institution": "Georgia Tech",
+                "department": "Physics"
+            }
+            
++ Response 400 (application/json)
+
+    + Body
+    
+            {"error": "course could not be created"}
 
 
 ## Course [/courses/{id}]
@@ -385,16 +405,27 @@ A single course
 
 + Response 200 (application/json)
 
-        {
-            "id": 1,
-            "name": "course0",
-            "active": true,
-            "year": 2015,
-            "semester": "spring",
-            "students": [
-                1, 5, 6, 8, 2
-            ]
-        }
+    + Body
+
+            {
+                "id": 5,
+                "name": "course5",
+                "instructor": 1,
+                "year": 2015,
+                "semester": "spring",
+                "active": true,
+                "institution": "Georgia Tech",
+                "department": "Physics",
+                "students": [
+                    1, 5, 6, 8, 2
+                ]
+            }
+        
++ Response 400 (application/json)
+
+    + Body
+
+            {"error": "invalid course id"}
 
 ## Course [/coursesNOTDUPLICATE/{id}]
 A single course

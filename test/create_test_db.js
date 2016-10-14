@@ -45,7 +45,8 @@ db.serialize(function(){
 
         db.run(
             "CREATE TABLE course_map\
-            (course_id int primary key, course_name text, department text, institution text)"
+            (course_id int primary key, course_name text, active int\
+            instructor_id int, year int, semester text,)"
             );
 
         db.run(

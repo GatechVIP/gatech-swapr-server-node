@@ -73,7 +73,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE instructor_map\
-      (instructor_id INT NOT NULL,\
+      (instructor_id TEXT NOT NULL,\
       session_id INT NOT NULL,\
       FOREIGN KEY(instructor_id) REFERENCES id_map(id),\
       FOREIGN KEY(session_id) REFERENCES session_map(session_id)\
@@ -82,7 +82,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE session_enrollment\
-      (student_id INT NOT NULL,\
+      (student_id TEXT NOT NULL,\
       session_id INT NOT NULL,\
       FOREIGN KEY(session_id) REFERENCES session_map(session_id),\
       FOREIGN KEY(student_id) REFERENCES id_map(id),\

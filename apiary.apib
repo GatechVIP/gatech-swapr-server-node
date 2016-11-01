@@ -326,19 +326,27 @@ All operations that have to do with getting grade information.
             [
                 {
                     "id": 1,
-                    "name": "course1"
+                    "name": "course1",
+                    "institution": "Georgia Tech",
+                    "department": "Physics"
                 },
                 {
                     "id": 2,
-                    "name": "course2"
+                    "name": "course2",
+                    "institution": "Georgia Tech",
+                    "department": "Physics"
                 },
                 {
                     "id": 3,
-                    "name": "course3"
+                    "name": "course3",
+                    "institution": "Georgia Tech",
+                    "department": "Physics"
                 },
                 {
                     "id": 4,
-                    "name": "course4"
+                    "name": "course4",
+                    "institution": "Georgia Tech",
+                    "department": "Physics"
                 }
             ]
 
@@ -347,14 +355,18 @@ All operations that have to do with getting grade information.
 + Request (application/x-www-form-urlencoded)
 
         {
-            "name": "course5"
+            "name": "course5",
+            "institution": "Georgia Tech",
+            "department": "Physics"
         }
 
 + Response 201 (application/json)
 
         {
             "id": 5,
-            "name": "course5"
+            "name": "course5",
+            "institution": "Georgia Tech",
+            "department": "Physics"
         }
 
 + Response 400 (application/json)
@@ -375,7 +387,9 @@ A single course
 
         {
             "id": 5,
-            "name": "course5"
+            "name": "course5",
+            "institution": "Georgia Tech",
+            "department": "Physics"
         }
         
 + Response 400 (application/json)
@@ -400,7 +414,7 @@ Operations for dealing with individual course sessions
             {
                 "course_id": 5,
                 "session_id": 1,
-                "instructor_id": 1,
+                "instructors": [1,2],
                 "semester": "fall",
                 "year": 2015,
                 "status": "complete",
@@ -409,7 +423,7 @@ Operations for dealing with individual course sessions
             {
                 "course_id": 5,
                 "session_id": 2,
-                "instructor_id": 1,
+                "instructors": [1,2],
                 "semester": "spring",
                 "year": 2016,
                 "status": "complete",
@@ -418,7 +432,7 @@ Operations for dealing with individual course sessions
             {
                 "course_id": 5,
                 "session_id": 3,
-                "instructor_id": 2,
+                "instructors": [3],
                 "semester": "fall",
                 "year": 2016,
                 "status": "active",
@@ -431,7 +445,7 @@ Operations for dealing with individual course sessions
 + Request (application/x-www-form-urlencoded)
 
         {
-            "instructor_id": 2,
+            "instructors": [3],
             "semester": "spring",
             "year": 2017,
             "status": "pending"
@@ -442,7 +456,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructor_id": 2,
+            "instructors": [3],
             "semester": "spring",
             "year": 2017,
             "status": "pending"
@@ -468,7 +482,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructor_id": 2,
+            "instructors": [3],
             "semester": "spring",
             "year": 2017,
             "status": "pending",
@@ -494,7 +508,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructor_id": 2,
+            "instructors": [3],
             "semester": "spring",
             "year": 2017,
             "status": "pending",

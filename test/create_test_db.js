@@ -19,7 +19,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE role_map\
-      (role_id INT NOT NULL AUTOINCREMENT,\
+      (role_id INT NOT NULL,\
       role TEXT NOT NULL)"
     );
 
@@ -54,7 +54,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE course_map\
-      (course_id INT PRIMARY KEY AUTOINCREMENT,\
+      (course_id INT PRIMARY KEY,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
       department TEXT NOT NULL,\
@@ -63,7 +63,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE session_map\
-      (session_id INT PRIMARY KEY AUTOINCREMENT,\
+      (session_id INT PRIMARY KEY,\
       course_id INT NOT NULL,\
       semester TEXT NOT NULL,\
       year INT NOT NULL,\

@@ -20,8 +20,8 @@ describe('Retrieve a Course', function testRetrieveCourse() {
       });
   });
 
-  it('returns an error if given a string containing non-numeric characters '
-      + 'for id');
+  /*it('returns an error if given a string containing non-numeric characters '
+      + 'for id');*/
 
   it('should return information about the course with the specified id',
       function(done) {

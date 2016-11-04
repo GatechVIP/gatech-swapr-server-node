@@ -1,5 +1,5 @@
 var passport = require('passport');
-var db = require('./sqliteSetup.js');
+var db = require('../db/sqliteSetup.js');
 var LocalStrategy = require('passport-local').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var bcrypt = require('bcrypt-nodejs');

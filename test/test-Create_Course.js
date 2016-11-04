@@ -9,19 +9,19 @@ describe('Create Course', function testCreateCourse() {
 
   it('', function(done) {
     var reqBody = {
-      "active": ,
+      "active": "",
       "name": "",
-      "instructor": ,
+      "instructor": "",
       "semester": "",
-      "year":
+      "year": ""
     };
     var expectedResponseBody = {
-      "id": ,
+      "id": "",
       "name": "",
-      "instructor": ,
+      "instructor": "",
       "semester": "",
-      "year": ,
-      "active": ,
+      "year": "",
+      "active": "",
       "institution": "",
       "department": ""
     };

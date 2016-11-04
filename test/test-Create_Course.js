@@ -7,24 +7,29 @@ var request = supertest(URL);
 
 describe('Create Course', function testCreateCourse() {
 
-  // The contents of the request and response bodies will need to be changed.
-
-  it('', function NAME(done) {
+  it('', function(done) {
     var reqBody = {
       "active": ,
-      "name": ,
-      "semester": ,
-      "year": ,
-
+      "name": "",
+      "instructor": ,
+      "semester": "",
+      "year":
     };
     var expectedResponseBody = {
-
+      "id": ,
+      "name": "",
+      "instructor": ,
+      "semester": "",
+      "year": ,
+      "active": ,
+      "institution": "",
+      "department": ""
     };
     request
       .post('/courses')
       .set('Content-Type', 'application/x-www-form-urlencoded') //why not application/json ?
       .send(reqBody)
-      .end(function NAME(err, res) {
+      .end(function(err, res) {
 
         done();
       });

@@ -11,10 +11,10 @@ describe('Create Course', function testCreateCourse() {
 
   it('', function NAME(done) {
     var reqBody = {
-      "active": ,
-      "name": ,
-      "semester": ,
-      "year": ,
+      "active": "",
+      "name": "",
+      "semester": "",
+      "year": "",
 
     };
     var expectedResponseBody = {

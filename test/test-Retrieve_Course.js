@@ -3,36 +3,68 @@ var should = require('should');
 var supertest = require('supertest');
 
 var URL = 'http://localhost:3000';
+var request = supertest(URL);
 
 describe('Retrieve a Course', function testRetrieveCourse() {
 
-  it('should not allow id to be undefined',);
+  it('returns an error if given a non-numeric string for id', function(done) {
+    var id = "This is definitely not a number";
+    request
+      .get('/courses/' + id)
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "invalid course id"
+        });
+        done();
+      });
+  });
 
-  it('should not accept numerical values for id',);
+  it('returns an error if given a string containing non-numeric characters '
+      + 'for id', function(done) {
 
-  it('should not accept boolean values for id',);
-
-  it('should not accept arrays for id',);
+  });
 
   it('should return information about the course with the specified id',
       function(done) {
-    var id = "";
-    var request = supertest(URL + '/' + course_id);
+    var id = "5";
     var expectedResponseBody = {
-      "id": ,
-      "name": "",
-      "instructor": ,
-      "semester": "",
-      "year": ,
-      "active": ,
-      "institution": "",
-      "department": "",
+      "id": 5,
+      "name": "course5",
+      "instructor": 1,
+      "semester": "spring",
+      "year": 2015,
+      "active": true,
+      "institution": "Georgia Tech",
+      "department": "Physics",
       "students": [
-
+        1, 5, 6, 8, 2
       ]
     };
+    request
+      .get('/courses/' + id)
+      .expect(200, expectedResponseBody)
+      .expect('Content-Type', 'application/json')
+      .end(function(err, res) {
+        if (err) {
+          return done(err);
+        } else {
+          done();
+        }
+      });
   });
 
-  it('should return an error if no course exists with the specified id',);
+  it('returns an error if no course exists with the given id', function(done) {
+    var id = "82";
+    request
+      .get('/courses/' + id)
+      .end(function expectErrorResponse(err, res) {
+        res.should.have.status(400);
+        res.should.have.body({
+          "error": "invalid course id"
+        });
+        done();
+      });
+  });
 
 });

@@ -13,20 +13,16 @@ Get an Authorization Token, there are three types of users: root, SWAPRInstructo
 ### Get Token [POST]
 + Request (application/json)
 
-    + Body
+        {
+            "password": "root",
+            "username": "root"
+        }
     
-            {
-                "password": "root",
-                "username": "root"
-            }
-
 + Response 201 (application/json)
 
-    + Body
-    
-            {
-                "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
-            }
+        {
+            "token": "dfbd47cd9c5a499fd8d987b44ee064cb4e5bbfb2"
+        }
 
 
 # Group Instructor Creation
@@ -37,21 +33,29 @@ Creating students, will be deprecated after GT authentication provided
 ### Create SWAPRInstructor [POST]
 + Request (application/json)
 
-    + Body
-
-            {'username': 'teacher0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
-
+        {
+            "username": "teacher0",
+            "first_name": "FIRSTNAME",
+            "last_name": "LASTNAME",
+            "email": "teacher0@email.com",
+            "password": "password0"
+        }
+        
 + Response 201 (application/json)
 
-    + Body
-
-            {"id": 1, "username": "teacher0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+        {
+            "id": 0,
+            "username": "teacher0",
+            "first_name": "FIRSTNAME",
+            "last_name": "LASTNAME",
+            "email": "teacher0@email.com"
+        }
 
 + Response 400 (application/json)
 
-    + Body
-
-            {"error": "unable to create new instructor"}
+        {
+            "error": "unable to create new instructor"
+        }
 
 # Group SWAPRUser Creation
 Creating students, will be deprecated after GT authenticaiton provided
@@ -61,21 +65,29 @@ Creating students, will be deprecated after GT authenticaiton provided
 ### Create SWAPRUser [POST]
 + Request (application/json)
 
-    + Body
-
-            {'username': 'student0', 'first_name': 'FIRSTNAME', 'last_name': 'LASTNAME'}
+        {
+            "username": "student0",
+            "first_name": "FIRSTNAME",
+            "last_name": "LASTNAME"
+            "email": "student0@email.com",
+            "password": "password0"
+        }
 
 + Response 201 (application/json)
 
-    + Body
-
-            {"id": 1, "username": "student0", "first_name": "FIRSTNAME", "last_name": "LASTNAME"}
+        {
+            "id": 1,
+            "username": "student0",
+            "first_name": "FIRSTNAME",
+            "last_name": "LASTNAME"
+            "email": "student0@email.com"
+        }
 
 + Response 400 (application/json)
 
-    + Body
-
-            {"error": "unable to create new user"}
+        {
+            "error": "unable to create new user"
+        }
 
 
 # Group Grades
@@ -171,30 +183,26 @@ make sure type is submission, regular post request
 ### Make Submission Assignment [POST]
 + Request (application/x-www-form-urlencoded)
 
-    + Body
-
-            {
-                'assigner': 'chris wang setupscript',
-                 'course': 1,
-                 'description': 'submission assignment number 1 for courseNumber 1',
-                 'due_date': datetime.datetime(2014, 1, 2, 0, 0),
-                 'type': 'submission'
-            }
+        {
+            "assigner": "chris wang setupscript",
+            "course": 1,
+            "description": "submission assignment number 1 for courseNumber 1",
+            "due_date": datetime.datetime(2014, 1, 2, 0, 0),
+            "type": "submission"
+        }
 
 + Response 201
 
-    + Body
-
-            {
-                'course': 1,
-                 'date_posted': '2015-03-16T01:01:03.775-04:00',
-                 'description': 'submission assignment number 1 for courseNumber 1',
-                 'due_date': '2014-01-02T00:00:00-04:56',
-                 'id': 1,
-                 'related_assignment': None,
-                 'swaprinstructor': 1,
-                 'type': 'submission'
-            }
+        {
+            "course": 1,
+            "date_posted": "2015-03-16T01:01:03.775-04:00",
+            "description": "submission assignment number 1 for courseNumber 1",
+            "due_date": "2014-01-02T00:00:00-04:56",
+            "id": 1,
+            "related_assignment": [],
+            "swaprinstructor": 1,
+            "type": "submission"
+        }
 
 
 ## Create Evaluation Assignment [/assignmentsTHISMAKESITNOTDUPLICATE/]
@@ -203,36 +211,44 @@ make sure type is evaluation! this call is JSON
 ### Make Evaluation Assignment [POST]
 + Request (application/json)
 
-    + Body
-
-            {'course': 1,
-             'description': 'evaluation assignment submission assignment number 1',
-             'due_date': '2014-01-02T00:00:00-04:56',
-             'items': [{'max_value': 5,
-                        'question': 'item #1 for assignment number: 2 for class number 1 related to assignment number:1'},
-                       {'max_value': 5,
-                        'question': 'item #2 for assignment number: 2 for class number 1 related to assignment number:1'},
-                       {'max_value': 5,
-                        'question': 'item #3 for assignment number: 2 for class number 1 related to assignment number:1'},
-                       {'max_value': 5,
-                        'question': 'item #4 for assignment number: 2 for class number 1 related to assignment number:1'}],
-             'related_assignment': 1,
-             'type': 'evaluation'}
+        {
+            "course": 1,
+            "description": "evaluation assignment submission assignment number 1",
+            "due_date": "2014-01-02T00:00:00-04:56",
+            "items": [
+                {
+                    "max_value": 5,
+                    "question": "item #1 for assignment number: 2 for class number 1 related to assignment number:1"
+                },
+                {
+                    "max_value": 5,
+                    "question": "item #2 for assignment number: 2 for class number 1 related to assignment number:1"
+                },
+                {
+                    "max_value": 5,
+                    "question": "item #3 for assignment number: 2 for class number 1 related to assignment number:1"
+                },
+                {
+                    "max_value": 5,
+                    "question": "item #4 for assignment number: 2 for class number 1 related to assignment number:1"
+                }
+            ],
+            "related_assignment": 1,
+            "type": "evaluation"
+         }
 
 + Response 201
 
-    + Body
-
-            {
-                'course': 1,
-                'date_posted': '2015-03-16T01:09:59.096-04:00',
-                'description': 'evaluation assignment submission assignment number 2',
-                'due_date': '2014-01-03T00:00:00-04:56',
-                'id': 4,
-                'related_assignment': 2,
-                'swaprinstructor': 1,
-                'type': 'evaluation'
-            }
+        {
+            "course": 1,
+            "date_posted": "2015-03-16T01:09:59.096-04:00",
+            "description": "evaluation assignment submission assignment number 2",
+            "due_date": "2014-01-03T00:00:00-04:56",
+            "id": 4,
+            "related_assignment": 2,
+            "swaprinstructor": 1,
+            "type": "evaluation"
+        }
 
 # Group getURLToGrade
 get assignment meta data
@@ -287,28 +303,36 @@ list of items that you are evaluating
 
 + Request (application/x-www-form-urlencoded)
 
-    + Body
-
-            [{'comment': 'comment from chris setupscript',
-              'evaluation': 1,
-              'id': 1,
-              'item': 1,
-              'rating': 2},
-             {'comment': 'comment from chris setupscript',
-              'evaluation': 1,
-              'id': 2,
-              'item': 2,
-              'rating': 2},
-             {'comment': 'comment from chris setupscript',
-              'evaluation': 1,
-              'id': 3,
-              'item': 3,
-              'rating': 2},
-             {'comment': 'comment from chris setupscript',
-              'evaluation': 1,
-              'id': 4,
-              'item': 4,
-              'rating': 2}]
+        [
+            {
+                "comment": "comment from chris setupscript",
+                "evaluation": 1,
+                "id": 1,
+                "item": 1,
+                "rating": 2
+            },
+            {
+                "comment": "comment from chris setupscript",
+                "evaluation": 1,
+                "id": 2,
+                "item": 2,
+                "rating": 2
+            },
+            {
+                "comment": "comment from chris setupscript",
+                "evaluation": 1,
+                "id": 3,
+                "item": 3,
+                "rating": 2
+            },
+            {
+                "comment": "comment from chris setupscript",
+                "evaluation": 1,
+                "id": 4,
+                "item": 4,
+                "rating": 2
+            }
+        ]
 
 + Response 201
 
@@ -321,34 +345,32 @@ All operations that have to do with getting grade information.
 
 + Response 200 (application/json)
 
-    + Body
-    
-            [
-                {
-                    "id": 1,
-                    "name": "course1",
-                    "institution": "Georgia Tech",
-                    "department": "Physics"
-                },
-                {
-                    "id": 2,
-                    "name": "course2",
-                    "institution": "Georgia Tech",
-                    "department": "Physics"
-                },
-                {
-                    "id": 3,
-                    "name": "course3",
-                    "institution": "Georgia Tech",
-                    "department": "Physics"
-                },
-                {
-                    "id": 4,
-                    "name": "course4",
-                    "institution": "Georgia Tech",
-                    "department": "Physics"
-                }
-            ]
+        [
+            {
+                "id": 1,
+                "name": "course1",
+                "institution": "Georgia Tech",
+                "department": "Physics"
+            },
+            {
+                "id": 2,
+                "name": "course2",
+                "institution": "Georgia Tech",
+                "department": "Physics"
+            },
+            {
+                "id": 3,
+                "name": "course3",
+                "institution": "Georgia Tech",
+                "department": "Physics"
+            },
+            {
+                "id": 4,
+                "name": "course4",
+                "institution": "Georgia Tech",
+                "department": "Physics"
+            }
+        ]
 
 ### Create Course [POST]
 
@@ -418,7 +440,7 @@ Operations for dealing with individual course sessions
                 "semester": "fall",
                 "year": 2015,
                 "status": "complete",
-                "students": [1,2,3]
+                "students": [4,5,6]
             },
             {
                 "course_id": 5,
@@ -427,7 +449,7 @@ Operations for dealing with individual course sessions
                 "semester": "spring",
                 "year": 2016,
                 "status": "complete",
-                "students": [4,5,6]
+                "students": [7.8.9]
             },
             {
                 "course_id": 5,
@@ -436,7 +458,7 @@ Operations for dealing with individual course sessions
                 "semester": "fall",
                 "year": 2016,
                 "status": "active",
-                "students": [7,8,9]
+                "students": [10,11,12]
             }
         ]
             
@@ -500,7 +522,7 @@ Operations for dealing with individual course sessions
 + Request (application/x-www-form-urlencoded)
 
         {
-            "students": [10,11,12]
+            "students": [13,14,15]
         }
 
 + Response 201 (application/json)
@@ -512,7 +534,7 @@ Operations for dealing with individual course sessions
             "semester": "spring",
             "year": 2017,
             "status": "pending",
-            "students": [10,11,12]
+            "students": [13,14,15]
         }
         
 + Response 400 (application/json)

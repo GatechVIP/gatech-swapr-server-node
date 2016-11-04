@@ -7,33 +7,51 @@ var request = supertest(URL);
 
 describe('Create Course', function testCreateCourse() {
 
-  it('', function(done) {
+  it('does not let users create courses unless they are instructors');
+
+  // it('only lets instructors create courses for the institution and ' +
+  //   'department they belong to');
+
+  it('returns id, name, institution, and department of new course ' +
+    'when given valid input', function(done) {
     var reqBody = {
-      "active": ,
-      "name": "",
-      "instructor": ,
-      "semester": "",
-      "year":
+      "name": "course1",
+      "institution": "Georgia Tech",
+      "department": "Physics"
     };
     var expectedResponseBody = {
-      "id": ,
-      "name": "",
-      "instructor": ,
-      "semester": "",
-      "year": ,
-      "active": ,
-      "institution": "",
-      "department": ""
+      "id": 1,
+      "name": "course1",
+      "institution": "Georgia Tech",
+      "department": "Physics"
     };
     request
       .post('/courses')
-      .set('Content-Type', 'application/x-www-form-urlencoded') //why not application/json ?
+      .set('Content-Type', 'application/x-www-form-urlencoded')
       .send(reqBody)
+      .expect(201, expectedResponseBody)
+      .expect('Content-Type', 'application/json')
       .end(function(err, res) {
-
-        done();
+        if (err) {
+          return done(err);
+        } else {
+          done();
+        }
       });
   });
 
+  it('does not allow duplicate entries');
+
+  it('requires that a course name be specified');
+
+  it('requires that an institution be specified');
+
+  it('requires that a department be specified');
+
+  it('allows different institutions to use the same course name');
+
+  it('allows multiple courses with the same institution');
+
+  it('allows multiple courses with the same department');
 
 });

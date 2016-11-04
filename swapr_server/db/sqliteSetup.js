@@ -4,7 +4,7 @@ var db = new sqlite3.Database(':memory:'); //create db in memory, volatile!
 
 db.serialize(function() {
     db.run("CREATE TABLE id_map \
-        (id INTEGER PRIMARY KEY AUTOINCREMENT ON CONFLICT ROLLBACK NOT NULL UNIQUE ON CONFLICT ROLLBACK, \
+        (id INTEGER PRIMARY KEY AUTOINCREMENT, \
         username TEXT UNIQUE ON CONFLICT ROLLBACK NOT NULL ON CONFLICT ROLLBACK,\
         email TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
         full_name TEXT,\

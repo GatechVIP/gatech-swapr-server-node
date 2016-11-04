@@ -4,3 +4,5 @@
 *.cc
 
 node_modules/
+
+.editorconfig

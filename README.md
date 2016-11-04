@@ -24,6 +24,6 @@ The username/password combos for the test students are as follows:
 user_1, password1
 user_2, password2
 user_3, password3
-user_5, password4
+user_4, password4
 
 Hashes/salts are generated from https://www.bcrypt-generator.com. The bcrypt implementation uses only 10^8 iterations of the key derivation function (i.e., a "cost" of 08, as indicated by the $08 near the beginning of each salted hash). 10^12 is apparently best practice these days.

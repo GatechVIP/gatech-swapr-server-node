@@ -17,7 +17,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password6"
     };
     var expectedResponseBody = {
-      "id": 5,
+      "id": "SAH1_OF_USERNAME",
       "username": "user_6",
       "first_name": "User",
       "last_name": "Six",
@@ -86,7 +86,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password1"
     };
     var expectedResponseBody = {
-      "id": 6,
+      "id": "SAH1_OF_USERNAME",
       "username": "user_7",
       "first_name": "Seventh",
       "last_name": "User",
@@ -115,7 +115,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password8"
     };
     var expectedResponseBody = {
-      "id": 7,
+      "id": "SAH1_OF_USERNAME",
       "username": "user_8",
       "first_name": "User",
       "last_name": "Eight",
@@ -144,7 +144,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password9"
     };
     var expectedResponseBody = {
-      "id": 8,
+      "id": "SAH1_OF_USERNAME",
       "username": "user_9",
       "first_name": "Ninth",
       "last_name": "User",
@@ -287,7 +287,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('does not accept numerical values as inputs for username', function(done) {
     var requestBody = {
-      "username": 0,
+      "username": "SAH1_OF_USERNAME",
       "first_name": "Mister",
       "last_name": "Zero",
       "email": "test0@email.com",

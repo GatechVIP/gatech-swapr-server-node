@@ -7,7 +7,7 @@ var request = supertest(URL);
 
 describe('Create Course', function testCreateCourse() {
 
-  it('does not let users create courses unless they are instructors');
+  /*it('does not let users create courses unless they are instructors');*/
 
   // it('only lets instructors create courses for the institution and ' +
   //   'department they belong to');
@@ -40,7 +40,7 @@ describe('Create Course', function testCreateCourse() {
       });
   });
 
-  it('does not allow duplicate entries');
+  /*it('does not allow duplicate entries');
 
   it('requires that a course name be specified');
 
@@ -52,6 +52,6 @@ describe('Create Course', function testCreateCourse() {
 
   it('allows multiple courses with the same institution');
 
-  it('allows multiple courses with the same department');
+  it('allows multiple courses with the same department');*/
 
 });

@@ -106,7 +106,7 @@ describe('Auth Token', function() {
         res.should.have.status(400);
         done();
       });
-  })
+  });
 
   it ('should not allow any kind of access for entering an inappropriate data type for username (test 1)', function(done) {
     var reqBody = {

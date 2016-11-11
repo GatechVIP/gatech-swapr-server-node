@@ -5,8 +5,8 @@ var supertest = require('supertest');
 var URL = 'http://localhost:3000';
 var request = supertest(URL);
 
-describe('Enroll a Course', function testEnrollCourse() {
+describe('Enroll Session', function testEnrollSession() {
 
-  it('');
+  /*it('');*/
 
 });

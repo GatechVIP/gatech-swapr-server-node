@@ -5,7 +5,7 @@ Node.js server for SWAPR
 
 Our current model frontend lives in [gatech-swapr-client](https://github.gatech.edu/sdouglas6/gatech-swapr-client)
 
-Our API lives on [apiary.io](http://docs.swaprapi.apiary.io/#)
+Our API lives on [apiary.io](https://app.apiary.io/swaprnode/editor)
 
 ## Installing node.js
 On OS X, install Homebrew, then do

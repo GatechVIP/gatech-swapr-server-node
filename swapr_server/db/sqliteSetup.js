@@ -9,6 +9,7 @@ db.serialize(function() {
         email TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
         full_name TEXT,\
         pwd_hash TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
+        role_id INT NOT NULL,\
         token TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK)"
         );
 
@@ -60,11 +61,6 @@ db.serialize(function() {
         FOREIGN KEY(id) REFERENCES id_map(id)\
         constraint unq unique (id, session_id))"
         );
-    db.run(
-        "CREATE TABLE instructor\
-        (id text not null, course_id int not null,\
-        FOREIGN KEY(id) REFERENCES id_map(id))"
-      );
 
       /*db.run("INSERT INTO id_map (id, username, email, full_name, pwd_hash, token) VALUES (1, 'user_1', 'test1@email.com', 'Userman, Joe', '$2a$08$coVk4YsFLJXrU.UVcma6fOUaW73Q/MU2anQF9nA5sD7.ZpqzfgJu2', '')");
       db.run("INSERT INTO id_map (id, username, email, full_name, pwd_hash, token) VALUES (2, 'user_2', 'test2@email.com', 'Student, Maria', '$2a$08$HQAwqKLRqe6jYraaFVKh1.frSNuERpp0BwFnOQDfwE7I.axP0okMy', '')");

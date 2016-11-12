@@ -5,7 +5,7 @@ var db = require('./sqliteSetup');
 db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'instructor')");
 db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'student')");
 
-module.exports = ;
+module.exports = db;
 
 console.log('Current Module: ' + module);
 console.log('Main Module: ' + require.main);

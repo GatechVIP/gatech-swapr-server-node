@@ -1,5 +1,197 @@
 {
-  "user": [],
-  "instructor": [],
-
+  "instructor": [
+    {
+      "reference_id": 1,
+      "username": "teacherguy",
+      "email": "teacherguy@email.com",
+      "full_name": "Guy Teach",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 1
+    },
+    {
+      "reference_id": 2,
+      "username": "teacherlady",
+      "email": "teacherlady@email.com",
+      "full_name": "Jane Doe",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 1
+    },
+    {
+      "reference_id": 3,
+      "username": "professor",
+      "email": "professor@email.com",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 1
+    }
+  ],
+  "user": [
+    {
+      "reference_id": 4,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    },
+    {
+      "reference_id": 5,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    },
+    {
+      "reference_id": 6,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    },
+    {
+      "reference_id": 7,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    },
+    {
+      "reference_id": 8,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    },
+    {
+      "reference_id": 9,
+      "username": "",
+      "email": "",
+      "full_name": "",
+      "pwd_hash": "",
+      "token": "",
+      "role_id": 2
+    }
+  ],
+  "course": [
+    {
+      "reference_id": 1,
+      "course_name": "",
+      "institution": "Georgia Tech",
+      "department": "Physics"
+    },
+    {
+      "reference_id": 2,
+      "course_name": "",
+      "institution": "Georgia Tech",
+      "department": "Physics"
+    },
+    {
+      "reference_id": 3,
+      "course_name": "",
+      "institution": "Georgia Tech",
+      "department": "Computer Science"
+    }
+  ],
+  "session": [
+    {
+      "reference_id": 1,
+      "course_id": 1,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": []
+    },
+    {
+      "reference_id": 2,
+      "course_id": 1,
+      "instructors": [],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": []
+    },
+    {
+      "reference_id": 3,
+      "course_id": 1,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    },
+    {
+      "reference_id": 4,
+      "course_id": 2,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": []
+    },
+    {
+      "reference_id": 5,
+      "course_id": 2,
+      "instructors": [],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": []
+    },
+    {
+      "reference_id": 6,
+      "course_id": 2,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    },
+    {
+      "reference_id": 7,
+      "course_id": 3,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": []
+    },
+    {
+      "reference_id": 8,
+      "course_id": 3,
+      "instructors": [],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": []
+    },
+    {
+      "reference_id": 9,
+      "course_id": 3,
+      "instructors": [],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    }
+  ]
 }
+
+
+username, email, full_name, pwd_hash, token, role_id
+'user_1', 'test1@email.com', 'Userman, Joe', '$2a$08$coVk4YsFLJXrU.UVcma6fOUaW73Q/MU2anQF9nA5sD7.ZpqzfgJu2', '', 1)");
+'user_2', 'test2@email.com', 'Student, Maria', '$2a$08$HQAwqKLRqe6jYraaFVKh1.frSNuERpp0BwFnOQDfwE7I.axP0okMy', '', 1)");
+'user_3', 'test3@email.com', 'Ipswitch, Isambard', '$2a$08$3V7qSpVpcQuO/k6KTA9GnevUHmvIMpobH6RzQE4M6McP8a7074OoC', '', 1)");
+'user_4', 'test4@email.com', 'McDonald, Carlotta May', '$2a$08$5sbxZmoWt5krITN8lEeL7OUB5lNkQSFIyRdU6T4/c5aIbSRIGYzgC', '', 1)");

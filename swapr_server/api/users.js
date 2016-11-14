@@ -1,4 +1,4 @@
-var db = require('../db/sqliteSetup.js');
+var db = require('../../db/sqliteSetup.js');
 
 function createInstructor(username, email, fullname) {
 	//	todo: find the correct id and pwd_hash
@@ -12,5 +12,5 @@ function createInstructor(username, email, fullname) {
 //create user
 function createUser(username, email, fullname, role_id)
 {
-	
+
 }

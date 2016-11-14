@@ -10,7 +10,7 @@ router.route('/assignments')
   .post();
 
 /* Make Evaluation Assignment */
-router.route('/assignmentsTHISMAKESITNOTDUPLICATE')
+router.route('/evalassignments')
   .post();
 
 /* Retrieve an Assignment */

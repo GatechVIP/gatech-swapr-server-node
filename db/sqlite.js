@@ -2,8 +2,9 @@
 var db = require('./sqliteSetup');
 
 //populate the role_map table
-db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'instructor')");
-db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'student')");
+db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'root')");
+db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
+db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
 
 module.exports = db;
 

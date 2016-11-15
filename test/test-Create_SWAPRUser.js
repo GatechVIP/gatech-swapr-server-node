@@ -10,18 +10,18 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
   it('returns username, first_name, last_name, and email when given valid input'
       + ' for those fields along with a password', function(done) {
     var requestBody = {
-      "username": "user_6",
+      "username": "user_7",
       "first_name": "User",
-      "last_name": "Six",
-      "email": "test6@email.com",
-      "password": "password6"
+      "last_name": "Seven",
+      "email": "test7@email.com",
+      "password": "password7"
     };
     var expectedResponseBody = {
-      "id": "SAH1_OF_USERNAME",
-      "username": "user_6",
+      "id": 11,
+      "username": "user_7",
       "first_name": "User",
-      "last_name": "Six",
-      "email": "test6@email.com"
+      "last_name": "Seven",
+      "email": "test7@email.com"
     };
     request
       .post('/swaprusers')
@@ -59,11 +59,11 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('returns an error when a duplicate email is input', function(done) {
     var requestBody = {
-      "username": "user_7",
-      "first_name": "Seventh",
-      "last_name": "User",
+      "username": "user_8",
+      "first_name": "Userman",
+      "last_name": "Eight",
       "email": "test1@email.com",
-      "password": "password7"
+      "password": "password8"
     };
     request
       .post('/swaprusers')
@@ -79,45 +79,16 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('allows duplicate passwords', function(done) {
     var requestBody = {
-      "username": "user_7",
-      "first_name": "Seventh",
-      "last_name": "User",
-      "email": "test7@email.com",
+      "username": "user_8",
+      "first_name": "Userman",
+      "last_name": "Eight",
+      "email": "test8@email.com",
       "password": "password1"
     };
     var expectedResponseBody = {
-      "id": "SAH1_OF_USERNAME",
-      "username": "user_7",
-      "first_name": "Seventh",
-      "last_name": "User",
-      "email": "test7@email.com"
-    };
-    request
-      .post('/swaprusers')
-      .send(requestBody)
-      .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
-      .end(function(err, res) {
-        if (err) {
-          return done(err);
-        } else {
-          done();
-        }
-      });
-  });
-
-  it('allows duplicate first_names', function(done) {
-    var requestBody = {
+      "id": 12,
       "username": "user_8",
-      "first_name": "User",
-      "last_name": "Eight",
-      "email": "test8@email.com",
-      "password": "password8"
-    };
-    var expectedResponseBody = {
-      "id": "SAH1_OF_USERNAME",
-      "username": "user_8",
-      "first_name": "User",
+      "first_name": "Userman",
       "last_name": "Eight",
       "email": "test8@email.com"
     };
@@ -135,20 +106,49 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       });
   });
 
-  it('allows duplicate last_names', function(done) {
+  it('allows duplicate first_names', function(done) {
     var requestBody = {
-      "username": "user_9",
-      "first_name": "Ninth",
-      "last_name": "User",
-      "email": "test9@email.com",
-      "password": "password9"
+      "username": "user_9a",
+      "first_name": "User",
+      "last_name": "Nine",
+      "email": "tes9a@email.com",
+      "password": "password9a"
     };
     var expectedResponseBody = {
-      "id": "SAH1_OF_USERNAME",
-      "username": "user_9",
-      "first_name": "Ninth",
-      "last_name": "User",
-      "email": "test9@email.com"
+      "id": 13,
+      "username": "user_9a",
+      "first_name": "User",
+      "last_name": "Nine",
+      "email": "test9a@email.com"
+    };
+    request
+      .post('/swaprusers')
+      .send(requestBody)
+      .expect(201, expectedResponseBody)
+      .expect('Content-Type', 'application/json')
+      .end(function(err, res) {
+        if (err) {
+          return done(err);
+        } else {
+          done();
+        }
+      });
+  });
+
+  it('allows duplicate last_names', function(done) {
+    var requestBody = {
+      "username": "user_9b",
+      "first_name": "Bob",
+      "last_name": "Nine",
+      "email": "test9b@email.com",
+      "password": "password9b"
+    };
+    var expectedResponseBody = {
+      "id": "14",
+      "username": "user_9b",
+      "first_name": "Bob",
+      "last_name": "Nine",
+      "email": "test9b@email.com"
     };
     request
       .post('/swaprusers')

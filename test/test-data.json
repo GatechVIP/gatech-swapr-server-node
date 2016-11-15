@@ -74,9 +74,9 @@
     },
     {
       "reference_id": 8,
-      "username": "",
-      "email": "",
-      "full_name": "",
+      "username": "user_5",
+      "email": "test5@email.com",
+      "full_name": "User Five",
       "reference_pass": "password5",
       "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
       "token": "",
@@ -84,9 +84,9 @@
     },
     {
       "reference_id": 9,
-      "username": "",
-      "email": "",
-      "full_name": "",
+      "username": "user_6",
+      "email": "test6@email.com",
+      "full_name": "User Six",
       "reference_pass": "password6",
       "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
       "token": "",
@@ -121,7 +121,7 @@
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": []
+      "students": [4,5,6]
     },
     {
       "reference_id": 2,
@@ -130,7 +130,7 @@
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": []
+      "students": [7,8,9]
     },
     {
       "reference_id": 3,
@@ -148,7 +148,7 @@
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": []
+      "students": [4,5,6]
     },
     {
       "reference_id": 5,
@@ -157,7 +157,7 @@
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": []
+      "students": [7,8,9]
     },
     {
       "reference_id": 6,
@@ -175,7 +175,7 @@
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": []
+      "students": [4,5,6]
     },
     {
       "reference_id": 8,
@@ -184,7 +184,7 @@
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": []
+      "students": [7,8,9]
     },
     {
       "reference_id": 9,

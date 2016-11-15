@@ -5,7 +5,8 @@
       "username": "teacherguy",
       "email": "teacherguy@email.com",
       "full_name": "Guy Teach",
-      "pwd_hash": "",
+      "reference_pass": "instructor1",
+      "pwd_hash": "$2a$08$.Y/tfRMIEsWpdk7gk5jSyePHNkqk8Cm7COP/cVbDiegLSzwAM5xne",
       "token": "",
       "role_id": 1
     },
@@ -13,8 +14,9 @@
       "reference_id": 2,
       "username": "teacher0",
       "email": "teacher0@email.com",
-      "full_name": "FIRSTNAME LASTNAME",
-      "pwd_hash": "",
+      "full_name": "Teacher Zero",
+      "reference_pass": "instructor2",
+      "pwd_hash": "$2a$08$eJQ8ZRTEnZ51E4FmAF1kHetZMpCcZftmc5MWXtUhHCbyzdu4vhDQG",
       "token": "",
       "role_id": 1
     },
@@ -22,27 +24,21 @@
       "reference_id": 3,
       "username": "professor",
       "email": "professor@email.com",
-      "full_name": "",
-      "pwd_hash": "",
+      "full_name": "Prof Person",
+      "reference_pass": "instructor3",
+      "pwd_hash": "$2a$08$8d9l3xm4TWZcTz9sP/hrW.fBC02f/9MHKYsJLoOp/jUC1m8qS3Sz2",
       "token": "",
       "role_id": 1
     }
   ],
-
-  username, email, full_name, pwd_hash, token, role_id
-  'user_1', '$2a$08$coVk4YsFLJXrU.UVcma6fOUaW73Q/MU2anQF9nA5sD7.ZpqzfgJu2', '',
-  'user_2', '$2a$08$HQAwqKLRqe6jYraaFVKh1.frSNuERpp0BwFnOQDfwE7I.axP0okMy', '',
-  'user_3', '$2a$08$3V7qSpVpcQuO/k6KTA9GnevUHmvIMpobH6RzQE4M6McP8a7074OoC', '',
-  'user_4', '$2a$08$5sbxZmoWt5krITN8lEeL7OUB5lNkQSFIyRdU6T4/c5aIbSRIGYzgC', '',
-
   "user": [
     {
       "reference_id": 4,
       "username": "user_1",
       "email": "test1@email.com",
       "full_name": "Joe Userman",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password1",
+      "pwd_hash": "$2a$08$XSft/exevmjmods0CnrJsu.NNxbEKlUuhkJ1UUVsN.ObK0pROb7qu",
       "token": "",
       "role_id": 2
     },
@@ -51,8 +47,8 @@
       "username": "user_2",
       "email": "test2@email.com",
       "full_name": "Maria Student",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password2",
+      "pwd_hash": "$2a$08$bxGzSUTYUc2YREibORO5bOZajMwMY9SwMDEdt1IRJnzh0LGgQgYYS",
       "token": "",
       "role_id": 2
     },
@@ -61,8 +57,8 @@
       "username": "user_3",
       "email": "test3@email.com",
       "full_name": "Isambard Ipswitch",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password3",
+      "pwd_hash": "$2a$08$478HPy7lZCzg5ceBqnXrguHNNW0kIaMQRW/tA.Nk59.mFs1FdM.lC",
       "token": "",
       "role_id": 2
     },
@@ -71,8 +67,8 @@
       "username": "user_4",
       "email": "test4@email.com",
       "full_name": "Carlotta May McDonald",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password4",
+      "pwd_hash": "$2a$08$nIn/BOJ.T2CYp339iiie2OVSWMbX3JjteclGxl6ajZLMyw5uDaUlu",
       "token": "",
       "role_id": 2
     },
@@ -81,8 +77,8 @@
       "username": "",
       "email": "",
       "full_name": "",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password5",
+      "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
       "token": "",
       "role_id": 2
     },
@@ -91,8 +87,8 @@
       "username": "",
       "email": "",
       "full_name": "",
-      "reference_pass": "",
-      "pwd_hash": "",
+      "reference_pass": "password6",
+      "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
       "token": "",
       "role_id": 2
     }
@@ -121,7 +117,7 @@
     {
       "reference_id": 1,
       "course_id": 1,
-      "instructors": [],
+      "instructors": [1],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
@@ -130,7 +126,7 @@
     {
       "reference_id": 2,
       "course_id": 1,
-      "instructors": [],
+      "instructors": [1],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
@@ -139,7 +135,7 @@
     {
       "reference_id": 3,
       "course_id": 1,
-      "instructors": [],
+      "instructors": [1],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",
@@ -148,7 +144,7 @@
     {
       "reference_id": 4,
       "course_id": 2,
-      "instructors": [],
+      "instructors": [1, 2],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
@@ -157,7 +153,7 @@
     {
       "reference_id": 5,
       "course_id": 2,
-      "instructors": [],
+      "instructors": [1, 2],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
@@ -166,7 +162,7 @@
     {
       "reference_id": 6,
       "course_id": 2,
-      "instructors": [],
+      "instructors": [1, 2],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",
@@ -175,7 +171,7 @@
     {
       "reference_id": 7,
       "course_id": 3,
-      "instructors": [],
+      "instructors": [3],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
@@ -184,7 +180,7 @@
     {
       "reference_id": 8,
       "course_id": 3,
-      "instructors": [],
+      "instructors": [3],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
@@ -193,7 +189,7 @@
     {
       "reference_id": 9,
       "course_id": 3,
-      "instructors": [],
+      "instructors": [3],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",

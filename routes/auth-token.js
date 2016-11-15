@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* Create SWAPRUser */
-router.route('/swaprusers')
+/* Get Token */
+router.route('api-token-auth')
   .post();
 
 

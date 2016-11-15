@@ -14,7 +14,7 @@ db.serialize(function(){
       full_name TEXT,\
       pwd_hash TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
       token TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
-      role_id INTEGER NOT NULL\
+      role_id INTEGER NOT NULL,\
       FOREIGN KEY(role_id) REFERENCES role_map(role_id))"
     );
 
@@ -70,7 +70,7 @@ db.serialize(function(){
       (course_id INTEGER PRIMARY KEY,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
-      department TEXT NOT NULL,\
+      department TEXT NOT NULL\
       )"
     );
 
@@ -106,6 +106,8 @@ db.serialize(function(){
     db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'root')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
+
+    console.log("DB set up!");
   }
 
 });

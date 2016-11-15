@@ -1,6 +1,9 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:'); //create db in memory, volatile!
 //var exists = false //TODO: when we write the db to disk, then we need to check if it exists
+/*var parseArgs = require('minimist');
+var argv = parseArgs(process.argv.slice(2));
+console.log(argv);*/
 
 db.serialize(function() {
     db.run("CREATE TABLE id_map \

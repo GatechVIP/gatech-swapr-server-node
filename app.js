@@ -25,6 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
+/*var parseArgs = require('minimist');
+var argv = parseArgs(process.argv.slice(2));
+console.log(argv);*/
+
 app.use('/', routes);
 app.use('/users', users);
 

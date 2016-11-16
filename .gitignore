@@ -6,4 +6,9 @@
 node_modules/
 
 .editorconfig
+
 .DS_Store
+
+.idea/
+
+npm-debug.log

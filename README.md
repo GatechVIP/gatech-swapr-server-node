@@ -15,6 +15,8 @@ On OS X, install Homebrew, then do
 `npm install -d`
 
 ## Running the test suite
+The tokens used in test-data.json were generated using "This is the test secret" as the secret in the signature.
+
 `npm test`
 
 Note: Please go to company_practice_server/models/user.js to see an example of password hashing.

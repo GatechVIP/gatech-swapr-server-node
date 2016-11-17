@@ -7,7 +7,7 @@
       "full_name": "Guy Teach",
       "reference_pass": "instructor1",
       "pwd_hash": "$2a$08$.Y/tfRMIEsWpdk7gk5jSyePHNkqk8Cm7COP/cVbDiegLSzwAM5xne",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZWFjaGVyZ3V5Iiwicm9sZSI6Imluc3RydWN0b3IifQ.D-s06wUkTCLhBV3q4z8ZCH8CjNe7kMHoH_1EM51MhTw",
       "role_id": 1
     },
     {
@@ -17,7 +17,7 @@
       "full_name": "Teacher Zero",
       "reference_pass": "instructor2",
       "pwd_hash": "$2a$08$eJQ8ZRTEnZ51E4FmAF1kHetZMpCcZftmc5MWXtUhHCbyzdu4vhDQG",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZWFjaGVyMCIsInJvbGUiOiJpbnN0cnVjdG9yIn0.hr0xjiOkdWyFsAdi12onse4tWWhQ9X3XAMgGc2cWyuo",
       "role_id": 1
     },
     {
@@ -27,7 +27,7 @@
       "full_name": "Prof Person",
       "reference_pass": "instructor3",
       "pwd_hash": "$2a$08$8d9l3xm4TWZcTz9sP/hrW.fBC02f/9MHKYsJLoOp/jUC1m8qS3Sz2",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJwcm9mZXNzb3IiLCJyb2xlIjoiaW5zdHJ1Y3RvciJ9.slE-An3KqIYS2NteGCwiej3UecT4dHM1c79fWmuizUo",
       "role_id": 1
     }
   ],
@@ -39,7 +39,7 @@
       "full_name": "Joe Userman",
       "reference_pass": "password1",
       "pwd_hash": "$2a$08$XSft/exevmjmods0CnrJsu.NNxbEKlUuhkJ1UUVsN.ObK0pROb7qu",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ1c2VyXzEiLCJyb2xlIjoic3R1ZGVudCJ9.Y6QybJpCC2y6PQO_2K6YppoikuwXJEFv5hmN5ZWMCP0",
       "role_id": 2
     },
     {
@@ -49,7 +49,7 @@
       "full_name": "Maria Student",
       "reference_pass": "password2",
       "pwd_hash": "$2a$08$bxGzSUTYUc2YREibORO5bOZajMwMY9SwMDEdt1IRJnzh0LGgQgYYS",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyXzIiLCJyb2xlIjoic3R1ZGVudCJ9.MoFdfAEBPz9cwZNwCfa_cocyfgsHZlc-uwCsDj_dqJE",
       "role_id": 2
     },
     {
@@ -59,7 +59,7 @@
       "full_name": "Isambard Ipswitch",
       "reference_pass": "password3",
       "pwd_hash": "$2a$08$478HPy7lZCzg5ceBqnXrguHNNW0kIaMQRW/tA.Nk59.mFs1FdM.lC",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ1c2VyXzMiLCJyb2xlIjoic3R1ZGVudCJ9.-5r0WoSz5EEew3D-VbLWqN2CynZwfQm-92YzlchtI_E",
       "role_id": 2
     },
     {
@@ -69,7 +69,7 @@
       "full_name": "Carlotta May McDonald",
       "reference_pass": "password4",
       "pwd_hash": "$2a$08$nIn/BOJ.T2CYp339iiie2OVSWMbX3JjteclGxl6ajZLMyw5uDaUlu",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJ1c2VyXzQiLCJyb2xlIjoic3R1ZGVudCJ9.cKwlzKKe08H3osC2UhuaSpwJCqKmBZKdIQB-uD9C5Ok",
       "role_id": 2
     },
     {
@@ -79,7 +79,7 @@
       "full_name": "User Five",
       "reference_pass": "password5",
       "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJ1c2VyXzUiLCJyb2xlIjoic3R1ZGVudCJ9.KKFCDzZDV40NEU1pgR0n_RLGsBLG19UyLPPP0SAqzzY",
       "role_id": 2
     },
     {
@@ -89,7 +89,7 @@
       "full_name": "User Six",
       "reference_pass": "password6",
       "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
-      "token": "",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJ1c2VyXzYiLCJyb2xlIjoic3R1ZGVudCJ9.pCHdJx5hnvz9d1_hZBz5y_c9creVEvzJtUicgZYpfvg",
       "role_id": 2
     }
   ],

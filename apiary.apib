@@ -28,7 +28,7 @@ Get an Authorization Token, there are three types of users: root, SWAPRInstructo
 # Group Instructor Creation
 Creating students, will be deprecated after GT authentication provided
 
-## SWAPRInstructor Endpoint [/swaprinstructors/]
+## Instructor Endpoint [/swaprinstructors/]
 
 ### Create SWAPRInstructor [POST]
 + Request (application/json)
@@ -40,7 +40,7 @@ Creating students, will be deprecated after GT authentication provided
             "email": "teacher0@email.com",
             "password": "password0"
         }
-        
+
 + Response 201 (application/json)
 
         {
@@ -57,7 +57,7 @@ Creating students, will be deprecated after GT authentication provided
             "error": "unable to create new instructor"
         }
 
-# Group SWAPRUser Creation
+# Group User Creation
 Creating students, will be deprecated after GT authenticaiton provided
 
 ## Student Endpoint [/swaprusers/]
@@ -89,6 +89,32 @@ Creating students, will be deprecated after GT authenticaiton provided
             "error": "unable to create new user"
         }
 
+# Group User Promotion
+
+## Promotion Endpoint [/promote]
+
+### Promote to SWAPRInstructor [POST]
++ Request (application/json)
+
+        {
+            "id": 1
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id": 1,
+            "username": "student0",
+            "first_name": "FIRSTNAME",
+            "last_name": "LASTNAME",
+            "email": "student0@email.com"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "error": "unable to promote user"
+        }
 
 # Group Grades
 Deprecated, look in assignments

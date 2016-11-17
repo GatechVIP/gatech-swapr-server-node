@@ -21,6 +21,11 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+/*var parseArgs = require('minimist');
+var argv = parseArgs(process.argv.slice(2));
+console.log("argv._[0]: " + argv._[0]);
+console.log("argv._[1]: " + argv._[1]);*/
+
 /**
  * Listen on provided port, on all network interfaces.
  */

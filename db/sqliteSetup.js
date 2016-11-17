@@ -2,6 +2,7 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:'); //create db in memory, volatile!
 var exists = false; //TODO: when we write the db to disk, then we need to check if it exists
 
+
 db.serialize(function(){
   if(!exists){
     //stores student accounts. username, full_name, email are PII, so protect them!
@@ -13,7 +14,7 @@ db.serialize(function(){
       full_name TEXT,\
       pwd_hash TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
       token TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
-      role_id INTEGER NOT NULL\
+      role_id INTEGER NOT NULL,\
       FOREIGN KEY(role_id) REFERENCES role_map(role_id))"
     );
 
@@ -69,7 +70,7 @@ db.serialize(function(){
       (course_id INTEGER PRIMARY KEY,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
-      department TEXT NOT NULL,\
+      department TEXT NOT NULL\
       )"
     );
 
@@ -105,6 +106,8 @@ db.serialize(function(){
     db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'root')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
+
+    console.log("DB set up!");
   }
 
 });

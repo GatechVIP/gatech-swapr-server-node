@@ -8,7 +8,7 @@ db.serialize(function(){
     //stores student accounts. username, full_name, email are PII, so protect them!
     db.run(
       "CREATE TABLE id_map\
-      (id INTEGER PRIMARY KEY AUTOINCREMENT, \
+      (id INTEGER PRIMARY KEY,\
       username TEXT UNIQUE ON CONFLICT ROLLBACK NOT NULL ON CONFLICT ROLLBACK,\
       email TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
       full_name TEXT,\
@@ -70,8 +70,7 @@ db.serialize(function(){
       (course_id INTEGER PRIMARY KEY,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
-      department TEXT NOT NULL\
-      )"
+      department TEXT NOT NULL)"
     );
 
     db.run(

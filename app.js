@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var sqlDB = require('./db/sqliteSetup');
 var sqlite3 = require('sqlite3').verbose();
+//var sqlDB = require('./db/sqliteSetup');
 
 var passport = require('./config/passport');
 
@@ -16,15 +17,20 @@ var app = express();
 
 var parseArgs = require('minimist');
 var argv = parseArgs(process.argv.slice(2));
-var sqlDB;
+var sqlDB = null;
 if (argv._.length == 0) {
+  console.log("Setting up memory DB");
+  //sqlDB = require('./db/sqliteSetup');
   sqlDB = require('./db/sqliteSetup');
-  console.log("Memory DB set up");
   app.locals.db = sqlDB;
 } else {
-  console.log(sqlDB);
+  //console.log(sqlDB);
+
   app.locals.db = new sqlite3.Database(argv._[0]);
+  console.log("File DB set up");
 }
+console.log(sqlDB);
+console.log("Comparison result: " + (app.locals.db == sqlDB));
 
 //app.locals.db = sqlDB;
 

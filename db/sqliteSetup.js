@@ -107,7 +107,7 @@ db.serialize(function(){
     db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
 
-    console.log("DB set up!");
+    console.log("Memory DB set up!");
   }
 
 });

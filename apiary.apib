@@ -49,6 +49,7 @@ Creating students, will be deprecated after GT authentication provided
             "first_name": "FIRSTNAME",
             "last_name": "LASTNAME",
             "email": "teacher0@email.com"
+            "role_id": 2
         }
 
 + Response 400 (application/json)
@@ -81,6 +82,7 @@ Creating students, will be deprecated after GT authenticaiton provided
             "first_name": "FIRSTNAME",
             "last_name": "LASTNAME"
             "email": "student0@email.com"
+            "role_id": 3
         }
 
 + Response 400 (application/json)
@@ -97,7 +99,7 @@ Creating students, will be deprecated after GT authenticaiton provided
 + Request (application/json)
 
         {
-            "id": 1
+            "username": "student0"
         }
 
 + Response 201 (application/json)
@@ -108,6 +110,7 @@ Creating students, will be deprecated after GT authenticaiton provided
             "first_name": "FIRSTNAME",
             "last_name": "LASTNAME",
             "email": "student0@email.com"
+            "role_id": 2
         }
 
 + Response 400 (application/json)

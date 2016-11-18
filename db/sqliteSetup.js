@@ -68,9 +68,7 @@ db.serialize(function(){
     db.run(
       "CREATE TABLE course_map\
       (course_id INTEGER PRIMARY KEY,\
-      course_name TEXT NOT NULL,\
-      institution TEXT NOT NULL,\
-      department TEXT NOT NULL)"
+      course_name TEXT NOT NULL)"
     );
 
     db.run(
@@ -84,27 +82,25 @@ db.serialize(function(){
     );
 
     db.run(
-      "CREATE TABLE instructor_map\
-      (instructor_id INTEGER NOT NULL,\
-      session_id INTEGER NOT NULL,\
-      FOREIGN KEY(instructor_id) REFERENCES id_map(id),\
-      FOREIGN KEY(session_id) REFERENCES session_map(session_id)\
-      PRIMARY KEY(instructor_id, session_id))"
+      "CREATE TABLE admin_map\
+      (admin_id INTEGER NOT NULL,\
+      institution TEXT NOT NULL,\
+      department TEXT NOT NULL,\
+      )"
     );
 
     db.run(
-      "CREATE TABLE session_enrollment\
-      (student_id INTEGER NOT NULL,\
-      session_id INTEGER NOT NULL,\
-      FOREIGN KEY(session_id) REFERENCES session_map(session_id),\
-      FOREIGN KEY(student_id) REFERENCES id_map(id),\
-      PRIMARY KEY(student_id, session_id))"
+      "CREATE TABLE roles\
+      (user_id INTEGER NOT NULL,\
+      role_id INTEGER NOT NULL,\
+      target_id)"
     );
 
     //populate the role_map table
-    db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'admin')");
-    db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
-    db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
+    db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'root')");
+    db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'admin')");
+    db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'instructor')");
+    db.run("INSERT INTO role_map (role_id, role) VALUES (3, 'student')");
 
     console.log("DB set up!");
   }

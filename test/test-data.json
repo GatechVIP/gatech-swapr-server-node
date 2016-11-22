@@ -1,96 +1,120 @@
 {
+  "root": [
+    {
+      "ref_id": 1,
+      "username": "root",
+      "email": "root@email.com",
+      "full_name": "Rooty Rootmeister",
+      "reference_pass": "root",
+      "pwd_hash": "$2a$08$p157QW6nCk8jtSTcHTCrqu45JPrFi6/JPSgmTxDLvh0EbA4GhzH/u",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QifQ.87xY-Gmn2wfa2OgeuEgJLjHPPTyahnLsIaCS8e_FLXQ",
+      "role_id": 0
+    }
+  ],
+  "admin": [
+    {
+      "ref_id": 2,
+      "username": "admin",
+      "email": "admin@email.com",
+      "full_name": "Adam Adminton",
+      "reference_pass": "admin",
+      "pwd_hash": "$2a$08$NZ/HlssME.43sJqdv./J3.o4AdyDh/ISHZXzmcEKNNNQG6vl6rHhq",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.A2SJxM5WGh7jAySEXWK4f0gnFSe9cF1p7NMtMBt9MMc",
+      "role_id": 1
+    }
+  ],
   "instructor": [
     {
-      "reference_id": 1,
+      "ref_id": 3,
       "username": "teacherguy",
       "email": "teacherguy@email.com",
       "full_name": "Guy Teach",
       "reference_pass": "instructor1",
-      "pwd_hash": "$2a$08$.Y/tfRMIEsWpdk7gk5jSyePHNkqk8Cm7COP/cVbDiegLSzwAM5xne",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZWFjaGVyZ3V5Iiwicm9sZSI6Imluc3RydWN0b3IifQ.D-s06wUkTCLhBV3q4z8ZCH8CjNe7kMHoH_1EM51MhTw",
-      "role_id": 1
+      "pwd_hash": "$2a$08$YzRZPS/F4qtvQqydbZM/ieBZsawd7tKw6EtXqoro/O9Mo6N0mJ.52",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZWFjaGVyZ3V5Iiwicm9sZSI6Imluc3RydWN0b3IifQ.4-jf_TgG5Osvn3fGXqQ25xK4DBH-5nhaCv69ay3J3nU",
+      "role_id": 2
     },
     {
-      "reference_id": 2,
+      "ref_id": 4,
       "username": "teacher0",
       "email": "teacher0@email.com",
       "full_name": "Teacher Zero",
       "reference_pass": "instructor2",
-      "pwd_hash": "$2a$08$eJQ8ZRTEnZ51E4FmAF1kHetZMpCcZftmc5MWXtUhHCbyzdu4vhDQG",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZWFjaGVyMCIsInJvbGUiOiJpbnN0cnVjdG9yIn0.hr0xjiOkdWyFsAdi12onse4tWWhQ9X3XAMgGc2cWyuo",
-      "role_id": 1
+      "pwd_hash": "$2a$08$SA0d1NETa6vE99mCQNyp/uhMLfRBg46GuEfZ1hdlrnWQr/h0cUZKC",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ0ZWFjaGVyMCIsInJvbGUiOiJpbnN0cnVjdG9yIn0.u9Tr5bfTDTmiyttLk-ZOh5DJh2-LL6FMCoZXDar8_cY",
+      "role_id": 2
     },
     {
-      "reference_id": 3,
+      "ref_id": 5,
       "username": "professor",
       "email": "professor@email.com",
       "full_name": "Prof Person",
       "reference_pass": "instructor3",
       "pwd_hash": "$2a$08$8d9l3xm4TWZcTz9sP/hrW.fBC02f/9MHKYsJLoOp/jUC1m8qS3Sz2",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJwcm9mZXNzb3IiLCJyb2xlIjoiaW5zdHJ1Y3RvciJ9.slE-An3KqIYS2NteGCwiej3UecT4dHM1c79fWmuizUo",
-      "role_id": 1
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJwcm9mZXNzb3IiLCJyb2xlIjoiaW5zdHJ1Y3RvciJ9.3yEMK4G8RKxdfngFdB-2FmggyA6vjnoE7K-R_-t-oew",
+      "role_id": 2
     }
   ],
   "user": [
     {
-      "reference_id": 4,
+      "ref_id": 6,
       "username": "user_1",
       "email": "test1@email.com",
       "full_name": "Joe Userman",
       "reference_pass": "password1",
       "pwd_hash": "$2a$08$XSft/exevmjmods0CnrJsu.NNxbEKlUuhkJ1UUVsN.ObK0pROb7qu",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ1c2VyXzEiLCJyb2xlIjoic3R1ZGVudCJ9.Y6QybJpCC2y6PQO_2K6YppoikuwXJEFv5hmN5ZWMCP0",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ1c2VyXzEiLCJyb2xlIjoic3R1ZGVudCJ9.JPBO2nhXRsryxdGd3avU5uAq4iSyYEDzE5O9YEIzkAk",
+      "role_id": 3
     },
     {
-      "reference_id": 5,
+      "ref_id": 7,
       "username": "user_2",
       "email": "test2@email.com",
       "full_name": "Maria Student",
       "reference_pass": "password2",
       "pwd_hash": "$2a$08$bxGzSUTYUc2YREibORO5bOZajMwMY9SwMDEdt1IRJnzh0LGgQgYYS",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyXzIiLCJyb2xlIjoic3R1ZGVudCJ9.MoFdfAEBPz9cwZNwCfa_cocyfgsHZlc-uwCsDj_dqJE",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJ1c2VyXzIiLCJyb2xlIjoic3R1ZGVudCJ9.moPE0VTSFTruMlS8NuPSHdpP3i0P1Ytx5BS4wrpFoIg",
+      "role_id": 3
     },
     {
-      "reference_id": 6,
+      "ref_id": 8,
       "username": "user_3",
       "email": "test3@email.com",
       "full_name": "Isambard Ipswitch",
       "reference_pass": "password3",
       "pwd_hash": "$2a$08$478HPy7lZCzg5ceBqnXrguHNNW0kIaMQRW/tA.Nk59.mFs1FdM.lC",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ1c2VyXzMiLCJyb2xlIjoic3R1ZGVudCJ9.-5r0WoSz5EEew3D-VbLWqN2CynZwfQm-92YzlchtI_E",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJ1c2VyXzMiLCJyb2xlIjoic3R1ZGVudCJ9.aUwKQm4fQWF0_5JUN19mgLyeHs1OaD9HSQCGSE2gFMI",
+      "role_id": 3
     },
     {
-      "reference_id": 7,
+      "ref_id": 9,
       "username": "user_4",
       "email": "test4@email.com",
       "full_name": "Carlotta May McDonald",
       "reference_pass": "password4",
       "pwd_hash": "$2a$08$nIn/BOJ.T2CYp339iiie2OVSWMbX3JjteclGxl6ajZLMyw5uDaUlu",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJ1c2VyXzQiLCJyb2xlIjoic3R1ZGVudCJ9.cKwlzKKe08H3osC2UhuaSpwJCqKmBZKdIQB-uD9C5Ok",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJ1c2VyXzQiLCJyb2xlIjoic3R1ZGVudCJ9.OUSYtJ-pADNE2ksj0iDhJ91qTobaxxvr5Mv1jdzpAOM",
+      "role_id": 3
     },
     {
-      "reference_id": 8,
+      "ref_id": 10,
       "username": "user_5",
       "email": "test5@email.com",
       "full_name": "User Five",
       "reference_pass": "password5",
       "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJ1c2VyXzUiLCJyb2xlIjoic3R1ZGVudCJ9.KKFCDzZDV40NEU1pgR0n_RLGsBLG19UyLPPP0SAqzzY",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoidXNlcl81Iiwicm9sZSI6InN0dWRlbnQifQ.OLUS0DyZsPbtLd1nFWXABOMsfcOOhsTURoOBjlsxAoQ",
+      "role_id": 3
     },
     {
-      "reference_id": 9,
+      "ref_id": 11,
       "username": "user_6",
       "email": "test6@email.com",
       "full_name": "User Six",
       "reference_pass": "password6",
       "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJ1c2VyXzYiLCJyb2xlIjoic3R1ZGVudCJ9.pCHdJx5hnvz9d1_hZBz5y_c9creVEvzJtUicgZYpfvg",
-      "role_id": 2
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInVzZXJuYW1lIjoidXNlcl82Iiwicm9sZSI6InN0dWRlbnQifQ.A-ZfV2s7Kx6EMrRzbjn1Bp9_f_d-2xK6sIkR0zmxsaQ",
+      "role_id": 3
     }
   ],
   "course": [
@@ -117,25 +141,25 @@
     {
       "reference_id": 1,
       "course_id": 1,
-      "instructors": [1],
+      "instructors": [3],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": [4,5,6]
+      "students": [6,7,8]
     },
     {
       "reference_id": 2,
       "course_id": 1,
-      "instructors": [1],
+      "instructors": [3],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": [7,8,9]
+      "students": [9,10,11]
     },
     {
       "reference_id": 3,
       "course_id": 1,
-      "instructors": [1],
+      "instructors": [3],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",
@@ -144,25 +168,25 @@
     {
       "reference_id": 4,
       "course_id": 2,
-      "instructors": [1, 2],
+      "instructors": [3,4],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": [4,5,6]
+      "students": [6,7,8]
     },
     {
       "reference_id": 5,
       "course_id": 2,
-      "instructors": [1, 2],
+      "instructors": [3,4],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": [7,8,9]
+      "students": [9,10,11]
     },
     {
       "reference_id": 6,
       "course_id": 2,
-      "instructors": [1, 2],
+      "instructors": [3,4],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",
@@ -171,25 +195,25 @@
     {
       "reference_id": 7,
       "course_id": 3,
-      "instructors": [3],
+      "instructors": [5],
       "semester": "Spring",
       "year": 2016,
       "status": "complete",
-      "students": [4,5,6]
+      "students": [6,7,8]
     },
     {
       "reference_id": 8,
       "course_id": 3,
-      "instructors": [3],
+      "instructors": [5],
       "semester": "Fall",
       "year": 2016,
       "status": "active",
-      "students": [7,8,9]
+      "students": [9,10,11]
     },
     {
       "reference_id": 9,
       "course_id": 3,
-      "instructors": [3],
+      "instructors": [5],
       "semester": "Spring",
       "year": 2017,
       "status": "pending",

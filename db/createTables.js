@@ -1,4 +1,4 @@
-var db = require('sqliteSetup');
+var db = require('./sqliteSetup');
 
 db.serialize(function(){
   if(!exists){

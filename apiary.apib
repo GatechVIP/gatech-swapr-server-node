@@ -496,7 +496,7 @@ Operations for dealing with individual course sessions
 + Request (application/x-www-form-urlencoded)
 
         {
-            "instructors": [3],
+            "instructors": ["teacher0"],
             "semester": "spring",
             "year": 2017,
             "status": "pending"
@@ -507,7 +507,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructors": [3],
+            "instructors": [0],
             "semester": "spring",
             "year": 2017,
             "status": "pending"
@@ -533,7 +533,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructors": [3],
+            "instructors": [0],
             "semester": "spring",
             "year": 2017,
             "status": "pending",
@@ -551,7 +551,7 @@ Operations for dealing with individual course sessions
 + Request (application/x-www-form-urlencoded)
 
         {
-            "students": [13,14,15]
+            "students": ["student13","student14","student15"]
         }
 
 + Response 201 (application/json)
@@ -559,7 +559,7 @@ Operations for dealing with individual course sessions
         {
             "course_id": 5,
             "session_id": 4,
-            "instructors": [3],
+            "instructors": [0],
             "semester": "spring",
             "year": 2017,
             "status": "pending",

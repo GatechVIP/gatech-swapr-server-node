@@ -4,6 +4,9 @@
 
 // this will work as long as the server is always started via `npm start`
 //  which does `node ./bin/www` which in turn calls app.js
+if (require.main.filename === 'www') {
+
+}
 
 // thanks to module caching, some of the concerns about creating multiple
 //  database instances may not be an issue

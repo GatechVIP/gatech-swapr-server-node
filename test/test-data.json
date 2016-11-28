@@ -8,7 +8,7 @@
       "reference_pass": "root",
       "pwd_hash": "$2a$08$p157QW6nCk8jtSTcHTCrqu45JPrFi6/JPSgmTxDLvh0EbA4GhzH/u",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MCwidXNlcm5hbWUiOiJyb290Iiwicm9sZSI6InJvb3QifQ.87xY-Gmn2wfa2OgeuEgJLjHPPTyahnLsIaCS8e_FLXQ",
-      "role_id": 0
+      "role_id": 1
     }
   ],
   "admin": [
@@ -20,7 +20,7 @@
       "reference_pass": "admin",
       "pwd_hash": "$2a$08$NZ/HlssME.43sJqdv./J3.o4AdyDh/ISHZXzmcEKNNNQG6vl6rHhq",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.A2SJxM5WGh7jAySEXWK4f0gnFSe9cF1p7NMtMBt9MMc",
-      "role_id": 1
+      "role_id": 2
     }
   ],
   "instructor": [
@@ -32,7 +32,7 @@
       "reference_pass": "instructor1",
       "pwd_hash": "$2a$08$YzRZPS/F4qtvQqydbZM/ieBZsawd7tKw6EtXqoro/O9Mo6N0mJ.52",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ0ZWFjaGVyZ3V5Iiwicm9sZSI6Imluc3RydWN0b3IifQ.4-jf_TgG5Osvn3fGXqQ25xK4DBH-5nhaCv69ay3J3nU",
-      "role_id": 2
+      "role_id": 3
     },
     {
       "ref_id": 4,
@@ -42,7 +42,7 @@
       "reference_pass": "instructor2",
       "pwd_hash": "$2a$08$SA0d1NETa6vE99mCQNyp/uhMLfRBg46GuEfZ1hdlrnWQr/h0cUZKC",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ0ZWFjaGVyMCIsInJvbGUiOiJpbnN0cnVjdG9yIn0.u9Tr5bfTDTmiyttLk-ZOh5DJh2-LL6FMCoZXDar8_cY",
-      "role_id": 2
+      "role_id": 3
     },
     {
       "ref_id": 5,
@@ -52,7 +52,7 @@
       "reference_pass": "instructor3",
       "pwd_hash": "$2a$08$8d9l3xm4TWZcTz9sP/hrW.fBC02f/9MHKYsJLoOp/jUC1m8qS3Sz2",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJwcm9mZXNzb3IiLCJyb2xlIjoiaW5zdHJ1Y3RvciJ9.3yEMK4G8RKxdfngFdB-2FmggyA6vjnoE7K-R_-t-oew",
-      "role_id": 2
+      "role_id": 3
     }
   ],
   "user": [
@@ -64,7 +64,7 @@
       "reference_pass": "password1",
       "pwd_hash": "$2a$08$XSft/exevmjmods0CnrJsu.NNxbEKlUuhkJ1UUVsN.ObK0pROb7qu",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ1c2VyXzEiLCJyb2xlIjoic3R1ZGVudCJ9.JPBO2nhXRsryxdGd3avU5uAq4iSyYEDzE5O9YEIzkAk",
-      "role_id": 3
+      "role_id": 4
     },
     {
       "ref_id": 7,
@@ -74,7 +74,7 @@
       "reference_pass": "password2",
       "pwd_hash": "$2a$08$bxGzSUTYUc2YREibORO5bOZajMwMY9SwMDEdt1IRJnzh0LGgQgYYS",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJ1c2VyXzIiLCJyb2xlIjoic3R1ZGVudCJ9.moPE0VTSFTruMlS8NuPSHdpP3i0P1Ytx5BS4wrpFoIg",
-      "role_id": 3
+      "role_id": 4
     },
     {
       "ref_id": 8,
@@ -84,7 +84,7 @@
       "reference_pass": "password3",
       "pwd_hash": "$2a$08$478HPy7lZCzg5ceBqnXrguHNNW0kIaMQRW/tA.Nk59.mFs1FdM.lC",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJ1c2VyXzMiLCJyb2xlIjoic3R1ZGVudCJ9.aUwKQm4fQWF0_5JUN19mgLyeHs1OaD9HSQCGSE2gFMI",
-      "role_id": 3
+      "role_id": 4
     },
     {
       "ref_id": 9,
@@ -94,7 +94,7 @@
       "reference_pass": "password4",
       "pwd_hash": "$2a$08$nIn/BOJ.T2CYp339iiie2OVSWMbX3JjteclGxl6ajZLMyw5uDaUlu",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJ1c2VyXzQiLCJyb2xlIjoic3R1ZGVudCJ9.OUSYtJ-pADNE2ksj0iDhJ91qTobaxxvr5Mv1jdzpAOM",
-      "role_id": 3
+      "role_id": 4
     },
     {
       "ref_id": 10,
@@ -104,7 +104,7 @@
       "reference_pass": "password5",
       "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoidXNlcl81Iiwicm9sZSI6InN0dWRlbnQifQ.OLUS0DyZsPbtLd1nFWXABOMsfcOOhsTURoOBjlsxAoQ",
-      "role_id": 3
+      "role_id": 4
     },
     {
       "ref_id": 11,
@@ -114,7 +114,7 @@
       "reference_pass": "password6",
       "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInVzZXJuYW1lIjoidXNlcl82Iiwicm9sZSI6InN0dWRlbnQifQ.A-ZfV2s7Kx6EMrRzbjn1Bp9_f_d-2xK6sIkR0zmxsaQ",
-      "role_id": 3
+      "role_id": 4
     }
   ],
   "course": [

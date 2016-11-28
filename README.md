@@ -15,17 +15,12 @@ On OS X, install Homebrew, then do
 `npm install -d`
 
 ## Running the test suite
-The tokens used in test-data.json were generated using "This is the test secret" as the secret in the signature.
+The tokens used in test-data.json were generated using "secret" as the secret in the signature.
 
 `npm test`
 
 Note: Please go to company_practice_server/models/user.js to see an example of password hashing.
 
-The username/password combos for the test students are as follows:
-
-user_1, password1
-user_2, password2
-user_3, password3
-user_4, password4
+The username/password combos are in test/test-data.json
 
 Hashes/salts are generated from https://www.bcrypt-generator.com. The bcrypt implementation uses only 10^8 iterations of the key derivation function (i.e., a "cost" of 08, as indicated by the $08 near the beginning of each salted hash). 10^12 is apparently best practice these days.

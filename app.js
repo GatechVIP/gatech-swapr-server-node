@@ -6,8 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 
+/* IMPORT ROUTES */
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var instructors = require('./routes/instructors');
+var promotion = require('./routes/promotion');
 
 var app = express();
 

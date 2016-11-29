@@ -16,6 +16,7 @@ On OS X, install Homebrew, then do
 
 ## Running the test suite
 The tokens used in test-data.json were generated using "secret" as the secret in the signature.
+The claims included in the token are id, username, and role.
 
 `npm test`
 

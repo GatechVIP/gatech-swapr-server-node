@@ -14,7 +14,8 @@ db.serialize(function(){
       pwd_hash TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
       token TEXT NOT NULL ON CONFLICT ROLLBACK UNIQUE ON CONFLICT ROLLBACK,\
       role_id INTEGER NOT NULL,\
-      FOREIGN KEY(role_id) REFERENCES role_map(role_id))"
+      FOREIGN KEY(role_id) REFERENCES role_map(role_id)\
+      )"
     );
 
     db.run(
@@ -32,7 +33,8 @@ db.serialize(function(){
       num_reviews INTEGER,\
       FOREIGN KEY(assignment_id) REFERENCES assignment_map(assignment_id),\
       FOREIGN KEY(author_id) REFERENCES id_map(id),\
-      FOREIGN KEY(URL) REFERENCES peer_submissions(URL))"
+      FOREIGN KEY(URL) REFERENCES peer_submissions(URL)\
+      )"
     );
 
     //NEEDS A PRIMARY KEY
@@ -46,7 +48,8 @@ db.serialize(function(){
       datetime_due DATETIME,\
       FOREIGN KEY(assignment_id) REFERENCES assignment_map(assignment_id),\
       FOREIGN KEY(author_id) REFERENCES id_map(id),\
-      FOREIGN KEY(URL) REFERENCES peer_submissions(URL))"
+      FOREIGN KEY(URL) REFERENCES peer_submissions(URL)\
+      )"
     );
 
     db.run(
@@ -54,7 +57,8 @@ db.serialize(function(){
       (assignment_id INTEGER PRIMARY KEY,\
       assignment_name TEXT,\
       session_id INTEGER,\
-      FOREIGN KEY(session_id) REFERENCES session_map(session_id))"
+      FOREIGN KEY(session_id) REFERENCES session_map(session_id)\
+      )"
     );
 
     //NEEDS A PRIMARY KEY
@@ -64,13 +68,14 @@ db.serialize(function(){
       session_id INTEGER NOT NULL,\
       URL TEXT UNIQUE NOT NULL,\
       FOREIGN KEY(id) REFERENCES id_map(id)\
-      constraint unq unique (id, session_id))"
+      constraint unq unique (id, session_id)\
+      )"
     );
 
     /* THIS TABLE MAPS ADMIN USERS TO THEIR INSTITUTION AND DEPARTMENT */
     // currently, each admin only belongs to one institution and department
     db.run(
-      "CREATE TABLE admin_map\
+      "CREATE TABLE institution_map\
       (admin_id INTEGER PRIMARY KEY,\
       institution TEXT NOT NULL,\
       department TEXT NOT NULL,\
@@ -78,13 +83,21 @@ db.serialize(function(){
       )"
     );
 
-    /* THIS TABLE MAPS COURSES TO THE ADMIN THAT CREATED THEM */
     db.run(
       "CREATE TABLE course_map\
       (course_id INTEGER PRIMARY KEY,\
-      course_name TEXT NOT NULL,\
-      administrator_id INTEGER NOT NULL,\
-      FOREIGN KEY(administrator_id) REFERENCES id_map(id),\
+      course_name TEXT NOT NULL\
+      )"
+    );
+
+    /* THIS TABLE MAPS COURSES TO THE ADMIN THAT CREATED THEM */
+    db.run(
+      "CREATE TABLE admin_map\
+      (admin_id INTEGER NOT NULL,\
+      course_id INTEGER NOT NULL,\
+      FOREIGN KEY(admin_id) REFERENCES id_map(id),\
+      FOREIGN KEY(course_id) REFERENCES course_map(course_id),\
+      PRIMARY KEY(admin_id, course_id)\
       )"
     );
 
@@ -95,7 +108,8 @@ db.serialize(function(){
       semester TEXT NOT NULL,\
       year INTEGER NOT NULL,\
       status TEXT NOT NULL,\
-      FOREIGN KEY(course_id) REFERENCES course_map(course_id))"
+      FOREIGN KEY(course_id) REFERENCES course_map(course_id)\
+      )"
     );
 
     /* THIS TABLE MAPS INSTRUCTORS TO THE SESSIONS THEY TEACH */

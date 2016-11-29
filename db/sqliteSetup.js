@@ -50,7 +50,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE assignment_map\
-      (assignment_id INTEGER PRIMARY KEY,\
+      (assignment_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       assignment_name TEXT,\
       session_id INTEGER,\
       FOREIGN KEY(session_id) REFERENCES session_map(session_id))"
@@ -67,7 +67,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE course_map\
-      (course_id INTEGER PRIMARY KEY,\
+      (course_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
       department TEXT NOT NULL\
@@ -76,7 +76,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE session_map\
-      (session_id INTEGER PRIMARY KEY,\
+      (session_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       course_id INTEGER NOT NULL,\
       semester TEXT NOT NULL,\
       year INTEGER NOT NULL,\

@@ -20,6 +20,7 @@ var db = require('../db/sqliteSetup');
 //  into these functions
 // the callback functions have the parameters result and error
 
+/* I DO NOT SUGGEST HARD-CODING THIS STUFF
 module.exports.insert = function(user, callback) {
   var result = null;
   var error = null;
@@ -83,3 +84,4 @@ module.exports.delete = function(user, callback) {
     }
   });
 };
+*/

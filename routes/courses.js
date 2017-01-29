@@ -8,7 +8,7 @@ router.route('/courses')
 /* Create Course */
 router.route('/courses')
   .post(function(req, res) {
-      req.app.locals.db.get("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err, row) {
+      req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err, row) {
           if (err) {
               return res.send({error: "new course could not be created"});
           }
@@ -16,13 +16,14 @@ router.route('/courses')
               return res.send({error: "new course could not be created"});
           } else {
               var response = {}
-              response["id"] = row.course_id;
-              response["name"] = row.course_name;
-              response["institution"] = row.institution;
-              response["department"] = row.department;
+              response["id"] = this.lastID;
+              response["name"] = req.body.name;
+              response["institution"] = req.body.institution;
+              response["department"] = req.body.department;
               return res.send(response);
           }
       })
+
   });
 
 /* Retrieve a Course */

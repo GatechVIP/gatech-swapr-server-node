@@ -1,29 +1,38 @@
 module.exports.createCourse = function(req, res) {
-    req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err, row) {
-        if (err) {
-            return res.send({error: "new course could not be created"});
-        }
-        if (!row) {
-            return res.send({error: "new course could not be created"});
-        } else {
-            var response = {}
-            response["id"] = this.lastID;
-            response["name"] = req.body.name;
-            response["institution"] = req.body.institution;
-            response["department"] = req.body.department;
-            return res.send(response);
-        }
-    })
+  req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err) {
+      if (err) {
+          return res.send({error: "new course could not be created"});
+      } else {
+          var response = {}
+          response["id"] = this.lastID;
+          response["name"] = req.body.name;
+          response["institution"] = req.body.institution;
+          response["department"] = req.body.department;
+          return res.send(response);
+      }
+  })
 
+};
+
+module.exports.getCourse = function(req, res) {
+    req.app.locals.db.get("SELECT * FROM course_map WHERE course_id = ?", req.params.courseID, function(err, row) {
+      if (err) {
+          console.log("Error happened");
+          return res.send({error: "course cannot be retrieved"});
+      }
+      if (!row) {
+          console.log("No row");
+          return res.send({error: "course cannot be retrieved"});
+      } else {
+          return res.send(row);
+      }
+    });
 };
 
 module.exports.createSession = function(req, res) {
 
-    req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [req.params.courseID, req.body.semester, req.body.year, req.body.status], function(err, result) {
+    req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [req.params.courseID, req.body.semester, req.body.year, req.body.status], function(err) {
         if (err) {
-            return res.send({error: "new session could not be created"});
-        }
-        if (!row) {
             return res.send({error: "new session could not be created"});
         } else {
             var sessionID = this.lastID;
@@ -54,22 +63,6 @@ module.exports.createSession = function(req, res) {
               selectStatement.finalize();
               insertStatement.finalize();
             })
-
-            /*for (var i = 0; i < req.body.instructors.length; i++) {
-                req.app.locals.db.get("SELECT * FROM id_map WHERE username = ?", [req.body.instructors[i]], function(error, instructorRow) {
-                    if (error) {
-                        return res.send({error: "new session could not be created"});
-                    }
-                    if (!instructorRow) {
-                        return res.send({error: "new session could not be created"});
-                    } else {
-                        theResponse["instructors"].push(instructorRow.id);
-                        req.app.locals.db.run("INSERT INTO instructor_map(instructor_id, session_id) VALUES (?, ?)", [instructorRow.id, sessionID]);
-                    }
-
-                })
-            }*/
-
             return res.send(theResponse);
         }
     })

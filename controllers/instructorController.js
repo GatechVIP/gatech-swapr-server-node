@@ -30,20 +30,20 @@ module.exports.getCourse = function(req, res) {
 };
 
 module.exports.createSession = function(req, res) {
-
+    var theResponse = {};
     req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [req.params.courseID, req.body.semester, req.body.year, req.body.status], function(err) {
         if (err) {
             return res.send({error: "new session could not be created"});
         } else {
             var sessionID = this.lastID;
-            var theResponse = {};
+            // var theResponse = {};
             theResponse["session_id"] = sessionID;
-            theResponse["course_id"] = req.params.courseID;
+            theResponse["course_id"] = parseInt(req.params.courseID);
             theResponse["instructors"] = [];
             theResponse["semester"] = req.body.semester;
             theResponse["year"] = req.body.year;
             theResponse["status"] = req.body.status;
-            req.app.locals.db.serialize(function() {
+            /*req.app.locals.db.serialize(function() {
               var selectStatement = req.app.locals.db.prepare("SELECT * FROM id_map WHERE username = ?");
               var insertStatement = req.app.locals.db.prepare("INSERT INTO instructor_map(instructor_id, session_id) VALUES (?,?)");
               for (var i = 0; i < req.body.instructors.length; i++) {
@@ -54,16 +54,49 @@ module.exports.createSession = function(req, res) {
                     if (!row) {
                         return res.send({error: "new session could not be created"});
                     } else {
+                      console.log(row);
                       theResponse["instructors"].push(row.id);
-                      insertStatement.run(row.id, sessionID);
+                      console.log(theResponse["instructors"])
+                      req.app.locals.db.serialize(function() {
+                        insertStatement.run(row.id, sessionID);
+                        console.log("Successful insertion");
+                      });
+
                     }
 
                   })
+                  if (i == (req.body.instructors.length - 1)) {
+                      return res.json(theResponse);
+                  } else {
+                      console.log("Not done: " + i);
+                  }
               }
-              selectStatement.finalize();
-              insertStatement.finalize();
-            })
-            return res.send(theResponse);
+              return res.json(theResponse);
+            })*/
+            req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.instructors.map(function(){ return '?' }).join(',') + ' )', req.body.instructors, function(err, row) {
+                if (err) {
+                    return res.send({error: "session could not be made"});
+                }
+                if (!row) {
+                    return res.send({error: "session could not be made"});
+                } else {
+                    var theID = row.id;
+                    theResponse["instructors"].push(theID);
+                    console.log(theResponse);
+                    req.app.locals.db.run("INSERT INTO instructor_map(instructor_id, session_id) VALUES (?,?)", theID, sessionID);
+
+                }
+            }, function(error, rows) {
+                if (error) {
+                    return res.send({error: "session could not be made"});
+                }
+                if (!rows) {
+                    return res.send({error: "session could not be made"});
+                } else {
+                    return res.send(theResponse);
+                }
+            });
+
         }
     })
     /*var statement = req.app.locals.db.prepare("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)");
@@ -129,54 +162,5 @@ module.exports.enrollInSession = function(req, res) {
           }
       });
     })
-    /*req.app.locals.db.serialize(function() {
-        for (var student in req.body.students) {
-            req.app.locals.db.get("SELECT * FROM id_map WHERE username = ?", [student], function(err, row) {
-                if (err) {
-                    return res.send({error: "session enrollment failed"})
-                }
-                if (!row) {
-                    return res.send({error: "session enrollment failed"})
-                } else {
-                    var studentID = row.id;
-                    req.app.locals.db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (?,?)", [studentID, req.params.sessionID]);
-                }
-            })
-        }
-        response["course_id"] = req.params.courseID;
-        response["session_id"] = req.params.sessionID;
-        req.app.locals.db.get("SELECT * FROM session_map WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-            if (err) {
-                return res.send({error: "session enrollment failed"})
-            }
-            if (!row) {
-                return res.send({error: "session enrollment failed"})
-            } else {
-                response["semester"] = row.semester;
-                response["year"] = row.year;
-                response["status"] = row.status;
-            }
-        });
-        req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-            if (err) {
-                return res.send({error: "session enrollment failed"})
-            }
-            if (!row) {
-                return res.send({error: "session enrollment failed"})
-            } else {
-                response["instructors"].push(row.instructor_id);
-            }
-        });
-        req.app.locals.db.each("SELECT * FROM session_enrollment WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-            if (err) {
-                return res.send({error: "session enrollment failed"})
-            }
-            if (!row) {
-                return res.send({error: "session enrollment failed"})
-            } else {
-                response["students"].push(row.student_id);
-            }
-        });
-    });*/
     return res.send(response);
 };

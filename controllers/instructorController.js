@@ -43,36 +43,6 @@ module.exports.createSession = function(req, res) {
             theResponse["semester"] = req.body.semester;
             theResponse["year"] = req.body.year;
             theResponse["status"] = req.body.status;
-            /*req.app.locals.db.serialize(function() {
-              var selectStatement = req.app.locals.db.prepare("SELECT * FROM id_map WHERE username = ?");
-              var insertStatement = req.app.locals.db.prepare("INSERT INTO instructor_map(instructor_id, session_id) VALUES (?,?)");
-              for (var i = 0; i < req.body.instructors.length; i++) {
-                  selectStatement.get(req.body.instructors[i], function(error, row) {
-                    if (error) {
-                        return res.send({error: "new session could not be created"});
-                    }
-                    if (!row) {
-                        return res.send({error: "new session could not be created"});
-                    } else {
-                      console.log(row);
-                      theResponse["instructors"].push(row.id);
-                      console.log(theResponse["instructors"])
-                      req.app.locals.db.serialize(function() {
-                        insertStatement.run(row.id, sessionID);
-                        console.log("Successful insertion");
-                      });
-
-                    }
-
-                  })
-                  if (i == (req.body.instructors.length - 1)) {
-                      return res.json(theResponse);
-                  } else {
-                      console.log("Not done: " + i);
-                  }
-              }
-              return res.json(theResponse);
-            })*/
             req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.instructors.map(function(){ return '?' }).join(',') + ' )', req.body.instructors, function(err, row) {
                 if (err) {
                     return res.send({error: "session could not be made"});
@@ -108,59 +78,58 @@ module.exports.enrollInSession = function(req, res) {
     var response = {};
     response["instructors"] = [];
     response["students"] = [];
-    req.app.locals.db.serialize(function() {
-      var studentSelectStatement = req.app.locals.db.prepare("SELECT * FROM id_map WHERE username = ?");
-      var studentEnrollStatement = req.app.locals.db.prepare("INSERT INTO session_enrollment (student_id, session_id) VALUES (?,?)");
-      for (var student in req.body.students) {
-          studentSelectStatement.get(student, function(err, row) {
-              if (err) {
-                  return res.send({error: "enrollment could not happen"});
-              } else if (!row) {
-                  return res.send({error: "enrollment could not happen"});
-              } else {
-                req.app.locals.db.serialize(function() {
-                  studentEnrollStatement.run(row.id, req.params.sessionID);
-                })
 
-              }
-          })
-      }
-      studentSelectStatement.finalize();
-      studentEnrollStatement.finalize();
-      response["course_id"] = req.params.courseID;
-      response["session_id"] = req.params.sessionID;
-      req.app.locals.db.get("SELECT * FROM session_map WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-          if (err) {
-              return res.send({error: "session enrollment failed"})
-          }
-          if (!row) {
-              return res.send({error: "session enrollment failed"})
-          } else {
-              response["semester"] = row.semester;
-              response["year"] = row.year;
-              response["status"] = row.status;
-          }
-      });
-      req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-          if (err) {
-              return res.send({error: "session enrollment failed"})
-          }
-          if (!row) {
-              return res.send({error: "session enrollment failed"})
-          } else {
-              response["instructors"].push(row.instructor_id);
-          }
-      });
-      req.app.locals.db.each("SELECT * FROM session_enrollment WHERE session_id = ?", [req.params.sessionID], function(err, row) {
-          if (err) {
-              return res.send({error: "session enrollment failed"})
-          }
-          if (!row) {
-              return res.send({error: "session enrollment failed"})
-          } else {
-              response["students"].push(row.student_id);
-          }
-      });
-    })
-    return res.send(response);
+    req.app.locals.db.each("SELECT * FROM session_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(err, row) {
+        console.log(req.params.sessionID);
+        if (err) {
+            return res.send({error: "Enrollment failed"});
+        }
+        if (!row) {
+            return res.send({error: "Enrollment failed"});
+        } else {
+            response["session_id"] = row.session_id;
+            response["course_id"] = row.course_id;
+            response["semester"] = row.semester;
+            response["year"] = row.year;
+            response["status"] = row.status;
+            console.log(response);
+            req.app.locals.db.each("SELECT instructor_id FROM instructor_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(mistake, result) {
+                if (mistake) {
+                    return res.send({error: "Enrollment failed"});
+                }
+                if (!result) {
+                    return res.send({error: "Enrollment failed"});
+                } else {
+                    response["instructors"].push(result.instructor_id);
+                }
+            }, function(mistake2, results) {
+                console.log("Results with instructors: " + results);
+                if (mistake2) {
+                    return res.send({error: "Enrollment failed"});
+                }
+                if (!results) {
+                    return res.send({error: "Enrollment failed"});
+                } else {
+                    console.log("Results with instructors");
+                    console.log(response);
+                    req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.students.map(function() { return '?' }).join(',') + ' )', req.body.students, function(wrong, answer) {
+                        console.log("Student: ");
+                        console.log(answer);
+                        if (wrong) {
+                            return res.send({error: "Enrollment failed"});
+                        }
+                        if (!answer) {
+                            return res.send({error: "Enrollment failed"});
+                        } else {
+                            response.students.push(answer.id);
+                            req.app.locals.db.run("INSERT INTO session_enrollment(student_id, session_id) VALUES (?, ?)", [answer.id, parseInt(req.params.sessionID)]);
+                        }
+                    }, function(wrong2, answers) {
+                        console.log("Answers: " + answers);
+                        return res.send(response);
+                    });
+                }
+            });
+        }
+    });
 };

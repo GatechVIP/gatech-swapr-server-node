@@ -108,6 +108,10 @@ db.serialize(function(){
     db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('teacher0', 'adas62@gatech.edu', 'Ayan Das', '329jlasjg;a', '3289rjaksghnasd8', 1)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('teacher1', 'anjandas@gatech.edu', 'Anjan Das', 'ytkjjkg', 'hlktjfkj', 1)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student1', 'ben10@gatech.edu', 'Ben Tennyson', 'as;hetoashjg;', 'akj;leasjgiowaute', 2)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student2', 'aduncan37@gatech.edu', 'Austin Duncan', ';asfjd;liasjf;a;', 'hgai;as', 2)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student3', 'ajaydeepsingh@gatech.edu', 'Ajay Singh', 'fa;sjf;', '7328901aszafas', 2)");
+
 
     console.log("Memory DB set up!");
   }

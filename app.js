@@ -53,7 +53,7 @@ var argv = parseArgs(process.argv.slice(2));
 console.log(argv);*/
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/swaprusers', users);
 app.use('/courses', courses);
 
 // catch 404 and forward to error handler

@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var instructorController = require('../routes/instructorController');
+
 
 /* List Sessions */
 router.route('/courses/:courseID/sessions')
@@ -7,7 +9,7 @@ router.route('/courses/:courseID/sessions')
 
 /* Create Sessions */
 router.route('/courses/:courseID/sessions')
-  .post();
+  .post(instructorController.createSession);
 
 /* Retrieve Session */
 router.route('/courses/:courseID/sessions/:sessionID')
@@ -15,7 +17,7 @@ router.route('/courses/:courseID/sessions/:sessionID')
 
 /* Enroll Session */
 router.route('/courses/:courseID/sessions/:sessionID')
-  .post();
+  .post(instructorController.enrollInSession);
 
 
 module.exports = router;

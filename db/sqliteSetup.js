@@ -50,7 +50,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE assignment_map\
-      (assignment_id INTEGER PRIMARY KEY,\
+      (assignment_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       assignment_name TEXT,\
       session_id INTEGER,\
       FOREIGN KEY(session_id) REFERENCES session_map(session_id))"
@@ -67,7 +67,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE course_map\
-      (course_id INTEGER PRIMARY KEY,\
+      (course_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       course_name TEXT NOT NULL,\
       institution TEXT NOT NULL,\
       department TEXT NOT NULL)"
@@ -75,7 +75,7 @@ db.serialize(function(){
 
     db.run(
       "CREATE TABLE session_map\
-      (session_id INTEGER PRIMARY KEY,\
+      (session_id INTEGER PRIMARY KEY AUTOINCREMENT,\
       course_id INTEGER NOT NULL,\
       semester TEXT NOT NULL,\
       year INTEGER NOT NULL,\
@@ -105,6 +105,12 @@ db.serialize(function(){
     db.run("INSERT INTO role_map (role_id, role) VALUES (0, 'admin')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (1, 'instructor')");
     db.run("INSERT INTO role_map (role_id, role) VALUES (2, 'student')");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('teacher0', 'adas62@gatech.edu', 'Ayan Das', '329jlasjg;a', '3289rjaksghnasd8', 1)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('teacher1', 'anjandas@gatech.edu', 'Anjan Das', 'ytkjjkg', 'hlktjfkj', 1)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student1', 'ben10@gatech.edu', 'Ben Tennyson', 'as;hetoashjg;', 'akj;leasjgiowaute', 2)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student2', 'aduncan37@gatech.edu', 'Austin Duncan', ';asfjd;liasjf;a;', 'hgai;as', 2)");
+    db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student3', 'ajaydeepsingh@gatech.edu', 'Ajay Singh', 'fa;sjf;', '7328901aszafas', 2)");
+
 
     console.log("Memory DB set up!");
   }

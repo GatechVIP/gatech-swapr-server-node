@@ -31,7 +31,7 @@ module.exports.getCourse = function(req, res) {
 
 module.exports.createSession = function(req, res) {
     var theResponse = {};
-    req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [req.params.courseID, req.body.semester, req.body.year, req.body.status], function(err) {
+    req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [parseInt(req.params.courseID), req.body.semester, req.body.year, req.body.status], function(err) {
         if (err) {
             return res.send({error: "new session could not be created"});
         } else {

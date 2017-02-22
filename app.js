@@ -13,6 +13,7 @@ var passport = require('./config/passport');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var courses = require('./routes/courses');
+var apiAuth = require('./routes/api-auth');
 
 var app = express();
 
@@ -55,6 +56,7 @@ console.log(argv);*/
 app.use('/', routes);
 app.use('/swaprusers', users);
 app.use('/courses', courses);
+app.use('/api-token-auth', apiAuth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

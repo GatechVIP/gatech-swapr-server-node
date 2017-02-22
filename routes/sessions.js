@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var instructorController = require('../routes/instructorController');
+var instructorController = require('../controllers/instructorController');
 
 
 /* List Sessions */

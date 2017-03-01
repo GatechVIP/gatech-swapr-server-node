@@ -12,7 +12,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "invalid course id"
         });
@@ -57,7 +57,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "invalid course id"
         });

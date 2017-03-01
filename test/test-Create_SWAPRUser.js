@@ -49,7 +49,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -69,7 +69,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -176,7 +176,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -196,7 +196,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -216,7 +216,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -236,7 +236,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -257,7 +257,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -277,7 +277,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -297,7 +297,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -317,7 +317,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -337,7 +337,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -357,7 +357,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -377,7 +377,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -397,7 +397,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -417,7 +417,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -437,7 +437,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -457,7 +457,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -477,7 +477,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -497,7 +497,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -517,7 +517,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -537,7 +537,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -557,7 +557,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -577,7 +577,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -596,7 +596,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -615,7 +615,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -634,7 +634,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -653,7 +653,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });
@@ -672,7 +672,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         res.should.have.body({
           "error": "unable to create new user"
         });

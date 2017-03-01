@@ -13,9 +13,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });
@@ -58,9 +56,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });

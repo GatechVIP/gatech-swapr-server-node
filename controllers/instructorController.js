@@ -1,3 +1,5 @@
+var debug = require('debug')('instructorController');
+
 module.exports.createCourse = function(req, res) {
   req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err) {
       if (err) {
@@ -17,11 +19,11 @@ module.exports.createCourse = function(req, res) {
 module.exports.getCourse = function(req, res) {
     req.app.locals.db.get("SELECT * FROM course_map WHERE course_id = ?", req.params.courseID, function(err, row) {
       if (err) {
-          console.log("Error happened");
+          debug("Error happened");
           return res.send({error: "course cannot be retrieved"});
       }
       if (!row) {
-          console.log("No row");
+          debug("No row");
           return res.send({error: "course cannot be retrieved"});
       } else {
           return res.send(row);
@@ -52,7 +54,7 @@ module.exports.createSession = function(req, res) {
                 } else {
                     var theID = row.id;
                     theResponse["instructors"].push(theID);
-                    console.log(theResponse);
+                    debug(theResponse);
                     req.app.locals.db.run("INSERT INTO instructor_map(instructor_id, session_id) VALUES (?,?)", theID, sessionID);
 
                 }
@@ -80,7 +82,7 @@ module.exports.enrollInSession = function(req, res) {
     response["students"] = [];
 
     req.app.locals.db.each("SELECT * FROM session_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(err, row) {
-        console.log(req.params.sessionID);
+        debug(req.params.sessionID);
         if (err) {
             return res.send({error: "Enrollment failed"});
         }
@@ -92,7 +94,7 @@ module.exports.enrollInSession = function(req, res) {
             response["semester"] = row.semester;
             response["year"] = row.year;
             response["status"] = row.status;
-            console.log(response);
+            debug(response);
             req.app.locals.db.each("SELECT instructor_id FROM instructor_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(mistake, result) {
                 if (mistake) {
                     return res.send({error: "Enrollment failed"});
@@ -103,18 +105,18 @@ module.exports.enrollInSession = function(req, res) {
                     response["instructors"].push(result.instructor_id);
                 }
             }, function(mistake2, results) {
-                console.log("Results with instructors: " + results);
+                debug("Results with instructors: " + results);
                 if (mistake2) {
                     return res.send({error: "Enrollment failed"});
                 }
                 if (!results) {
                     return res.send({error: "Enrollment failed"});
                 } else {
-                    console.log("Results with instructors");
-                    console.log(response);
+                    debug("Results with instructors");
+                    debug(response);
                     req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.students.map(function() { return '?' }).join(',') + ' )', req.body.students, function(wrong, answer) {
-                        console.log("Student: ");
-                        console.log(answer);
+                        debug("Student: ");
+                        debug(answer);
                         if (wrong) {
                             return res.send({error: "Enrollment failed"});
                         }
@@ -125,7 +127,7 @@ module.exports.enrollInSession = function(req, res) {
                             req.app.locals.db.run("INSERT INTO session_enrollment(student_id, session_id) VALUES (?, ?)", [answer.id, parseInt(req.params.sessionID)]);
                         }
                     }, function(wrong2, answers) {
-                        console.log("Answers: " + answers);
+                        debug("Answers: " + answers);
                         return res.send(response);
                     });
                 }

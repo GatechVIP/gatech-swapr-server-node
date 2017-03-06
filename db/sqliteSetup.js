@@ -111,8 +111,6 @@ db.serialize(function(){
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student2', 'aduncan37@gatech.edu', 'Austin Duncan', ';asfjd;liasjf;a;', 'hgai;as', 2)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student3', 'ajaydeepsingh@gatech.edu', 'Ajay Singh', 'fa;sjf;', '7328901aszafas', 2)");
 
-
-    console.log("Memory DB set up!");
   }
 
 });

@@ -4,4 +4,11 @@ node_js:
   - "6.9.4"
   - "7.4.0"
 
-script: npm test
+before_script:
+  - mkdir -p shippable/testresults
+
+script:
+  - ./node_modules/.bin/mocha
+
+after_script:
+  - ./node_modules/.bin/mocha -R xunit ./test > shippable/testresults/result.xml

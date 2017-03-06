@@ -4,12 +4,12 @@ var app = require('../app');
 var http = require('http');
 var server;
 
-beforeEach(function(done){
+before(function(done){
     server = http.createServer(app);
     server.listen(3000);        
     server.on('listening', done);
 });
 
-afterEach(function(done){
+after(function(done){
     server.close(done);
 });

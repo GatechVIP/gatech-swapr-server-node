@@ -5,6 +5,7 @@ var http = require('http');
 var server;
 
 before(function(done){
+    process.env.NODE_ENV = 'test';
     server = http.createServer(app);
     server.listen(3000);        
     server.on('listening', done);

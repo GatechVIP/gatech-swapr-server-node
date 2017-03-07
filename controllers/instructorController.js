@@ -1,14 +1,14 @@
 module.exports.createCourse = function(req, res) {
   req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err) {
       if (err) {
-          return res.send({error: "new course could not be created"});
+          return res.status(400).send({error: "new course could not be created"});
       } else {
           var response = {}
           response["id"] = this.lastID;
           response["name"] = req.body.name;
           response["institution"] = req.body.institution;
           response["department"] = req.body.department;
-          return res.send(response);
+          return res.status(201).send(response);
       }
   })
 

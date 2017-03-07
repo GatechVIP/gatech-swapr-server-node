@@ -17,7 +17,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password7"
     };
     var expectedResponseBody = {
-      "id": 11,
+      "id": 7,
       "username": "user_7",
       "first_name": "User",
       "last_name": "Seven",
@@ -27,7 +27,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -39,7 +39,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('returns an error when a duplicate username is input', function(done) {
     var requestBody = {
-      "username": "user_1",
+      "username": "student1",
       "first_name": "Duplicate",
       "last_name": "Username",
       "email": "test1duplicate@email.com",
@@ -60,7 +60,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_8",
       "first_name": "Userman",
       "last_name": "Eight",
-      "email": "test1@email.com",
+      "email": "aduncan37@gatech.edu",
       "password": "password8"
     };
     request
@@ -79,10 +79,10 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "first_name": "Userman",
       "last_name": "Eight",
       "email": "test8@email.com",
-      "password": "password1"
+      "password": "password7"
     };
     var expectedResponseBody = {
-      "id": 12,
+      "id": 8,
       "username": "user_8",
       "first_name": "Userman",
       "last_name": "Eight",
@@ -92,7 +92,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -107,11 +107,11 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_9a",
       "first_name": "User",
       "last_name": "Nine",
-      "email": "tes9a@email.com",
+      "email": "test9a@email.com",
       "password": "password9a"
     };
     var expectedResponseBody = {
-      "id": 13,
+      "id": 9,
       "username": "user_9a",
       "first_name": "User",
       "last_name": "Nine",
@@ -121,7 +121,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -140,7 +140,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "password": "password9b"
     };
     var expectedResponseBody = {
-      "id": "14",
+      "id": 10,
       "username": "user_9b",
       "first_name": "Bob",
       "last_name": "Nine",
@@ -150,7 +150,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       .post('/swaprusers')
       .send(requestBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -271,7 +271,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
 
   it('does not accept numerical values as inputs for username', function(done) {
     var requestBody = {
-      "username": "SAH1_OF_USERNAME",
+      "username": 0,  //"SAH1_OF_USERNAME"
       "first_name": "Mister",
       "last_name": "Zero",
       "email": "test0@email.com",

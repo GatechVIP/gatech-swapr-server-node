@@ -1,7 +1,8 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(':memory:'); //create db in memory, volatile!
 var exists = false; //TODO: when we write the db to disk, then we need to check if it exists
-
+var bcrypt = require('bcrypt-nodejs');
+var jwt = require("jsonwebtoken");
 
 db.serialize(function(){
   if(!exists){
@@ -110,6 +111,23 @@ db.serialize(function(){
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student1', 'ben10@gatech.edu', 'Ben Tennyson', 'as;hetoashjg;', 'akj;leasjgiowaute', 2)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student2', 'aduncan37@gatech.edu', 'Austin Duncan', ';asfjd;liasjf;a;', 'hgai;as', 2)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student3', 'ajaydeepsingh@gatech.edu', 'Ajay Singh', 'fa;sjf;', '7328901aszafas', 2)");
+
+    var user = {};
+    user["name"] = "Mysterious User";
+    user["username"] = "user_1";
+    user["email"] = "user1@gatech.edu";
+
+    bcrypt.genSalt(5, function(err, salt) {
+        if (err) return;
+
+        bcrypt.hash('a', salt, null, function(err, hash) {
+            if (err) return callback(err);
+            user["password"]= hash;
+            user["token"] = jwt.sign(user, "app_secret");
+            db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES (?,?,?,?,?,?)", [user['username'], user["email"], user["name"], user["password"], user["token"], 2]);
+            //callback();
+        });
+    });
 
 
     console.log("Memory DB set up!");

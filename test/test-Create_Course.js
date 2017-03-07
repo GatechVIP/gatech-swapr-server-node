@@ -27,10 +27,9 @@ describe('Create Course', function testCreateCourse() {
     };
     request
       .post('/courses')
-      .set('Content-Type', 'application/x-www-form-urlencoded')
       .send(reqBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect('Content-Type', 'application/json; charset=utf-8')      
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -39,6 +38,8 @@ describe('Create Course', function testCreateCourse() {
         }
       });
   });
+
+  //.expect('Content-Type', 'application/json')
 
   /*it('does not allow duplicate entries');
 

@@ -1,12 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports.getToken = function(req, res) {
-    if (req.body.username === "" || req.body.password === "") {
-        return res.status(400).send({ "error": "Token could not be retrieved" });
-    }
-    if (typeof req.body.username != "string") {
-        return res.status(400).send({ "error": "Token could not be retrieved" });
-    }
     req.app.locals.db.get("SELECT * FROM id_map WHERE username = ?", req.body.username, function(err, row) {
 
         if (err) {

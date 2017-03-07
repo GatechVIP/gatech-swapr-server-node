@@ -4,25 +4,37 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var sqlDB = require('./db/sqliteSetup');
 var sqlite3 = require('sqlite3').verbose();
+//var sqlDB = require('./db/sqliteSetup');
+
+var passport = require('./config/passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var courses = require('./routes/courses');
+var apiAuth = require('./routes/api-auth');
 
 var app = express();
 
 var parseArgs = require('minimist');
 var argv = parseArgs(process.argv.slice(2));
 var sqlDB = null;
-if (! argv.d) {
+if (argv._.length == 0) {
+  console.log("Setting up memory DB");
+  //sqlDB = require('./db/sqliteSetup');
   sqlDB = require('./db/sqliteSetup');
+  app.locals.db = sqlDB;
 } else {
-  sqlDB = new sqlite3.Database(argv.d);
-}
-app.locals.db = sqlDB;
+  //console.log(sqlDB);
 
-var passport = require('./config/passport')(sqlDB);
+  app.locals.db = new sqlite3.Database(argv._[0]);
+  console.log("File DB set up");
+}
+console.log(sqlDB);
+console.log("Comparison result: " + (app.locals.db == sqlDB));
+
+//app.locals.db = sqlDB;
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
@@ -35,14 +47,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.initialize());
+//app.use(passport.initialize());
+
+/*var parseArgs = require('minimist');
+var argv = parseArgs(process.argv.slice(2));
+console.log(argv);*/
 
 app.use('/', routes);
 app.use('/swaprusers', users);
 app.use('/courses', courses);
-
-// use EJS as the default view engine
-app.set('view engine', 'ejs');
+app.use('/api-token-auth', apiAuth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

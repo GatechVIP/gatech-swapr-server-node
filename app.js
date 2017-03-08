@@ -43,6 +43,9 @@ app.use('/swaprusers', users);
 app.use('/courses', courses);
 app.use('/api-token-auth', apiAuth);
 
+// use EJS as the default view engine
+app.set('view engine', 'ejs');
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

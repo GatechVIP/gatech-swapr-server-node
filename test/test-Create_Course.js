@@ -15,13 +15,13 @@ describe('Create Course', function testCreateCourse() {
   it('returns id, name, institution, and department of new course ' +
     'when given valid input', function(done) {
     var reqBody = {
-      "name": "course1",
+      "name": "course2",
       "institution": "Georgia Tech",
       "department": "Physics"
     };
     var expectedResponseBody = {
-      "id": 1,
-      "name": "course1",
+      "id": 2,
+      "name": "course2",
       "institution": "Georgia Tech",
       "department": "Physics"
     };
@@ -29,7 +29,7 @@ describe('Create Course', function testCreateCourse() {
       .post('/courses')
       .send(reqBody)
       .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json; charset=utf-8')      
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);

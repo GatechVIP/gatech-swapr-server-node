@@ -20,5 +20,8 @@ router.route('/:courseID/sessions')
 router.route('/:courseID/sessions/:sessionID')
   .post(instructorController.enrollInSession);
 
+router.route('/:courseID/sessions/:sessionID')
+    .get(instructorController.getSession);
+
 
 module.exports = router;

@@ -111,6 +111,12 @@ db.serialize(function(){
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student1', 'ben10@gatech.edu', 'Ben Tennyson', 'as;hetoashjg;', 'akj;leasjgiowaute', 2)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student2', 'aduncan37@gatech.edu', 'Austin Duncan', ';asfjd;liasjf;a;', 'hgai;as', 2)");
     db.run("INSERT INTO id_map (username, email, full_name, pwd_hash, token, role_id) VALUES ('student3', 'ajaydeepsingh@gatech.edu', 'Ajay Singh', 'fa;sjf;', '7328901aszafas', 2)");
+    db.run("INSERT INTO course_map (course_name, institution, department) VALUES ('course1', 'Georgia Tech', 'Physics')");
+    db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (1, 'spring', 2017, 'pending')");
+    db.run("INSERT INTO instructor_map (instructor_id, session_id) VALUES (1, 1)");
+    db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (1, 1)");
+    db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (2, 1)");
+    db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (3, 1)");
 
     var user = {};
     user["name"] = "Mysterious User";

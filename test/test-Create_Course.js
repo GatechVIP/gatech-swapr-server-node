@@ -20,7 +20,7 @@ describe('Create Course', function testCreateCourse() {
       "department": "Physics"
     };
     var expectedResponseBody = {
-      "id": 2,
+      "id": 4,
       "name": "course2",
       "institution": "Georgia Tech",
       "department": "Physics"

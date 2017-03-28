@@ -38,11 +38,39 @@ module.exports.getCourse = function(req, res) {
     });
 };
 
+module.exports.getAllCourses = function(req, res) {
+    var courseList = [];
+    req.app.locals.db.each("SELECT * FROM course_map", [], function(err, row) {
+        if (err) {
+            res.status(400).send({ "error": "Could not find all courses" });
+        }
+        if (!row) {
+            res.status(400).send({ "error": "Could not find all courses" });
+        } else {
+            var result = {};
+            result["id"] = row.course_id;
+            result["name"] = row.course_name;
+            result["institution"] = row.institution;
+            result["department"] = row.department;
+            courseList.push(result);
+        }
+    }, function(error, rows) {
+        if (error) {
+            return res.status(400).send({error: "session could not be made"});
+        }
+        if (!rows) {
+            return res.status(400).send({error: "session could not be made"});
+        } else {
+            return res.status(201).send(courseList);
+        }
+    });
+};
+
 module.exports.createSession = function(req, res) {
     var theResponse = {};
     req.app.locals.db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (?,?,?,?)", [parseInt(req.params.courseID), req.body.semester, req.body.year, req.body.status], function(err) {
         if (err) {
-            return res.send({error: "new session could not be created"});
+            return res.status(400).send({error: "new session could not be created"});
         } else {
             var sessionID = this.lastID;
             // var theResponse = {};
@@ -54,10 +82,10 @@ module.exports.createSession = function(req, res) {
             theResponse["status"] = req.body.status;
             req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.instructors.map(function(){ return '?' }).join(',') + ' )', req.body.instructors, function(err, row) {
                 if (err) {
-                    return res.send({error: "session could not be made"});
+                    return res.status(400).send({error: "session could not be made"});
                 }
                 if (!row) {
-                    return res.send({error: "session could not be made"});
+                    return res.status(400).send({error: "session could not be made"});
                 } else {
                     var theID = row.id;
                     theResponse["instructors"].push(theID);
@@ -67,12 +95,12 @@ module.exports.createSession = function(req, res) {
                 }
             }, function(error, rows) {
                 if (error) {
-                    return res.send({error: "session could not be made"});
+                    return res.status(400).send({error: "session could not be made"});
                 }
                 if (!rows) {
-                    return res.send({error: "session could not be made"});
+                    return res.status(400).send({error: "session could not be made"});
                 } else {
-                    return res.send(theResponse);
+                    return res.status(201).send(theResponse);
                 }
             });
 
@@ -204,4 +232,133 @@ module.exports.getSession = function(req, res) {
             });
         }
     });
+};
+
+module.exports.getSessions = function(req, res) {
+    if (isNaN(req.params.courseID)) {
+        return res.status(400).send({ "error": "Invalid input" });
+    }
+    var resultList = [];
+    req.app.locals.db.each("SELECT * FROM session_map WHERE course_id = ?", parseInt(req.params.courseID), function(error, row) {
+        if (error) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        }
+        if (!row) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        } else {
+            var result = {};
+            result["session_id"] = row.session_id;
+            result["course_id"] = row.course_id;
+            result["semester"] = row.semester;
+            result["year"] = row.year;
+            result["status"] = row.status;
+            result["instructors"] = [];
+            result["students"] = [];
+            req.app.locals.db.serialize(function() {
+                /*req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [row.session_id], function(err, r) {
+                    if (err) {
+                        return res.status(400).send({ "error": "Could not get sessions" });
+                    }
+                    if (!r) {
+                        return res.status(400).send({ "error": "Could not get sessions" });
+                    } else {
+                        console.log("Found instructor");
+                        result["instructors"].push(2);
+                    }
+                })*/
+                var instructorStmt = req.app.locals.db.prepare("SELECT * FROM instructor_map WHERE session_id = ?");
+                instructorStmt.all([row.session_id], function(instructorErr, instructorRows) {
+                    if (instructorErr) {
+                        return res.status(400).send({ "error": "Could not get sessions" });
+                    } else {
+                        instructorRows.forEach(function(instructor) {
+                            console.log("INSTRUCTOR: " + instructor);
+                            result["instructors"].push(instructor.instructor_id);
+                            console.log("Result list:");
+                            console.log(result["instructors"]);
+                        });
+                    }
+                    /*if (instructorRows.length == 0) {
+                        return res.status(400).send({ "error": "Could not get sessions" });
+                    }*/
+                });
+                instructorStmt.finalize();
+            });
+            resultList.push(result);
+            console.log(resultList);
+        }
+    }, function(finalError, finalRows) {
+        if (finalError) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        }
+        if (!finalRows) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        } else {
+            return res.status(201).send(resultList);
+        }
+    })
+    /*req.app.locals.db.each("SELECT * FROM session_map WHERE course_id = ?", [parseInt(req.params.courseID)], function(error, row) {
+        if (error) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        }
+        if (!row) {
+            return res.status(400).send({ "error": "Could not get sessions" });
+        } else {
+            var result = {};
+            result["course_id"] = row.course_id;
+            result["session_id"] = row.session_id;
+            result["semester"] = row.semester;
+            result["year"] = row.year;
+            result["status"] = row.status;
+            result["instructors"] = [];
+            result["students"] = [];
+            req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [row.session_id], function(err1, row1) {
+                if (err1) {
+                    return res.status(400).send({ "error": "Could not get sessions" });
+                }
+                if (!row1) {
+                    return res.status(400).send({ "error": "Could not get sessions" });
+                } else {
+                    result["instructors"].push(row1.instructor_id);
+                }
+            }, function(instructorError, instructorRows) {
+                if (!instructorError) {
+                    return res.status(400).send({ "error": "Could not get sessions" });
+                }
+                if (!instructorRows) {
+                    return res.status(400).send({ "error": "Could not get sessions" });
+                } else {
+                    req.app.locals.db.each("SELECT * FROM session_enrollment WHERE session_id = ?", [row.session_id], function(err2, row2) {
+                        if (err2) {
+                            return res.status(400).send({ "error": "Could not get sessions" });
+                        }
+                        if (!row2) {
+                            return res.status(400).send({ "error": "Could not get sessions" });
+                        } else {
+                            result["students"].push(row2.student_id);
+                        }
+                    }, function(studentError, studentRows) {
+                        if (studentError) {
+                            return res.status(400).send({ "error": "Could not get sessions" });
+                        }
+                        if (!studentRows) {
+                            return res.status(400).send({ "error": "Could not get sessions" });
+                        } else {
+                            resultList.push(result);
+                        }
+                    })
+                }
+            })
+        }
+    }, function(finalError, finalRows) {
+        if (finalError) {
+          return res.status(400).send({ "error": "Could not get sessions" });
+        }
+        if (!finalRows) {
+          return res.status(400).send({ "error": "Could not get sessions" });
+        } else {
+          console.log("Number of final rows: " + finalRows);
+          return res.status(201).send(resultList);
+        }
+    })*/
 };

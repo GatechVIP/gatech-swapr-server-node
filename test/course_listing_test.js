@@ -9,7 +9,7 @@ describe('Course Listing', function() {
     request(url)
       .get("/courses")
       .end(function(err, res) {
-        res.should.have.status(200);
+        res.status.should.be.exactly(200);
         res.body.length.should.equal(4);
         res.body[0].id.should.equal(1);
         res.body[0].name.should.equal("course0");

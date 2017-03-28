@@ -12,16 +12,14 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.status.should.be.exactly(400);
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });
 
-  it('returns an error if given a string containing non-numeric characters '
-      + 'for id');
+  /*it('returns an error if given a string containing non-numeric characters '
+      + 'for id');*/
 
   it('should return information about the course with the specified id',
       function(done) {
@@ -57,10 +55,8 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.status.should.be.exactly(400);
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });

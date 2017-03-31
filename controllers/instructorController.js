@@ -239,126 +239,50 @@ module.exports.getSessions = function(req, res) {
         return res.status(400).send({ "error": "Invalid input" });
     }
     var resultList = [];
-    req.app.locals.db.each("SELECT * FROM session_map WHERE course_id = ?", parseInt(req.params.courseID), function(error, row) {
-        if (error) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        }
-        if (!row) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        } else {
-            var result = {};
-            result["session_id"] = row.session_id;
-            result["course_id"] = row.course_id;
-            result["semester"] = row.semester;
-            result["year"] = row.year;
-            result["status"] = row.status;
-            result["instructors"] = [];
-            result["students"] = [];
-            req.app.locals.db.serialize(function() {
-                /*req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [row.session_id], function(err, r) {
-                    if (err) {
-                        return res.status(400).send({ "error": "Could not get sessions" });
-                    }
-                    if (!r) {
-                        return res.status(400).send({ "error": "Could not get sessions" });
-                    } else {
-                        console.log("Found instructor");
-                        result["instructors"].push(2);
-                    }
-                })*/
-                var instructorStmt = req.app.locals.db.prepare("SELECT * FROM instructor_map WHERE session_id = ?");
-                instructorStmt.all([row.session_id], function(instructorErr, instructorRows) {
-                    if (instructorErr) {
-                        return res.status(400).send({ "error": "Could not get sessions" });
-                    } else {
-                        instructorRows.forEach(function(instructor) {
-                            console.log("INSTRUCTOR: " + instructor);
-                            result["instructors"].push(instructor.instructor_id);
-                            console.log("Result list:");
-                            console.log(result["instructors"]);
-                        });
-                    }
-                    /*if (instructorRows.length == 0) {
-                        return res.status(400).send({ "error": "Could not get sessions" });
-                    }*/
-                });
-                instructorStmt.finalize();
+    req.app.locals.db.all("SELECT * FROM SessionInstructors LEFT JOIN SessionStudents ON SessionInstructors.session_id = SessionStudents.session_id WHERE SessionInstructors.course_id = ? UNION ALL SELECT * FROM SessionStudents LEFT JOIN SessionInstructors ON SessionInstructors.session_id = SessionStudents.session_id WHERE (SessionInstructors.instructor_id = NULL) AND  (SessionStudents.course_id = ?)", [parseInt(req.params.courseID), parseInt(req.params.courseID)], function(error, rows) {
+            if (error) {
+                return res.status(400).send({ "error": error.message });
+            }
+            console.log("Length: " + rows.length);
+            /*rows.forEach(function(row) {
+                console.log(row);
+            });*/
+            var big = rows.map(function(row) {
+                return {
+                    session_id: row.session_id,
+                    semester: row.semester,
+                    year: row.year,
+                    status: row.status
+                };
             });
-            resultList.push(result);
-            console.log(resultList);
-        }
-    }, function(finalError, finalRows) {
-        if (finalError) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        }
-        if (!finalRows) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        } else {
-            return res.status(201).send(resultList);
-        }
-    })
-    /*req.app.locals.db.each("SELECT * FROM session_map WHERE course_id = ?", [parseInt(req.params.courseID)], function(error, row) {
-        if (error) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        }
-        if (!row) {
-            return res.status(400).send({ "error": "Could not get sessions" });
-        } else {
-            var result = {};
-            result["course_id"] = row.course_id;
-            result["session_id"] = row.session_id;
-            result["semester"] = row.semester;
-            result["year"] = row.year;
-            result["status"] = row.status;
-            result["instructors"] = [];
-            result["students"] = [];
-            req.app.locals.db.each("SELECT * FROM instructor_map WHERE session_id = ?", [row.session_id], function(err1, row1) {
-                if (err1) {
-                    return res.status(400).send({ "error": "Could not get sessions" });
-                }
-                if (!row1) {
-                    return res.status(400).send({ "error": "Could not get sessions" });
-                } else {
-                    result["instructors"].push(row1.instructor_id);
-                }
-            }, function(instructorError, instructorRows) {
-                if (!instructorError) {
-                    return res.status(400).send({ "error": "Could not get sessions" });
-                }
-                if (!instructorRows) {
-                    return res.status(400).send({ "error": "Could not get sessions" });
-                } else {
-                    req.app.locals.db.each("SELECT * FROM session_enrollment WHERE session_id = ?", [row.session_id], function(err2, row2) {
-                        if (err2) {
-                            return res.status(400).send({ "error": "Could not get sessions" });
-                        }
-                        if (!row2) {
-                            return res.status(400).send({ "error": "Could not get sessions" });
-                        } else {
-                            result["students"].push(row2.student_id);
-                        }
-                    }, function(studentError, studentRows) {
-                        if (studentError) {
-                            return res.status(400).send({ "error": "Could not get sessions" });
-                        }
-                        if (!studentRows) {
-                            return res.status(400).send({ "error": "Could not get sessions" });
-                        } else {
-                            resultList.push(result);
-                        }
-                    })
-                }
+            var sessionsFound = {};
+            big.forEach(function(row) {
+                sessionsFound[row.session_id.toString()] = row;
+            });
+            var sessions = Object.keys(sessionsFound).map(function(row) {
+                return sessionsFound[row];
             })
-        }
-    }, function(finalError, finalRows) {
-        if (finalError) {
-          return res.status(400).send({ "error": "Could not get sessions" });
-        }
-        if (!finalRows) {
-          return res.status(400).send({ "error": "Could not get sessions" });
-        } else {
-          console.log("Number of final rows: " + finalRows);
-          return res.status(201).send(resultList);
-        }
-    })*/
+            sessions.forEach(function(row) {
+                var result = {};
+                result["course_id"] = parseInt(req.params.courseID);
+                result["session_id"] = row.session_id;
+                result["semester"] = row.semester;
+                result["year"] = row.year;
+                result["status"] = row.status;
+                result["instructors"] = Array.from(new Set(rows.filter(function(r) {
+                    return r.session_id == row.session_id;
+                }).map(function(r) {
+                    return r.instructor_id;
+                })));
+                result["students"] = Array.from(new Set(rows.filter(function(r) {
+                    return r.session_id == row.session_id;
+                }).map(function(r) {
+                    return r.student_id;
+                })));
+                resultList.push(result);
+                console.log(result);
+            });
+
+            return res.status(201).send(resultList);
+        })
 };

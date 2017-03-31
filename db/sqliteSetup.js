@@ -116,11 +116,21 @@ db.serialize(function(){
     db.run("INSERT INTO course_map (course_name, institution, department) VALUES ('course3', 'Georgia Tech', 'Biology')");
     db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (1, 'spring', 2017, 'pending')");
     db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (1, 'fall', 2017, 'pending')");
+    db.run("INSERT INTO session_map (course_id, semester, year, status) VALUES (2, 'fall', 2017, 'pending')");
     db.run("INSERT INTO instructor_map (instructor_id, session_id) VALUES (1, 1)");
     db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (3, 1)");
     db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (4, 1)");
     db.run("INSERT INTO instructor_map (instructor_id, session_id) VALUES (2, 2)");
+    db.run("INSERT INTO instructor_map (instructor_id, session_id) VALUES (2, 3)");
     db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (5, 2)");
+    db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (4, 3)");
+    db.run("INSERT INTO session_enrollment (student_id, session_id) VALUES (5, 3)");
+
+
+    db.run("CREATE VIEW SessionInstructors AS SELECT session_map.course_id, session_map.session_id, session_map.year, session_map.status, session_map.semester, instructor_map.instructor_id FROM session_map INNER JOIN instructor_map WHERE session_map.session_id = instructor_map.session_id");
+    db.run("CREATE VIEW SessionStudents AS SELECT session_map.course_id, session_map.session_id, session_map.year, session_map.status, session_map.semester, session_enrollment.student_id FROM session_map INNER JOIN session_enrollment WHERE session_map.session_id = session_enrollment.session_id");
+
+    //db.run("SELECT * FROM SessionInstructors LEFT JOIN SessionStudents ON SessionInstructors.session_id = SessionStudents.session_id UNION ALL SELECT * FROM SessionStudents LEFT JOIN SessionInstructors ON SessionInstructors.session_id = SessionStudents.session_id WHERE SessionInstructors.instructor_id = NULL")
 
     var user = {};
     user["name"] = "Mysterious User";

@@ -7,6 +7,6 @@ var request = supertest(URL);
 
 describe('Enroll Session', function testEnrollSession() {
 
-  it('');
+  /*it('');*/
 
 });

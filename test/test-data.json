@@ -1,0 +1,199 @@
+{
+  "instructor": [
+    {
+      "reference_id": 1,
+      "username": "teacherguy",
+      "email": "teacherguy@email.com",
+      "full_name": "Guy Teach",
+      "reference_pass": "instructor1",
+      "pwd_hash": "$2a$08$.Y/tfRMIEsWpdk7gk5jSyePHNkqk8Cm7COP/cVbDiegLSzwAM5xne",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZWFjaGVyZ3V5Iiwicm9sZSI6Imluc3RydWN0b3IifQ.D-s06wUkTCLhBV3q4z8ZCH8CjNe7kMHoH_1EM51MhTw",
+      "role_id": 1
+    },
+    {
+      "reference_id": 2,
+      "username": "teacher0",
+      "email": "teacher0@email.com",
+      "full_name": "Teacher Zero",
+      "reference_pass": "instructor2",
+      "pwd_hash": "$2a$08$eJQ8ZRTEnZ51E4FmAF1kHetZMpCcZftmc5MWXtUhHCbyzdu4vhDQG",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ0ZWFjaGVyMCIsInJvbGUiOiJpbnN0cnVjdG9yIn0.hr0xjiOkdWyFsAdi12onse4tWWhQ9X3XAMgGc2cWyuo",
+      "role_id": 1
+    },
+    {
+      "reference_id": 3,
+      "username": "professor",
+      "email": "professor@email.com",
+      "full_name": "Prof Person",
+      "reference_pass": "instructor3",
+      "pwd_hash": "$2a$08$8d9l3xm4TWZcTz9sP/hrW.fBC02f/9MHKYsJLoOp/jUC1m8qS3Sz2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJwcm9mZXNzb3IiLCJyb2xlIjoiaW5zdHJ1Y3RvciJ9.slE-An3KqIYS2NteGCwiej3UecT4dHM1c79fWmuizUo",
+      "role_id": 1
+    }
+  ],
+  "user": [
+    {
+      "reference_id": 4,
+      "username": "user_1",
+      "email": "test1@email.com",
+      "full_name": "Joe Userman",
+      "reference_pass": "password1",
+      "pwd_hash": "$2a$08$XSft/exevmjmods0CnrJsu.NNxbEKlUuhkJ1UUVsN.ObK0pROb7qu",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ1c2VyXzEiLCJyb2xlIjoic3R1ZGVudCJ9.Y6QybJpCC2y6PQO_2K6YppoikuwXJEFv5hmN5ZWMCP0",
+      "role_id": 2
+    },
+    {
+      "reference_id": 5,
+      "username": "user_2",
+      "email": "test2@email.com",
+      "full_name": "Maria Student",
+      "reference_pass": "password2",
+      "pwd_hash": "$2a$08$bxGzSUTYUc2YREibORO5bOZajMwMY9SwMDEdt1IRJnzh0LGgQgYYS",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwidXNlcm5hbWUiOiJ1c2VyXzIiLCJyb2xlIjoic3R1ZGVudCJ9.MoFdfAEBPz9cwZNwCfa_cocyfgsHZlc-uwCsDj_dqJE",
+      "role_id": 2
+    },
+    {
+      "reference_id": 6,
+      "username": "user_3",
+      "email": "test3@email.com",
+      "full_name": "Isambard Ipswitch",
+      "reference_pass": "password3",
+      "pwd_hash": "$2a$08$478HPy7lZCzg5ceBqnXrguHNNW0kIaMQRW/tA.Nk59.mFs1FdM.lC",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJ1c2VyXzMiLCJyb2xlIjoic3R1ZGVudCJ9.-5r0WoSz5EEew3D-VbLWqN2CynZwfQm-92YzlchtI_E",
+      "role_id": 2
+    },
+    {
+      "reference_id": 7,
+      "username": "user_4",
+      "email": "test4@email.com",
+      "full_name": "Carlotta May McDonald",
+      "reference_pass": "password4",
+      "pwd_hash": "$2a$08$nIn/BOJ.T2CYp339iiie2OVSWMbX3JjteclGxl6ajZLMyw5uDaUlu",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywidXNlcm5hbWUiOiJ1c2VyXzQiLCJyb2xlIjoic3R1ZGVudCJ9.cKwlzKKe08H3osC2UhuaSpwJCqKmBZKdIQB-uD9C5Ok",
+      "role_id": 2
+    },
+    {
+      "reference_id": 8,
+      "username": "user_5",
+      "email": "test5@email.com",
+      "full_name": "User Five",
+      "reference_pass": "password5",
+      "pwd_hash": "$2a$08$Gw6XAdPlDl2b4CaXNFDxb.bcttkiCsC718yBrBXfLrR3EUz5WGroy",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiJ1c2VyXzUiLCJyb2xlIjoic3R1ZGVudCJ9.KKFCDzZDV40NEU1pgR0n_RLGsBLG19UyLPPP0SAqzzY",
+      "role_id": 2
+    },
+    {
+      "reference_id": 9,
+      "username": "user_6",
+      "email": "test6@email.com",
+      "full_name": "User Six",
+      "reference_pass": "password6",
+      "pwd_hash": "$2a$08$JM8cz3amtVN5nD.wh2ufdO2uFobybvYJAM8uI3AqhmvhuHXTC6Uja",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJ1c2VyXzYiLCJyb2xlIjoic3R1ZGVudCJ9.pCHdJx5hnvz9d1_hZBz5y_c9creVEvzJtUicgZYpfvg",
+      "role_id": 2
+    }
+  ],
+  "course": [
+    {
+      "reference_id": 1,
+      "course_name": "course1",
+      "institution": "Georgia Tech",
+      "department": "Physics"
+    },
+    {
+      "reference_id": 2,
+      "course_name": "course2",
+      "institution": "Georgia Tech",
+      "department": "Physics"
+    },
+    {
+      "reference_id": 3,
+      "course_name": "course3",
+      "institution": "Georgia Tech",
+      "department": "Computer Science"
+    }
+  ],
+  "session": [
+    {
+      "reference_id": 1,
+      "course_id": 1,
+      "instructors": [1],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": [4,5,6]
+    },
+    {
+      "reference_id": 2,
+      "course_id": 1,
+      "instructors": [1],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": [7,8,9]
+    },
+    {
+      "reference_id": 3,
+      "course_id": 1,
+      "instructors": [1],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    },
+    {
+      "reference_id": 4,
+      "course_id": 2,
+      "instructors": [1, 2],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": [4,5,6]
+    },
+    {
+      "reference_id": 5,
+      "course_id": 2,
+      "instructors": [1, 2],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": [7,8,9]
+    },
+    {
+      "reference_id": 6,
+      "course_id": 2,
+      "instructors": [1, 2],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    },
+    {
+      "reference_id": 7,
+      "course_id": 3,
+      "instructors": [3],
+      "semester": "Spring",
+      "year": 2016,
+      "status": "complete",
+      "students": [4,5,6]
+    },
+    {
+      "reference_id": 8,
+      "course_id": 3,
+      "instructors": [3],
+      "semester": "Fall",
+      "year": 2016,
+      "status": "active",
+      "students": [7,8,9]
+    },
+    {
+      "reference_id": 9,
+      "course_id": 3,
+      "instructors": [3],
+      "semester": "Spring",
+      "year": 2017,
+      "status": "pending",
+      "students": []
+    }
+  ]
+}

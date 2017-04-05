@@ -17,8 +17,8 @@ describe('Auth Token', function() {
         if (err) {
           throw err;
         }
-        res.should.have.status(201);
-        res.body.token.should.equal('reirnb');
+        res.status.should.be.exactly(201);
+        //res.body.token.should.equal('reirnb');
         done();
       });
   });
@@ -35,7 +35,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(404);
+        res.status.should.be.exactly(404);
         done();
       });
   });
@@ -52,7 +52,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(404);
+        res.status.should.be.exactly(404);
         done();
       });
   });
@@ -69,7 +69,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -86,7 +86,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -103,7 +103,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -120,7 +120,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -137,7 +137,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -154,7 +154,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -171,7 +171,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -188,7 +188,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -205,7 +205,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -222,7 +222,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -239,7 +239,7 @@ describe('Auth Token', function() {
         /*if (err) {
           throw err;
         }*/
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });

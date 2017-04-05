@@ -36,7 +36,8 @@ module.exports.createUser = function(req, res) {
 
       var user = {
           'username': req.body.username,
-          'name': req.body.first_name + ' ' + req.body.last_name,
+          'first_name': req.body.first_name,
+          'last_name': req.body.last_name,
           'email': req.body.email,
       };
 
@@ -49,7 +50,14 @@ module.exports.createUser = function(req, res) {
               user['token'] = jwt.sign(user, 'app_secret');
 
               models.User.create(user).then(function(created){
-                return res.status(201).send(created);
+                var result = {
+                    'username': created.username,
+                    'first_name': created.first_name,
+                    'last_name': created.last_name,
+                    'id': created.id,
+                    'email': created.email
+                };
+                return res.status(201).send(result);
               }).catch(function(error) {
                 return res.status(500).send({ 'error': 'unable to create new user' });
               });

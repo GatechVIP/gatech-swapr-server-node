@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define('User', {
-        'userid': {
+        'id': {
             'type': DataTypes.INTEGER.UNSIGNED,
             'allowNull': false,
             'unique': true,
@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             'allowNull': false,
             'unique': true
         },
-        'name': DataTypes.STRING,
+        'first_name': DataTypes.STRING,
+        'last_name': DataTypes.STRING,
         'password': DataTypes.STRING,
         'token': DataTypes.STRING,
         'role': DataTypes.STRING,

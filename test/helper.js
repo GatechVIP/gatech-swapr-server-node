@@ -2,12 +2,16 @@
 
 var app = require('../app');
 var http = require('http');
+var models =  require('../models');
+
 var server;
 
 before(function(done){
     server = http.createServer(app);
-    server.listen(3000);        
-    server.on('listening', done);
+    models.sequelize.sync().then(function() {
+        server.listen(3000);        
+        server.on('listening', done);
+    });
 });
 
 after(function(done){

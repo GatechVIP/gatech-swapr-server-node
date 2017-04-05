@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sqlite3 = require('sqlite3').verbose();
 
 var passport = require('./config/passport');
 
@@ -15,19 +14,7 @@ var apiAuth = require('./routes/api-auth');
 
 var app = express();
 
-var parseArgs = require('minimist');
-var argv = parseArgs(process.argv.slice(2));
-var sqlDB = null;
-if (argv._.length == 0) {
-  console.log("Setting up memory DB");
-  sqlDB = require('./db/sqliteSetup');
-  app.locals.db = sqlDB;
-} else {
-  app.locals.db = new sqlite3.Database(argv._[0]);
-  console.log("File DB set up");
-}
-console.log(sqlDB);
-console.log("Comparison result: " + (app.locals.db == sqlDB));
+var argv = require('minimist')(process.argv.slice(2));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

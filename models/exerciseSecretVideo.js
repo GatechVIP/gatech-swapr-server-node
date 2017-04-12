@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var ExerciseSecretVideo = sequelize.define('ExerciseSecretVideo', {
         'id': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false,
             'unique': true,
             'primaryKey': true,

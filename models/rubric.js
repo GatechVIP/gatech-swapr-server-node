@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     var Rubric = sequelize.define('Rubric', {
         'id': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false,
             'unique': true,
             'primaryKey': true,
             'autoIncrement': true
         },
         'itemNum': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false
         },
         'name': {

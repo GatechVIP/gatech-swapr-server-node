@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Session = sequelize.define('Session', {
         'id': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false,
             'unique': true,
             'primaryKey': true,

@@ -1,14 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
     var TrainingExercise = sequelize.define('TrainingExercise', {
         'id': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false,
             'unique': true,
             'primaryKey': true,
             'autoIncrement': true
         },
         'orderServed': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false
         },
         'url': {

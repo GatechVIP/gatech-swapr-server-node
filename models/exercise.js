@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Exercise = sequelize.define('Exercise', {
         'id': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false,
             'unique': true,
             'primaryKey': true,
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
             'validate': { 'notEmpty': true }
         },
         'numGraders': {
-            'type': DataTypes.INTEGER.UNSIGNED,
+            'type': DataTypes.INTEGER,
             'allowNull': false
         },
         'prompt': {

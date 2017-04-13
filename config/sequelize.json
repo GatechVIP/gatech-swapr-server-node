@@ -11,6 +11,7 @@
     "username": "swapr",
     "password": "secret",
     "dialect": "sqlite",
-    "storage": ":memory:"
+    "storage": ":memory:",
+    "logging": false
   }
 }

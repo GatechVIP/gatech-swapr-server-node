@@ -1,3 +1,4 @@
+var models = require('../models');
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports.getToken = function(req, res) {
@@ -7,26 +8,24 @@ module.exports.getToken = function(req, res) {
   if (typeof req.body.username != "string") {
       return res.status(400).send({ "error": "Token could not be retrieved" });
   }
-  req.app.locals.db.get("SELECT * FROM id_map WHERE username = ?", req.body.username, function(err, row) {
-
-      if (err) {
-          return res.status(400).send({ "error": "Token could not be retrieved" });
-      }
-      if (!row) {
+  models.User.findOne({'where': {'username': req.body.username}}).then(function(user) {
+      if (!user) {
           return res.status(404).send({ "error": "Token could not be retrieved" });
       } else {
-          bcrypt.compare(req.body.password, row.pwd_hash, function(error, isMatch) {
+          bcrypt.compare(req.body.password, user.password, function(error, isMatch) {
               if (error) {
                   return res.status(400).send({ "error": "Token could not be retrieved" });
               }
               if (isMatch) {
-                  var response = { "token": row.token };
+                  var response = { "token": user.token };
                   return res.status(201).send(response);
               } else {
-                  return res.status(404).send({ "error": "Incorrect password was put in" });
+                  return res.status(404).send({ "error": "Token could not be retrieved" });
               }
-          })
+          });
       }
-  })
+  }).catch(function(err) {
+      return res.status(400).send({ "error": "Token could not be retrieved" });
+  });
 
 };

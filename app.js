@@ -12,6 +12,8 @@ var users = require('./routes/users');
 var courses = require('./routes/courses');
 var apiAuth = require('./routes/api-auth');
 
+var models = require('./models');
+
 var app = express();
 
 var argv = require('minimist')(process.argv.slice(2));
@@ -29,6 +31,25 @@ app.use('/', routes);
 app.use('/swaprusers', users);
 app.use('/courses', courses);
 app.use('/api-token-auth', apiAuth);
+
+//console.log(models.Institute);
+
+/*models.Institute.create({"name": "Georgia Tech"})
+    .then(function(created) {
+        console.log("institute");
+        console.log(created);
+    }).catch(function(error) {
+        console.log(error);
+    })*/
+/*models.Institute.build({ "name": "Georgia Tech" })
+    .save()
+    .then(function(savedInstitute) {
+        console.log("Good");
+        console.log(savedInstitute);
+    }).catch(function(error) {
+        console.log("Bad");
+        console.log(error);
+    })*/
 
 // use EJS as the default view engine
 app.set('view engine', 'ejs');

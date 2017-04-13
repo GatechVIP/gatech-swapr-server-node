@@ -1,5 +1,7 @@
+var models = require('../models');
+
 module.exports.createCourse = function(req, res) {
-  req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err) {
+  /*req.app.locals.db.run("INSERT INTO course_map (course_name, institution, department) VALUES (?,?,?)", [req.body.name, req.body.institution, req.body.department], function(err) {
       if (err) {
           return res.status(400).send({error: "new course could not be created"});
       } else {
@@ -10,7 +12,29 @@ module.exports.createCourse = function(req, res) {
           response["department"] = req.body.department;
           return res.status(201).send(response);
       }
+  })*/
+
+  var Institute = models.Course.belongsTo(models.Institute, {as: 'school'});
+
+  console.log("Name: " + req.body.name)
+  models.Course.create({
+      "name": req.body.name,
+      "school": {
+          "id": req.body.institute
+      }
+  }, {
+      "include": [Institute]
+  }).then(function(created) {
+      var result = {
+          "id": created.id,
+          "name": created.name
+      }
+      return res.status(201).send(result);
+  }).catch(function(error) {
+      console.log(error);
+      return res.status(500).send({ 'error': 'unable to create new course' });
   })
+
 
 };
 

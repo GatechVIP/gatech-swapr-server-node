@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
             'allowNull': false,
             'unique': true,
             'primaryKey': true,
-            'autoIncrement': true
+            'autoIncrement': true,
+            'omitNull': true
         },
         'name': {
             'type': DataTypes.STRING,

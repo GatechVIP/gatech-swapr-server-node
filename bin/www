@@ -30,6 +30,15 @@ models.sequelize.sync().then(function() {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
+  models.Institute.build({ "name": "Georgia Tech" })
+      .save()
+      .then(function(savedInstitute) {
+          /*console.log("Good");
+          console.log(savedInstitute);*/
+      }).catch(function(error) {
+          console.log("Bad");
+          console.log(error);
+      })
 });
 
 /**

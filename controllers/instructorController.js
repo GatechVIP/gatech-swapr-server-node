@@ -19,11 +19,9 @@ module.exports.createCourse = function(req, res) {
   console.log("Name: " + req.body.name)
   models.Course.create({
       "name": req.body.name,
-      "school": {
+      "institute": {
           "id": req.body.institute
       }
-  }, {
-      "include": [Institute]
   }).then(function(created) {
       var result = {
           "id": created.id,
@@ -34,8 +32,6 @@ module.exports.createCourse = function(req, res) {
       console.log(error);
       return res.status(500).send({ 'error': 'unable to create new course' });
   })
-
-
 };
 
 module.exports.getCourse = function(req, res) {

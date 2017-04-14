@@ -1,9 +1,11 @@
 {
   "development": {
-    "database": "swapr",
-    "username": "swapr",
-    "password": "secret",
-    "dialect": "sqlite",
+
+    "server": "swapr",
+    "database": "swapr_data",
+    "username": "testadmin2",
+    "password": "test",
+    "dialect": "postgresql",
     "storage": ":memory:"
   },
   "test": {

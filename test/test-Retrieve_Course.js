@@ -26,9 +26,8 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     var id = "1";
     var expectedResponseBody = {
       "id": 1,
-      "name": "course1",
-      "institution": "Georgia Tech",
-      "department": "Physics"
+      "name": "Chemistry I",
+      "InstituteId": 1
     };
     request
       .get('/courses/' + id)

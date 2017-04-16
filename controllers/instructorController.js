@@ -112,10 +112,8 @@ module.exports.enrollInSession = function(req, res) {
             models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) }}).then(function(theSession) {
                 console.log('Session: ');
                 console.log(theSession);
-                models.SessionEnrollment.findAll({ 'where': { 'SessionId': parseInt(req.params.sessionId) }}).then(function(allEnrollments) {
-                    /*allEnrollments = allEnrollments.filter(function(e) {
-                        e.SessionId == parseInt(req.params.sessionID);
-                    });*/
+                models.SessionEnrollment.findAll({ 'where': {'SessionId': parseInt(req.params.sessionID)}}).then(function(allEnrollments) {
+                    console.log("done");
                     var response = {
                         "id": theSession.id,
                         "CourseId": theSession.CourseId,
@@ -125,10 +123,10 @@ module.exports.enrollInSession = function(req, res) {
                             return e.UserId;
                         })
                     };
-                    return response;
+                    return res.status(201).send(response);
                 }).catch(function(error) {
-                    console.log(error);
-                    return res.status(400).send({ 'error': 'Unable to enroll in courses' });
+                    console.log(error)
+                    return res.status(400).send({ 'error': 'could not complete enrollment'});
                 })
             }).catch(function(error) {
                 console.log(error);
@@ -141,63 +139,7 @@ module.exports.enrollInSession = function(req, res) {
     }).catch(function(error) {
         console.log(error);
         return res.status(400).send({ 'error': 'Unable to enroll in courses' });
-    })
-    /*var response = {};
-    response["instructors"] = [];
-    response["students"] = [];
-    req.app.locals.db.each("SELECT * FROM session_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(err, row) {
-        console.log(req.params.sessionID);
-        if (err) {
-            return res.send({error: "Enrollment failed"});
-        }
-        if (!row) {
-            return res.send({error: "Enrollment failed"});
-        } else {
-            response["session_id"] = row.session_id;
-            response["course_id"] = row.course_id;
-            response["semester"] = row.semester;
-            response["year"] = row.year;
-            response["status"] = row.status;
-            console.log(response);
-            req.app.locals.db.each("SELECT instructor_id FROM instructor_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(mistake, result) {
-                if (mistake) {
-                    return res.send({error: "Enrollment failed"});
-                }
-                if (!result) {
-                    return res.send({error: "Enrollment failed"});
-                } else {
-                    response["instructors"].push(result.instructor_id);
-                }
-            }, function(mistake2, results) {
-                console.log("Results with instructors: " + results);
-                if (mistake2) {
-                    return res.send({error: "Enrollment failed"});
-                }
-                if (!results) {
-                    return res.send({error: "Enrollment failed"});
-                } else {
-                    console.log("Results with instructors");
-                    console.log(response);
-                    req.app.locals.db.each("SELECT * FROM id_map WHERE username IN (" + req.body.students.map(function() { return '?' }).join(',') + ' )', req.body.students, function(wrong, answer) {
-                        console.log("Student: ");
-                        console.log(answer);
-                        if (wrong) {
-                            return res.send({error: "Enrollment failed"});
-                        }
-                        if (!answer) {
-                            return res.send({error: "Enrollment failed"});
-                        } else {
-                            response.students.push(answer.id);
-                            req.app.locals.db.run("INSERT INTO session_enrollment(student_id, session_id) VALUES (?, ?)", [answer.id, parseInt(req.params.sessionID)]);
-                        }
-                    }, function(wrong2, answers) {
-                        console.log("Answers: " + answers);
-                        return res.send(response);
-                    });
-                }
-            });
-        }
-    });*/
+    });
 };
 
 module.exports.getSession = function(req, res) {
@@ -205,132 +147,61 @@ module.exports.getSession = function(req, res) {
         return res.status(400).send({ 'error': 'invalid id input' });
     }
     models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) } }).then(function(aSession) {
-        var result = {
-          "id": aSession.id,
-          "name": aSession.name,
-          "startDate": aSession.startDate,
-          "endDate": aSession.endDate,
-          "CourseId": aSession.CourseId
-        }
-        console.log('Retrieved course, yoohoo!');
-        return res.status(201).send(result);
+        models.SessionEnrollment.findAll({ 'where': { 'SessionId': parseInt(req.params.sessionID) } }).then(function(enrollments) {
+            var result = {
+              "id": aSession.id,
+              "name": aSession.name,
+              "startDate": aSession.startDate,
+              "endDate": aSession.endDate,
+              "CourseId": aSession.CourseId,
+              "students": enrollments.map(function(d) {
+                  return d.UserId;
+              })
+            };
+            return res.status(201).send(result);
+        }).catch(function(error) {
+            return res.status(400).send({ 'error': 'could not retrieve the course'});
+        })
     }).catch(function(error) {
         console.log(error);
         return res.status(400).send({ 'error': 'could not retrieve the course'});
     });
-    /*var response = {};
-    response["instructors"] = [];
-    response["students"] = [];
-
-    req.app.locals.db.each("SELECT * FROM session_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(err, row) {
-        console.log(req.params.sessionID);
-        if (err) {
-            return res.send({error: "Enrollment failed"});
-        }
-        if (!row) {
-            return res.send({error: "Enrollment failed"});
-        } else {
-            response["session_id"] = row.session_id;
-            response["course_id"] = row.course_id;
-            response["semester"] = row.semester;
-            response["year"] = row.year;
-            response["status"] = row.status;
-            console.log(response);
-            req.app.locals.db.each("SELECT instructor_id FROM instructor_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(mistake, result) {
-                if (mistake) {
-                    return res.send({error: "Enrollment failed"});
-                }
-                if (!result) {
-                    return res.send({error: "Enrollment failed"});
-                } else {
-                    response["instructors"].push(result.instructor_id);
-                }
-            }, function(mistake2, results) {
-                console.log("Results with instructors: " + results);
-                if (mistake2) {
-                    return res.send({error: "Enrollment failed"});
-                }
-                if (!results) {
-                    return res.send({error: "Enrollment failed"});
-                } else {
-                    console.log("Results with instructors");
-                    console.log("Done");
-                    req.app.locals.db.each("SELECT * FROM session_enrollment WHERE session_id = ?", [parseInt(req.params.sessionID)], function(wrong, answer) {
-                        console.log("Student: ");
-                        console.log(answer);
-                        if (wrong) {
-                            return res.send({error: "Enrollment failed"});
-                        }
-                        if (!answer) {
-                            return res.send({error: "Enrollment failed"});
-                        } else {
-                            response.students.push(answer.student_id);
-                            //req.app.locals.db.run("INSERT INTO session_enrollment(student_id, session_id) VALUES (?, ?)", [answer.id, parseInt(req.params.sessionID)]);
-                        }
-                    }, function(wrong2, answers) {
-                        console.log("Answers: " + answers);
-                        return res.status(201).send(response);
-                    });
-                }
-            });
-        }
-    });*/
 };
 
 module.exports.getSessions = function(req, res) {
     if (isNaN(req.params.courseID)) {
         return res.status(400).send({ "error": "Invalid input" });
     }
-    models.SessionEnrollment.findAll().then(function(allSessions) {
-        console.log("done");
-        return res.status(201).send([]);
-    }).catch(function(error) {
-        console.log(error)
-        return res.status(400).send({ 'error': 'could not retrieve the course'});
-    })
-    /*var resultList = [];
-    req.app.locals.db.all("SELECT * FROM SessionInstructors LEFT JOIN SessionStudents ON SessionInstructors.session_id = SessionStudents.session_id WHERE SessionInstructors.course_id = ? UNION ALL SELECT * FROM SessionStudents LEFT JOIN SessionInstructors ON SessionInstructors.session_id = SessionStudents.session_id WHERE (SessionInstructors.instructor_id = NULL) AND  (SessionStudents.course_id = ?)", [parseInt(req.params.courseID), parseInt(req.params.courseID)], function(error, rows) {
-            if (error) {
-                return res.status(400).send({ "error": error.message });
+    models.Session.findAll({ 'where': { 'CourseId': parseInt(req.params.courseID) } }).then(function(sessions) {
+        var sessionIDs = sessions.map(function(d) {
+            return d.id;
+        });
+        models.SessionEnrollment.findAll({
+            'where': {
+                'SessionId': {
+                    '$in': sessionIDs
+                }
             }
-            console.log("Length: " + rows.length);
-
-            var big = rows.map(function(row) {
+        }).then(function(enrollments) {
+            var result = sessions.map(function(d) {
                 return {
-                    session_id: row.session_id,
-                    semester: row.semester,
-                    year: row.year,
-                    status: row.status
+                  "id": d.id,
+                  "name": d.name,
+                  "startDate": d.startDate,
+                  "endDate": d.endDate,
+                  "CourseId": d.CourseId,
+                  "students": enrollments.filter(function(s) {
+                      return s.SessionId === d.id;
+                  }).map(function(s) {
+                      return s.UserId;
+                  })
                 };
             });
-            var sessionsFound = {};
-            big.forEach(function(row) {
-                sessionsFound[row.session_id.toString()] = row;
-            });
-            var sessions = Object.keys(sessionsFound).map(function(row) {
-                return sessionsFound[row];
-            })
-            sessions.forEach(function(row) {
-                var result = {};
-                result["course_id"] = parseInt(req.params.courseID);
-                result["session_id"] = row.session_id;
-                result["semester"] = row.semester;
-                result["year"] = row.year;
-                result["status"] = row.status;
-                result["instructors"] = Array.from(new Set(rows.filter(function(r) {
-                    return r.session_id == row.session_id;
-                }).map(function(r) {
-                    return r.instructor_id;
-                })));
-                result["students"] = Array.from(new Set(rows.filter(function(r) {
-                    return r.session_id == row.session_id;
-                }).map(function(r) {
-                    return r.student_id;
-                })));
-                resultList.push(result);
-                console.log(result);
-            });
-
-            return res.status(201).send(resultList);
-        })*/
+            return res.status(201).send(result);
+        }).catch(function(error) {
+            return res.status(400).send({ 'error': 'could not get the sessions' });
+        })
+    }).catch(function(error) {
+        return res.status(400).send({ 'error': 'could not get the sessions' });
+    })
 };

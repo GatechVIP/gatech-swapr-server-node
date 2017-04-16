@@ -112,10 +112,10 @@ module.exports.enrollInSession = function(req, res) {
             models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) }}).then(function(theSession) {
                 console.log('Session: ');
                 console.log(theSession);
-                models.SessionEnrollment.findAll().then(function(allEnrollments) {
-                    allEnrollments = allEnrollments.filter(function(e) {
+                models.SessionEnrollment.findAll({ 'where': { 'SessionId': parseInt(req.params.sessionId) }}).then(function(allEnrollments) {
+                    /*allEnrollments = allEnrollments.filter(function(e) {
                         e.SessionId == parseInt(req.params.sessionID);
-                    });
+                    });*/
                     var response = {
                         "id": theSession.id,
                         "CourseId": theSession.CourseId,
@@ -145,7 +145,6 @@ module.exports.enrollInSession = function(req, res) {
     /*var response = {};
     response["instructors"] = [];
     response["students"] = [];
-
     req.app.locals.db.each("SELECT * FROM session_map WHERE session_id = ?", [parseInt(req.params.sessionID)], function(err, row) {
         console.log(req.params.sessionID);
         if (err) {
@@ -205,7 +204,21 @@ module.exports.getSession = function(req, res) {
     if (isNaN(req.params.courseID) || isNaN(req.params.sessionID)) {
         return res.status(400).send({ 'error': 'invalid id input' });
     }
-    var response = {};
+    models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) } }).then(function(aSession) {
+        var result = {
+          "id": aSession.id,
+          "name": aSession.name,
+          "startDate": aSession.startDate,
+          "endDate": aSession.endDate,
+          "CourseId": aSession.CourseId
+        }
+        console.log('Retrieved course, yoohoo!');
+        return res.status(201).send(result);
+    }).catch(function(error) {
+        console.log(error);
+        return res.status(400).send({ 'error': 'could not retrieve the course'});
+    });
+    /*var response = {};
     response["instructors"] = [];
     response["students"] = [];
 
@@ -261,22 +274,27 @@ module.exports.getSession = function(req, res) {
                 }
             });
         }
-    });
+    });*/
 };
 
 module.exports.getSessions = function(req, res) {
     if (isNaN(req.params.courseID)) {
         return res.status(400).send({ "error": "Invalid input" });
     }
-    var resultList = [];
+    models.SessionEnrollment.findAll().then(function(allSessions) {
+        console.log("done");
+        return res.status(201).send([]);
+    }).catch(function(error) {
+        console.log(error)
+        return res.status(400).send({ 'error': 'could not retrieve the course'});
+    })
+    /*var resultList = [];
     req.app.locals.db.all("SELECT * FROM SessionInstructors LEFT JOIN SessionStudents ON SessionInstructors.session_id = SessionStudents.session_id WHERE SessionInstructors.course_id = ? UNION ALL SELECT * FROM SessionStudents LEFT JOIN SessionInstructors ON SessionInstructors.session_id = SessionStudents.session_id WHERE (SessionInstructors.instructor_id = NULL) AND  (SessionStudents.course_id = ?)", [parseInt(req.params.courseID), parseInt(req.params.courseID)], function(error, rows) {
             if (error) {
                 return res.status(400).send({ "error": error.message });
             }
             console.log("Length: " + rows.length);
-            /*rows.forEach(function(row) {
-                console.log(row);
-            });*/
+
             var big = rows.map(function(row) {
                 return {
                     session_id: row.session_id,
@@ -314,5 +332,5 @@ module.exports.getSessions = function(req, res) {
             });
 
             return res.status(201).send(resultList);
-        })
+        })*/
 };

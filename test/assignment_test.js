@@ -10,7 +10,7 @@ describe ('Making a submission assignment', function() {
         "assigner": "chris wang setup script",
         'course': 1,
         'description': 'submission assignment number 1 for courseNumber 1',
-        'due_date': datetime.datetime(2014, 1, 2, 0, 0),
+        'due_date': new Date(2014, 1, 2, 0, 0).toISOString(),
         'type': 'submission'
       };
       request(url)
@@ -38,7 +38,7 @@ describe ('Making an evaluation assignment', function() {
     var requestBody = {
       'course': 1,
       'description': 'evaluation assignment submission assignment number 1',
-      'due_date': datetime.datetime(2014, 1, 2, 0, 0),
+      'due_date': new Date(2014, 1, 2, 0, 0).toISOString(),
       'items': [
           {'max_value': 5,
             'question': 'item #1 for assignment number: 2 for class number 1'},

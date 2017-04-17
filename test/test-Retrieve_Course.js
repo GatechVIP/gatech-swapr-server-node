@@ -12,10 +12,8 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.status.should.be.exactly(400);
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });
@@ -25,24 +23,17 @@ describe('Retrieve a Course', function testRetrieveCourse() {
 
   it('should return information about the course with the specified id',
       function(done) {
-    var id = "5";
+    var id = "1";
     var expectedResponseBody = {
-      "id": 5,
-      "name": "course5",
-      "instructor": 1,
-      "semester": "spring",
-      "year": 2015,
-      "active": true,
+      "id": 1,
+      "name": "course1",
       "institution": "Georgia Tech",
-      "department": "Physics",
-      "students": [
-        1, 5, 6, 8, 2
-      ]
+      "department": "Physics"
     };
     request
       .get('/courses/' + id)
-      .expect(200, expectedResponseBody)
-      .expect('Content-Type', 'application/json')
+      .expect(201, expectedResponseBody)
+      .expect('Content-Type', 'application/json; charset=utf-8')
       .end(function(err, res) {
         if (err) {
           return done(err);
@@ -57,10 +48,8 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     request
       .get('/courses/' + id)
       .end(function expectErrorResponse(err, res) {
-        res.should.have.status(400);
-        res.should.have.body({
-          "error": "invalid course id"
-        });
+        res.status.should.be.exactly(404);
+        res.body.should.have.property('error', 'invalid course id');
         done();
       });
   });

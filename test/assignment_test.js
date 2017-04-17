@@ -20,7 +20,7 @@ describe ('Making a submission assignment', function() {
               if (err) {
                   throw err;
               }
-              res.should.have.status(201);
+              res.status.should.be.exactly(201);
               res.body.course.should.equal(1);
               res.body.description.should.equal('submission assignment number 1 for courseNumber 1');
               res.body.due_date.should.equal('2014-01-02T00:00:00-04:56');
@@ -59,7 +59,7 @@ describe ('Making an evaluation assignment', function() {
           if (err) {
               throw err;
           }
-          res.should.have.status(201);
+          res.status.should.be.exactly(201);
           res.body.course.should.equal(1);
           res.body.description.should.equal('evaluation assignment submission assignment number 1');
           res.body.due_date.should.equal("2014-01-02T04:56:00Z");
@@ -77,7 +77,7 @@ describe('Listing all assignments', function() {
     request(url)
       .get('/assignments')
       .end(function(err, res) {
-          res.should.have.status(200);
+          res.status.should.be.exactly(200);
           res.body.length.should.equal(2);
           res.body[0].id.should.equal(1);
           res.body[0].swaprinstructor.should.equal(1);
@@ -107,7 +107,7 @@ describe('Getting one assignment', function() {
     request(url)
       .get('/assignments/2')
       .end(function(err, res) {
-          res.should.have.status(200);
+          res.status.should.be.exactly(200);
           res.body.id.should.equal(2);
           res.body.swaprinstructor.should.equal(1);
           res.body.description.should.equal("evaluation assignment submission assignment number 1");
@@ -142,7 +142,7 @@ describe('Getting one assignment', function() {
     request(url)
       .get('/assignments/420')
       .end(function(err, res) {
-        res.should.have.status(404);
+        res.status.should.be.exactly(404);
         done();
       });
   });
@@ -151,7 +151,7 @@ describe('Getting one assignment', function() {
     request(url)
       .get('/assignments/ayandas')
       .end(function(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });

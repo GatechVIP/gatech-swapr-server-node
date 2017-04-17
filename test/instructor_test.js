@@ -14,7 +14,7 @@ describe('Instructor Creation', function() {
       .post("/swaprinstructors")
       .send(reqBody)
       .end(function(err, res) {
-        res.should.have.status(201);
+        res.status.should.be.exactly(201);
         done();
       });
   });
@@ -29,7 +29,7 @@ describe('Instructor Creation', function() {
       .post("/swaprinstructors")
       .send(reqBody)
       .end(function(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });
@@ -44,7 +44,7 @@ describe('Instructor Creation', function() {
       .post("/swaprinstructors")
       .send(reqBody)
       .end(function(err, res) {
-        res.should.have.status(400);
+        res.status.should.be.exactly(400);
         done();
       });
   });

@@ -1,3 +1,4 @@
+var debug = require('debug')('instructorController');
 var models = require('../models');
 
 module.exports.createCourse = function(req, res) {
@@ -8,7 +9,7 @@ module.exports.createCourse = function(req, res) {
 
   //var Institute = models.Course.belongsTo(models.Institute, {as: 'school'});
 
-  console.log("Name: " + req.body.name)
+  debug("Name: " + req.body.name)
   models.Course.create({
       "name": req.body.name,
       "InstituteId": req.body.institute,
@@ -16,8 +17,8 @@ module.exports.createCourse = function(req, res) {
           "id": req.body.institute
       }
   }).then(function(created) {
-      console.log("Created:")
-      console.log(created);
+      debug("Created:")
+      debug(created);
       var result = {
           "id": created.id,
           "name": created.name,
@@ -25,7 +26,7 @@ module.exports.createCourse = function(req, res) {
       }
       return res.status(201).send(result);
   }).catch(function(error) {
-      console.log(error);
+      debug(error);
       return res.status(500).send({ 'error': 'unable to create new course' });
   })
 };
@@ -43,7 +44,7 @@ module.exports.getCourse = function(req, res) {
         }
         return res.status(201).send(result);
     }).catch(function(error) {
-        console.log(error);
+        debug(error);
         return res.status(500).send({ 'error': 'could not get a course' });
     });
 };
@@ -95,8 +96,8 @@ module.exports.enrollInSession = function(req, res) {
     models.User.findAll({ 'where': {
         'username': { '$in': req.body.students}
     }}).then(function(students) {
-        console.log("Students: ");
-        console.log(students);
+        debug("Students: ");
+        debug(students);
         var enrollments = students.map(function(student) {
             return {
                 'SessionId': parseInt(req.params.sessionID),
@@ -104,16 +105,16 @@ module.exports.enrollInSession = function(req, res) {
             }
         });
         models.SessionEnrollment.bulkCreate(enrollments).then(function(sessionEnrollments) {
-            console.log('Finished enrollment');
+            debug('Finished enrollment');
             sessionEnrollments.forEach(function(s) {
-                console.log(s);
+                debug(s);
             })
 
             models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) }}).then(function(theSession) {
-                console.log('Session: ');
-                console.log(theSession);
+                debug('Session: ');
+                debug(theSession);
                 models.SessionEnrollment.findAll({ 'where': {'SessionId': parseInt(req.params.sessionID)}}).then(function(allEnrollments) {
-                    console.log("done");
+                    debug("done");
                     var response = {
                         "id": theSession.id,
                         "CourseId": theSession.CourseId,
@@ -125,19 +126,19 @@ module.exports.enrollInSession = function(req, res) {
                     };
                     return res.status(201).send(response);
                 }).catch(function(error) {
-                    console.log(error)
+                    debug(error)
                     return res.status(400).send({ 'error': 'could not complete enrollment'});
                 })
             }).catch(function(error) {
-                console.log(error);
+                debug(error);
                 return res.status(400).send({ 'error': 'Unable to enroll in courses' });
             })
         }).catch(function(error) {
-            console.log(error);
+            debug(error);
             return res.status(400).send({ 'error': 'Unable to enroll in courses' });
         })
     }).catch(function(error) {
-        console.log(error);
+        debug(error);
         return res.status(400).send({ 'error': 'Unable to enroll in courses' });
     });
 };
@@ -163,7 +164,7 @@ module.exports.getSession = function(req, res) {
             return res.status(400).send({ 'error': 'could not retrieve the course'});
         })
     }).catch(function(error) {
-        console.log(error);
+        debug(error);
         return res.status(400).send({ 'error': 'could not retrieve the course'});
     });
 };

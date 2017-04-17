@@ -20,7 +20,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('dev', {'skip': function(req, res) { return process.env.NODE_ENV === 'test' } }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -31,25 +31,6 @@ app.use('/', routes);
 app.use('/swaprusers', users);
 app.use('/courses', courses);
 app.use('/api-token-auth', apiAuth);
-
-//console.log(models.Institute);
-
-/*models.Institute.create({"name": "Georgia Tech"})
-    .then(function(created) {
-        console.log("institute");
-        console.log(created);
-    }).catch(function(error) {
-        console.log(error);
-    })*/
-/*models.Institute.build({ "name": "Georgia Tech" })
-    .save()
-    .then(function(savedInstitute) {
-        console.log("Good");
-        console.log(savedInstitute);
-    }).catch(function(error) {
-        console.log("Bad");
-        console.log(error);
-    })*/
 
 // use EJS as the default view engine
 app.set('view engine', 'ejs');

@@ -5,6 +5,7 @@ node_js:
   - "7.4.0"
 
 before_script:
+  - export NODE_ENV=test
   - mkdir -p shippable/testresults
 
 script:

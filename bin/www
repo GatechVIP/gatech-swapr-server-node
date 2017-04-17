@@ -35,10 +35,26 @@ models.sequelize.sync().then(function() {
   models.Institute.build({ "name": "Georgia Tech" }).save()
   models.Course.build({ "name": "Chemistry I", "InstituteId": 1 }).save();
   models.Course.build({ "name": "Physics I", "InstituteId": 1}).save();
-  models.Session.build({ "name": "Chemistry- Fall 2017", "startDate": "2017-08-21T16:00:00.000Z",
+  models.Session.build({ "name": "Chemistry I- Fall 2017", "startDate": "2017-08-21T16:00:00.000Z",
       "endDate": "2017-12-11T16:00:00.000Z", "CourseId": 1 }).save();
-  models.Session.build({ "name": "Chemistry- Spring 2018", "startDate": "2018-01-11T16:00:00.000Z",
+  models.Session.build({ "name": "Chemistry I- Spring 2018", "startDate": "2018-01-11T16:00:00.000Z",
       "endDate": "2018-05-05T16:00:00.000Z", "CourseId": 1 }).save();
+  models.Exercise.build({ "name": "Stoichiometry Lab Video Evaluation",
+      "type": "Evaluation", "numGraders": 4, "prompt": "Evaluate this video",
+      "CourseId": 1 }).save();
+  models.Exercise.build({ "name": "Thermochemistry Lab Video Submission",
+      "type": "Submission", "numGraders": 0, "prompt": "Submit your video",
+      "CourseId": 1}).save()
+  models.Assignment.build({ "openDate": "2017-01-19T16:00:00.000Z",
+      "closeDate": "2017-02-02T16:00:00.000Z", "SessionId": 1, "ExerciseId": 1 }).save();
+  models.Assignment.build({ "openDate": "2017-02-14T16:00:00.000Z",
+      "closeDate": "2017-03-07T16:00:00.000Z", "SessionId": 2, "ExerciseId": 2 }).save();
+  models.Assignment.build({ "openDate": "2017-04-01T16:00:00.000Z",
+      "closeDate": "2017-04-19T16:00:00.000Z", "SessionId": 1, "ExerciseId": 2 }).save();
+  models.Assignment.build({ "openDate": "2017-04-14T16:00:00.000Z",
+      "closeDate": "2017-04-27T16:00:00.000Z", "SessionId": 2, "ExerciseId": 1}).save();
+  models.Assignment.build({ "openDate": "2017-04-16T16:00:00.000Z",
+      "closeDate": "2017-04-30T16:00:00.000Z", "SessionId": 1, "ExerciseId": 1}).save();
   var user1 = { "username": "adas62", "first_name": "Ayan", "last_name": "Das",
       "email": "adas62@gatech.edu" };
   var user2 = { "username": "djones", "first_name": "Daniel", "last_name": "Jones",
@@ -112,9 +128,6 @@ models.sequelize.sync().then(function() {
     }
   });
 
-  /*models.SessionEnrollment.build({ "SessionId": 1, "UserId": 2}).save();
-  models.SessionEnrollment.build({ "SessionId": 2, "UserId": 3}).save();
-  models.SessionEnrollment.build({ "SessionId": 2, "UserId": 4}).save();*/
 });
 
 /**

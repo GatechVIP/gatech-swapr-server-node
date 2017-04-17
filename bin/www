@@ -33,28 +33,64 @@ models.sequelize.sync().then(function() {
   server.on('error', onError);
   server.on('listening', onListening);
   models.Institute.build({ "name": "Georgia Tech" }).save()
+
   models.Course.build({ "name": "Chemistry I", "InstituteId": 1 }).save();
   models.Course.build({ "name": "Physics I", "InstituteId": 1}).save();
-  models.Session.build({ "name": "Chemistry I- Fall 2017", "startDate": "2017-08-21T16:00:00.000Z",
-      "endDate": "2017-12-11T16:00:00.000Z", "CourseId": 1 }).save();
-  models.Session.build({ "name": "Chemistry I- Spring 2018", "startDate": "2018-01-11T16:00:00.000Z",
-      "endDate": "2018-05-05T16:00:00.000Z", "CourseId": 1 }).save();
+
+  models.Session.build({ "name": "Chemistry I- Spring 2017 (Section A)", "startDate": "2017-01-10T16:00:00.000Z",
+      "endDate": "2017-05-04T16:00:00.000Z", "CourseId": 1 }).save();
+  models.Session.build({ "name": "Chemistry I- Spring 2017 (Section B)", "startDate": "2017-01-10T16:00:00.000Z",
+      "endDate": "2017-05-04T16:00:00.000Z", "CourseId": 1 }).save();
+  models.Session.build({ "name": "Physics I- Spring 2017 (Section A)", "startDate": "2017-01-10T16:00:00.000Z",
+      "endDate": "2017-05-04T16:00:00.000Z", "CourseId": 2 }).save();
+  models.Session.build({ "name": "Physics I- Spring 2017 (Section B)", "startDate": "2017-01-10T16:00:00.000Z",
+      "endDate": "2017-05-04T16:00:00.000Z", "CourseId": 2 }).save();
+
   models.Exercise.build({ "name": "Stoichiometry Lab Video Evaluation",
       "type": "Evaluation", "numGraders": 4, "prompt": "Evaluate this video",
       "CourseId": 1 }).save();
   models.Exercise.build({ "name": "Thermochemistry Lab Video Submission",
       "type": "Submission", "numGraders": 0, "prompt": "Submit your video",
       "CourseId": 1}).save()
+  models.Exercise.build({ "name": "Forces Lab Video Submission",
+      "type": "Submission", "numGraders": 0, "prompt": "Submit your video",
+      "CourseId": 2}).save();
+  models.Exercise.build({ "name": "Electromagnetism Lab Video Evaluation",
+      "type": "Evaluation", "numGraders": 5, "prompt": "Evaluate this video",
+      "CourseId": 2}).save();
+
+  // Inactive
   models.Assignment.build({ "openDate": "2017-01-19T16:00:00.000Z",
       "closeDate": "2017-02-02T16:00:00.000Z", "SessionId": 1, "ExerciseId": 1 }).save();
+
+  // Inactive
   models.Assignment.build({ "openDate": "2017-02-14T16:00:00.000Z",
       "closeDate": "2017-03-07T16:00:00.000Z", "SessionId": 2, "ExerciseId": 2 }).save();
-  models.Assignment.build({ "openDate": "2017-04-01T16:00:00.000Z",
-      "closeDate": "2017-04-19T16:00:00.000Z", "SessionId": 1, "ExerciseId": 2 }).save();
+
+  // Inactive
+  models.Assignment.build({ "openDate": "2017-01-23T16:00:00.000Z",
+      "closeDate": "2017-02-15T16:00:00.000Z", "SessionId": 3, "ExerciseId": 3 }).save();
+
+  // Inactive
+  models.Assignment.build({ "openDate": "2017-01-23T16:00:00.000Z",
+      "closeDate": "2017-02-15T16:00:00.000Z", "SessionId": 4, "ExerciseId": 4 }).save();
+
+  // Active
   models.Assignment.build({ "openDate": "2017-04-14T16:00:00.000Z",
-      "closeDate": "2017-04-27T16:00:00.000Z", "SessionId": 2, "ExerciseId": 1}).save();
+      "closeDate": "2017-04-27T16:00:00.000Z", "SessionId": 4, "ExerciseId": 4}).save();
+
+  // Active
   models.Assignment.build({ "openDate": "2017-04-16T16:00:00.000Z",
       "closeDate": "2017-04-30T16:00:00.000Z", "SessionId": 1, "ExerciseId": 1}).save();
+
+  // Active
+  models.Assignment.build({ "openDate": "2017-03-16T16:00:00.000Z",
+      "closeDate": "2017-04-30T16:00:00.000Z", "SessionId": 2, "ExerciseId": 1}).save();
+
+  // Active
+  models.Assignment.build({ "openDate": "2017-04-16T16:00:00.000Z",
+      "closeDate": "2017-05-03T16:00:00.000Z", "SessionId": 3, "ExerciseId": 3}).save();
+
   var user1 = { "username": "adas62", "first_name": "Ayan", "last_name": "Das",
       "email": "adas62@gatech.edu" };
   var user2 = { "username": "djones", "first_name": "Daniel", "last_name": "Jones",
@@ -75,6 +111,7 @@ models.sequelize.sync().then(function() {
               user1['token'] = jwt.sign(user1, 'app_secret');
               models.User.build(user1).save();
               models.SessionEnrollment.build({ "SessionId": 1, "UserId": 1}).save();
+              models.SessionEnrollment.build({ "SessionId": 2, "UserId": 1}).save();
             }
         });
       }
@@ -90,7 +127,9 @@ models.sequelize.sync().then(function() {
             user2['password']= hash;
             user2['token'] = jwt.sign(user2, 'app_secret');
             models.User.build(user2).save();
-            models.SessionEnrollment.build({ "SessionId": 1, "UserId": 2}).save()
+            models.SessionEnrollment.build({ "SessionId": 1, "UserId": 2}).save();
+            models.SessionEnrollment.build({ "SessionId": 3, "UserId": 2}).save();
+            models.SessionEnrollment.build({ "SessionId": 4, "UserId": 2}).save();
           }
         });
       }
@@ -107,6 +146,7 @@ models.sequelize.sync().then(function() {
           user3['token'] = jwt.sign(user3, 'app_secret');
           models.User.build(user3).save();
           models.SessionEnrollment.build({ "SessionId": 2, "UserId": 3}).save();
+          models.SessionEnrollment.build({ "SessionId": 4, "UserId": 3}).save();
         }
       });
     }
@@ -123,6 +163,7 @@ models.sequelize.sync().then(function() {
           user4['token'] = jwt.sign(user4, 'app_secret');
           models.User.build(user4).save();
           models.SessionEnrollment.build({ "SessionId": 2, "UserId": 4}).save();
+          models.SessionEnrollment.build({ "SessionId": 3, "UserId": 4}).save();
         }
       });
     }

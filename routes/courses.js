@@ -4,7 +4,7 @@ var instructorController = require('../controllers/instructorController');
 
 /* List ALL Courses */
 router.route('/')
-  .get();
+  .get(instructorController.getAllCourses);
 
 /* Create Course */
 router.route('/')
@@ -17,8 +17,14 @@ router.route('/:courseID')
 router.route('/:courseID/sessions')
   .post(instructorController.createSession);
 
+router.route('/:courseID/sessions')
+  .get(instructorController.getSessions);
+
 router.route('/:courseID/sessions/:sessionID')
   .post(instructorController.enrollInSession);
+
+router.route('/:courseID/sessions/:sessionID')
+    .get(instructorController.getSession);
 
 
 module.exports = router;

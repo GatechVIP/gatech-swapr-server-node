@@ -4,28 +4,46 @@ var request = require('supertest');
 
 var url = 'http://localhost:3000';
 
-describe('Auth Token', function() {
-  it('should return a correct token when passed a correct username and password', function(done) {
-    var reqBody = {
-      "username": 'user_1',
-      "password": 'a'
-    };
+var testUser = {
+    'username': 'tokenTester',
+    'first_name': 'Token',
+    'last_name': 'Tester',
+    'email': 'token@example.com',
+    'password': 'tokenpass'
+};
+
+before(function(done) {
+    // Set up a test user
     request(url)
-      .post("/api-token-auth")
-      .send(reqBody)
-      .end(function(err, res) {
-        if (err) {
-          throw err;
-        }
-        res.status.should.be.exactly(201);
-        res.body.token.should.equal('reirnb');
-        done();
-      });
-  });
+        .post('/swaprusers')
+        .send(testUser)
+        .expect(201)
+        .end(done);
+});
+
+describe('Auth Token', function() {
+    it('should return a correct token when passed a correct username and password', function(done) {
+
+        var reqBody = {
+            'username': testUser.username,
+            'password': testUser.password
+        };
+        request(url)
+            .post('/api-token-auth')
+            .send(reqBody)
+            .end(function(err, res) {
+                if (err) {
+                    throw err;
+                }
+                res.status.should.be.exactly(201);
+                //res.body.token.should.equal('reirnb');
+                done();
+            });
+    });
 
   it ('should not return a token for a nonexistent user', function(done) {
     var reqBody = {
-      "username": "user_5",
+      "username": "notAUser",
       "password": 'sl88d9'
     };
     request(url)
@@ -42,7 +60,7 @@ describe('Auth Token', function() {
 
   it ('should not return a token for an incorrect password', function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": 'slatdc41a'
     };
     request(url)
@@ -76,7 +94,7 @@ describe('Auth Token', function() {
 
   it ("should not return a token for providing no password", function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": ""
     };
     request(url)
@@ -110,7 +128,7 @@ describe('Auth Token', function() {
 
   it ('should not allow any kind of access for entering an inappropriate data type for username (test 1)', function(done) {
     var reqBody = {
-      "username": ["user_1", "user_2", "user_3", "user_4"],
+      "username": [testUser.username, "user_2", "user_3", "user_4"],
       "password": 'sl88d9'
     };
     request(url)
@@ -178,7 +196,7 @@ describe('Auth Token', function() {
 
   it ('should not allow any kind of access for entering an inappropriate data type for password (test 1)', function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": ["sl88d9", 'j7jwtsdf', 'qrwefag', 'f23q5th']
     };
     request(url)
@@ -195,7 +213,7 @@ describe('Auth Token', function() {
 
   it ('should not allow any kind of access for entering an inappropriate data type for password (test 2)', function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": 61209837480921
     };
     request(url)
@@ -212,7 +230,7 @@ describe('Auth Token', function() {
 
   it ('should not allow any kind of access for entering an inappropriate data type for password (test 3)', function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": true
     };
     request(url)
@@ -229,7 +247,7 @@ describe('Auth Token', function() {
 
   it ('should not allow any kind of access for entering an inappropriate data type for password (test 4)', function(done) {
     var reqBody = {
-      "username": "user_1",
+      "username": testUser.username,
       "password": {}
     };
     request(url)

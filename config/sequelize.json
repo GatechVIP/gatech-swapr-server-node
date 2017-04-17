@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "swapr",
+    "username": "swapr",
+    "password": "secret",
+    "dialect": "sqlite",
+    "storage": ":memory:"
+  },
+  "test": {
+    "database": "swapr",
+    "username": "swapr",
+    "password": "secret",
+    "dialect": "sqlite",
+    "storage": ":memory:",
+    "logging": false
+  }
+}

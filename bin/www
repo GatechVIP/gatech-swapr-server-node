@@ -32,6 +32,8 @@ models.sequelize.sync().then(function() {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
+
+  // TODO remove this when we have a better way of creating institutes
   models.Institute.build({ "name": "Georgia Tech" }).save()
 
   models.Course.build({ "name": "Chemistry I", "InstituteId": 1 }).save();
@@ -168,7 +170,6 @@ models.sequelize.sync().then(function() {
       });
     }
   });
-
 });
 
 /**

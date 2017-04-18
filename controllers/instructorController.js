@@ -1,3 +1,4 @@
+var debug = require('debug')('instructorController');
 var models = require('../models');
 
 module.exports.createCourse = function(req, res) {
@@ -6,9 +7,7 @@ module.exports.createCourse = function(req, res) {
       return res.status(500).send({ 'error': 'unable to create new course' });
   }
 
-  //var Institute = models.Course.belongsTo(models.Institute, {as: 'school'});
 
-  //debug("Name: " + req.body.name)
   models.Course.create({
       "name": req.body.name,
       "InstituteId": req.body.institute,
@@ -16,8 +15,6 @@ module.exports.createCourse = function(req, res) {
           "id": req.body.institute
       }
   }).then(function(created) {
-      /*debug("Created:")
-      debug(created);*/
       var result = {
           "id": created.id,
           "name": created.name,
@@ -95,8 +92,6 @@ module.exports.enrollInSession = function(req, res) {
     models.User.findAll({ 'where': {
         'username': { '$in': req.body.students}
     }}).then(function(students) {
-        /*debug("Students: ");
-        debug(students);*/
         var enrollments = students.map(function(student) {
             return {
                 'SessionId': parseInt(req.params.sessionID),
@@ -104,16 +99,9 @@ module.exports.enrollInSession = function(req, res) {
             }
         });
         models.SessionEnrollment.bulkCreate(enrollments).then(function(sessionEnrollments) {
-            //debug('Finished enrollment');
-            /*sessionEnrollments.forEach(function(s) {
-                debug(s);
-            })*/
 
             models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) }}).then(function(theSession) {
-                /*debug('Session: ');
-                debug(theSession);*/
                 models.SessionEnrollment.findAll({ 'where': {'SessionId': parseInt(req.params.sessionID)}}).then(function(allEnrollments) {
-                    //debug("done");
                     var response = {
                         "id": theSession.id,
                         "CourseId": theSession.CourseId,

@@ -1,3 +1,4 @@
+var debug = require('debug')('authController');
 var models = require('../models');
 var bcrypt = require('bcrypt-nodejs');
 
@@ -10,7 +11,7 @@ module.exports.getToken = function(req, res) {
   }
   models.User.findOne({'where': {'username': req.body.username}}).then(function(user) {
       if (!user) {
-          console.log('No user');
+          debug('No user');
           return res.status(404).send({ "error": "Token could not be retrieved" });
       } else {
           bcrypt.compare(req.body.password, user.password, function(error, isMatch) {
@@ -26,7 +27,7 @@ module.exports.getToken = function(req, res) {
           });
       }
   }).catch(function(err) {
-      console.log(err);
+      debug(err);
       return res.status(400).send({ "error": "Token could not be retrieved" });
   });
 

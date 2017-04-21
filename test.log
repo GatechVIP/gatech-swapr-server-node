@@ -1,0 +1,1045 @@
+(node:42316) DeprecationWarning: child_process: options.customFds option is deprecated. Use options.stdio instead.
+
+  [31m․[0m[31m․[0m[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0m[31m․[0m[31m․[0m[36m․[0m[31m․[0m[36m․[0m[36m․[0m[36m․[0m[36m․[0m[36m․[0m[36m․[0m[36m․[0m[31m․[0m[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0m[31m․[0m[31m․[0m[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[36m․[0m[31m․[0mdouble callback!
+[36m․[0m[31m․[0m[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+
+  [31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+[31m․[0mdouble callback!
+
+
+[92m [0m[32m 0 passing[0m[90m (157ms)[0m
+[36m [0m[36m 10 pending[0m
+[31m  60 failing[0m
+
+[0m  1) Making a submission assignment Should create a submission assignment:
+[0m[31m     ReferenceError: datetime is not defined[0m[90m
+      at Context.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/assignment_test.js:13:21)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:204:15)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:378:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:456:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:303:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:313:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:251:23)
+      at Immediate.<anonymous> (/usr/local/lib/node_modules/mocha/lib/runner.js:280:5)
+      at runCallback (timers.js:649:20)
+      at tryOnImmediate (timers.js:622:5)
+      at processImmediate [as _immediateCallback] (timers.js:594:5)
+[0m
+[0m  2) Making an evaluation assignment Should create an evaluation assignment:
+[0m[31m     ReferenceError: datetime is not defined[0m[90m
+      at Context.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/assignment_test.js:41:19)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:204:15)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:378:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:456:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:303:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:313:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:251:23)
+      at Immediate.<anonymous> (/usr/local/lib/node_modules/mocha/lib/runner.js:280:5)
+      at runCallback (timers.js:649:20)
+      at tryOnImmediate (timers.js:622:5)
+      at processImmediate [as _immediateCallback] (timers.js:594:5)
+[0m
+[0m  3) Listing all assignments should return all assignments as listed:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/assignment_test.js:80:14)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  4) Getting one assignment Should return all details related to a valid assignment in the system:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/assignment_test.js:110:14)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  5) Getting one assignment Should return a 404 error for a non-existent item number:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/assignment_test.js:145:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  6) Getting one assignment Should return a 400 error for a non-numerical id placed in the URL:
+[0m[31m     Uncaught Error: SQLITE_ERROR: no such table: id_map[0m[90m
+      at Error (native)
+[0m
+[0m  7) Course Listing should return information about all courses and which students are taking them:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/course_listing_test.js:12:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  8) Instructor Creation should allow addition of new username:
+[0m[31m     ReferenceError: url is not defined[0m[90m
+      at Context.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/instructor_test.js:13:13)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:204:15)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:378:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:456:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:303:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:313:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:251:23)
+      at Immediate.<anonymous> (/usr/local/lib/node_modules/mocha/lib/runner.js:280:5)
+      at runCallback (timers.js:649:20)
+      at tryOnImmediate (timers.js:622:5)
+      at processImmediate [as _immediateCallback] (timers.js:594:5)
+[0m
+[0m  9) Instructor Creation should not allow insert of existing username:
+[0m[31m     ReferenceError: url is not defined[0m[90m
+      at Context.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/instructor_test.js:28:13)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:204:15)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:378:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:456:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:303:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:313:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:251:23)
+      at Immediate.<anonymous> (/usr/local/lib/node_modules/mocha/lib/runner.js:280:5)
+      at runCallback (timers.js:649:20)
+      at tryOnImmediate (timers.js:622:5)
+      at processImmediate [as _immediateCallback] (timers.js:594:5)
+[0m
+[0m  10) Instructor Creation should not allow insert of blank username:
+[0m[31m     ReferenceError: url is not defined[0m[90m
+      at Context.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/instructor_test.js:43:13)
+      at Test.Runnable.run (/usr/local/lib/node_modules/mocha/lib/runnable.js:204:15)
+      at Runner.runTest (/usr/local/lib/node_modules/mocha/lib/runner.js:378:10)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:456:12
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:303:14)
+      at /usr/local/lib/node_modules/mocha/lib/runner.js:313:7
+      at next (/usr/local/lib/node_modules/mocha/lib/runner.js:251:23)
+      at Immediate.<anonymous> (/usr/local/lib/node_modules/mocha/lib/runner.js:280:5)
+      at runCallback (timers.js:649:20)
+      at tryOnImmediate (timers.js:622:5)
+      at processImmediate [as _immediateCallback] (timers.js:594:5)
+[0m
+[0m  11) Create Course returns id, name, institution, and department of new course when given valid input:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  12) Create SWAPRUser returns username, first_name, last_name, and email when given valid input for those fields along with a password:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  13) Create SWAPRUser returns an error when a duplicate username is input:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:52:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  14) Create SWAPRUser returns an error when a duplicate email is input:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:72:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  15) Create SWAPRUser allows duplicate passwords:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  16) Create SWAPRUser allows duplicate first_names:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  17) Create SWAPRUser allows duplicate last_names:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  18) Create SWAPRUser requires that a username be provided:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:179:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  19) Create SWAPRUser requires that a first_name be provided:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:199:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  20) Create SWAPRUser requires that a last_name be provided:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:219:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  21) Create SWAPRUser requires that an email address be provided:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:239:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  22) Create SWAPRUser requires that the email address input take the form of an email address:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:260:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  23) Create SWAPRUser returns an error when given an empty password field:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:280:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  24) Create SWAPRUser does not accept numerical values as inputs for username:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:300:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  25) Create SWAPRUser does not accept boolean values as inputs for username:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:320:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  26) Create SWAPRUser does not accept arrays as inputs for username:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:340:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  27) Create SWAPRUser does not accept numerical values as inputs for first_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:360:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  28) Create SWAPRUser does not accept boolean values as inputs for first_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:380:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  29) Create SWAPRUser does not accept arrays as inputs for first_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:400:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  30) Create SWAPRUser does not accept numerical values as inputs for last_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:420:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  31) Create SWAPRUser does not accept boolean values as inputs for last_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:440:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  32) Create SWAPRUser does not accept arrays as inputs for last_name:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:460:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  33) Create SWAPRUser does not accept numerical values as inputs for email:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:480:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  34) Create SWAPRUser does not accept boolean values as inputs for email:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:500:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  35) Create SWAPRUser does not accept arrays as inputs for email:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:520:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  36) Create SWAPRUser does not accept numerical values as inputs for password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:540:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  37) Create SWAPRUser does not accept boolean values as inputs for password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:560:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  38) Create SWAPRUser does not accept arrays as inputs for password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:580:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  39) Create SWAPRUser does not allow username to be undefined:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:599:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  40) Create SWAPRUser does not allow first_name to be undefined:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:618:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  41) Create SWAPRUser does not allow last_name to be undefined:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:637:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  42) Create SWAPRUser does not allow email to be undefined:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:656:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  43) Create SWAPRUser does not allow password to be undefined:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Create_SWAPRUser.js:675:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  44) Retrieve a Course returns an error if given a non-numeric string for id:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Retrieve_Course.js:15:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  45) Retrieve a Course should return information about the course with the specified id:
+[0m[31m     Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  46) Retrieve a Course returns an error if no course exists with the given id:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.expectErrorResponse (/Users/Scott/gatech-swapr-server-node/test/test-Retrieve_Course.js:60:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  47) Auth Token should return a correct token when passed a correct username and password:
+[0m[31m     Uncaught Error: ECONNREFUSED: Connection refused[0m[90m
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:164:13)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  48) Auth Token should not return a token for a nonexistent user:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:38:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  49) Auth Token should not return a token for an incorrect password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:55:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  50) Auth Token should not return a token for a blank username and password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:72:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  51) Auth Token should not return a token for providing no password:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:89:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  52) Auth Token should not return a token for providing no username:
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:106:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  53) Auth Token should not allow any kind of access for entering an inappropriate data type for username (test 1):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:123:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  54) Auth Token should not allow any kind of access for entering an inappropriate data type for username (test 2):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:140:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  55) Auth Token should not allow any kind of access for entering an inappropriate data type for username (test 3):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:157:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  56) Auth Token should not allow any kind of access for entering an inappropriate data type for username (test 4):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:174:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  57) Auth Token should not allow any kind of access for entering an inappropriate data type for password (test 1):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:191:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  58) Auth Token should not allow any kind of access for entering an inappropriate data type for password (test 2):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:208:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  59) Auth Token should not allow any kind of access for entering an inappropriate data type for password (test 3):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:225:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+[0m  60) Auth Token should not allow any kind of access for entering an inappropriate data type for password (test 4):
+[0m[31m     Uncaught TypeError: Cannot read property 'should' of null[0m[90m
+      at Test.<anonymous> (/Users/Scott/gatech-swapr-server-node/test/token_test.js:242:12)
+      at Test.assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:165:8)
+      at assert (/Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:131:12)
+      at /Users/Scott/gatech-swapr-server-node/node_modules/supertest/lib/test.js:128:5
+      at Test.Request.callback (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:615:12)
+      at ClientRequest.<anonymous> (/Users/Scott/gatech-swapr-server-node/node_modules/superagent/lib/node/index.js:567:10)
+      at emitOne (events.js:96:13)
+      at ClientRequest.emit (events.js:188:7)
+      at Socket.socketErrorListener (_http_client.js:310:9)
+      at emitOne (events.js:96:13)
+      at Socket.emit (events.js:188:7)
+      at emitErrorNT (net.js:1278:8)
+      at _combinedTickCallback (internal/process/next_tick.js:74:11)
+      at process._tickCallback (internal/process/next_tick.js:98:9)
+[0m
+
+

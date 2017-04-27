@@ -30,7 +30,7 @@ module.exports.getinstitute = function(req, res) {
             'id': institute.id,
             'name': institute.name
         };
-        return res.status(201).send(result);
+        return res.status(200).send(result);
     }).catch(function(error) {
         debug(error);
         return res.status(404).send({ 'error': 'invalid institute id' });
@@ -46,7 +46,7 @@ module.exports.getAllinstitutes = function(req, res) {
                 'name': institute.name
             };
         });
-        return res.status(201).send(instituteList);
+        return res.status(200).send(instituteList);
 
     }).catch(function(error) {
         return res.status(400).send({ 'error': 'could not get all institutes' });

@@ -20,7 +20,7 @@ module.exports.getToken = function(req, res) {
               }
               if (isMatch) {
                   var response = { "token": user.token };
-                  return res.status(201).send(response);
+                  return res.send(response);
               } else {
                   return res.status(404).send({ "error": "Token could not be retrieved" });
               }

@@ -1,8 +1,8 @@
 language: node_js
 
 node_js:
-  - "6.9.4"
-  - "7.4.0"
+  - "6.10.2"
+  - "7.9.0"
 
 before_script:
   - export NODE_ENV=test

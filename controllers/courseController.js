@@ -18,12 +18,12 @@ module.exports.createCourse = function(req, res) {
           "id": created.id,
           "name": created.name,
           "InstituteId": created.InstituteId
-      }
+      };
       return res.status(201).send(result);
   }).catch(function(error) {
       debug(error);
       return res.status(500).send({ 'error': 'unable to create new course' });
-  })
+  });
 };
 
 module.exports.getCourse = function(req, res) {
@@ -36,8 +36,8 @@ module.exports.getCourse = function(req, res) {
             "id": course.id,
             "name": course.name,
             "InstituteId": course.InstituteId
-        }
-        return res.status(201).send(result);
+        };
+        return res.send(result);
     }).catch(function(error) {
         debug(error);
         return res.status(404).send({ 'error': 'invalid course id' });
@@ -54,9 +54,9 @@ module.exports.getAllCourses = function(req, res) {
                 "InstituteId": course.InstituteId
             }
         });
-        return res.status(201).send(courseList);
+        return res.send(courseList);
 
     }).catch(function(error) {
         return res.status(400).send({ 'error': 'could not get all courses' });
-    })
+    });
 };

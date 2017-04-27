@@ -12,6 +12,7 @@ var users = require('./routes/users');
 var courses = require('./routes/courses');
 var apiAuth = require('./routes/api-auth');
 var assignments = require('./routes/assignments');
+var institutes = require('./routes/institutes');
 
 var models = require('./models');
 
@@ -33,6 +34,7 @@ app.use('/swaprusers', users);
 app.use('/courses', courses);
 app.use('/api-token-auth', apiAuth);
 app.use('/assignments', assignments);
+app.use('/institutes', institutes);
 
 // use EJS as the default view engine
 app.set('view engine', 'ejs');

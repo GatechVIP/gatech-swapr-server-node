@@ -2,6 +2,8 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
+var url = 'http://localhost:3000';
+
 describe('Instructor Creation', function() {
 	//test addition of new username
 	it ('should allow addition of new username', function(done) {

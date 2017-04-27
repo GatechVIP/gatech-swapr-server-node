@@ -3,37 +3,39 @@ var LocalStrategy = require('passport-local').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var CASStrategy = require('passport-cas').Strategy;
 var bcrypt = require('bcrypt-nodejs');
+var models = require('../models');
 
-// needs to be converted to sequelize, we don't db anymore
 passport.use(new LocalStrategy(
     function(username, password, done) {
-        db.all("SELECT * FROM id_map WHERE username = '" + username + "'", function(err, row) {
-            if (err) { return done(error); }
-            if (!row) {
+        models.User.findOne({'where': { 'username': username }}).then(function(user) {
+            if (!user) {
                 return done(null, false, {message: 'No such username'});
             } else {
-                bcrypt.compare(password, row.pwd_hash, function(err, res) {
+                bcrypt.compare(password, user.password, function(err, res) {
                     if (res) {
-                        var user = {username: row.username, token: row.token};
-                        return done(null, user);
+                        var result = {'username': user.username, 'token': user.token};
+                        return done(null, result);
                     } else {
                         return done(null, false, {message: 'Incorrect password'});
                     }
                 });
             }
+        }).catch(function(err) {
+            return done(error);
         });
     }
 ));
 
 passport.use(new BearerStrategy(
     function(token, done) {
-        db.all("SELECT * FROM id_map WHERE token = '" + token + "'", function(err, results) {
-            if (err) { return done(err); }
-            if (!results) {
+        models.User.findOne({'where': {'token': token}}).then(function(user) {
+            if (!user) {
                 return done(null, false, {message: 'Unknown user'});
             } else {
                 return done(null, user, { scope: 'all' });
             }
+        }).catch(function(err) {
+            return done(err);
         });
     }
 ));

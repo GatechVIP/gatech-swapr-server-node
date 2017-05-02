@@ -9,6 +9,7 @@ var passport = require('./config/passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var instructors = require('./routes/instructors');
 var courses = require('./routes/courses');
 var apiAuth = require('./routes/api-auth');
 var assignments = require('./routes/assignments');
@@ -31,6 +32,7 @@ app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/swaprusers', users);
+app.use('/swaprinstructors', instructors);
 app.use('/courses', courses);
 app.use('/api-token-auth', apiAuth);
 app.use('/assignments', assignments);

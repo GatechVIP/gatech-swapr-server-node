@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         'classMethods': {
             'associate': function(models) {
                 Session.belongsTo(models.Course);
+                Session.belongsToMany(models.User, {'through': models.SessionEnrollment});
             }
         }
     });

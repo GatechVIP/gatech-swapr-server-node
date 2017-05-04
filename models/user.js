@@ -37,10 +37,16 @@ module.exports = function(sequelize, DataTypes) {
         'email': {
           'type': DataTypes.STRING,
           'allowNull': false,
-          'validate': { 
+          'validate': {
               'notEmpty': true,
               'isEmail': true
           }
+        }
+    }, {
+        'classMethods': {
+            'associate': function(models) {
+                User.belongsToMany(models.Session, {'through': models.SessionEnrollment});
+            }
         }
     });
 

@@ -1,10 +1,12 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+var logger = require('./util/logger');
 
+var config = require('./config/config.json');
 var passport = require('./config/passport');
 
 var routes = require('./routes/index');
@@ -23,12 +25,20 @@ var argv = require('minimist')(process.argv.slice(2));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev', {'skip': function(req, res) { return process.env.NODE_ENV === 'test' } }));
+app.use(require('morgan')('combined', { 'stream': logger.stream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(session({
+    'store': new SequelizeStore({ 'db': models.sequelize }),
+    'secret': config.express.sessionKey,
+    'resave': false,
+    'saveUninitialized': false,
+    'proxy': true,
+    'cookie': { 'secure': true, 'maxAge': 60 * 60 * 1000 }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
 app.use('/swaprusers', users);
@@ -48,29 +58,14 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+// error handler
+app.use(function(err, req, res, next) {
+    logger.debug(err);
     res.status(err.status || 500);
     res.render('error', {
-      message: err.message,
-      error: err
+        message: err.message,
+        error: req.app.get('env') === 'development' ? err : {}
     });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
 });
-
 
 module.exports = app;

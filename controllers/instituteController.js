@@ -1,5 +1,5 @@
-var debug = require('debug')('instituteController');
 var models = require('../models');
+var logger = require('../util/logger');
 
 module.exports.createinstitute = function(req, res) {
   if (typeof req.body.name !== 'string') {
@@ -15,7 +15,7 @@ module.exports.createinstitute = function(req, res) {
       };
       return res.status(201).send(result);
   }).catch(function(error) {
-      debug(error);
+      logger.error(error);
       return res.status(500).send({ 'error': 'unable to create new institute' });
   });
 };
@@ -32,7 +32,7 @@ module.exports.getinstitute = function(req, res) {
         };
         return res.status(200).send(result);
     }).catch(function(error) {
-        debug(error);
+        logger.error(error);
         return res.status(404).send({ 'error': 'invalid institute id' });
     });
 };

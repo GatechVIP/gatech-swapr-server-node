@@ -1,5 +1,5 @@
-var debug = require('debug')('courseController');
 var models = require('../models');
+var logger = require('../util/logger');
 
 module.exports.createCourse = function(req, res) {
 
@@ -21,7 +21,7 @@ module.exports.createCourse = function(req, res) {
       };
       return res.status(201).send(result);
   }).catch(function(error) {
-      debug(error);
+      logger.error(error);
       return res.status(500).send({ 'error': 'unable to create new course' });
   });
 };
@@ -39,7 +39,7 @@ module.exports.getCourse = function(req, res) {
         };
         return res.send(result);
     }).catch(function(error) {
-        debug(error);
+        logger.error(error);
         return res.status(404).send({ 'error': 'invalid course id' });
     });
 };

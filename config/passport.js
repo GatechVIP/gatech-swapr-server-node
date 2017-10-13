@@ -4,6 +4,9 @@ var BearerStrategy = require('passport-http-bearer').Strategy;
 var CASStrategy = require('passport-cas').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 var models = require('../models');
+var logger = require('../util/logger');
+
+var config = require('./config.json');
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -40,20 +43,27 @@ passport.use(new BearerStrategy(
     }
 ));
 
-passport.use(new CASStrategy(
-    {
-    ssoBaseURL: 'https://login.gatech.edu/',
-    serverBaseURL: 'http://localhost:3000'
-    }, 
+passport.use('cas', new CASStrategy(
+    config.cas,
     function(login, done) {
-        User.findOne({login: login}, function (err, user) {
+        /*User.findOne({login: login}, function (err, user) {
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, {message: 'Unknown user'});
             }
         return done(null, user);
-        });
+        });*/
+        logger.debug({'casLogin': login});
+        return done(null, login);
     }
 ));
+
+passport.serializeUser(function(user, done) {
+    return done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+    return done(null, user);
+});
 
 module.exports = passport;

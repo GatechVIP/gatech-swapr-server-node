@@ -1,5 +1,5 @@
-var debug = require('debug')('sessionController');
 var models = require('../models');
+var logger = require('../util/logger');
 
 module.exports.createSession = function(req, res) {
     if (isNaN(req.params.courseID)) {
@@ -52,19 +52,19 @@ module.exports.enrollInSession = function(req, res) {
                     };
                     return res.status(201).send(response);
                 }).catch(function(error) {
-                    debug(error)
+                    logger.error(error);
                     return res.status(400).send({ 'error': 'could not complete enrollment'});
                 })
             }).catch(function(error) {
-                debug(error);
+                logger.error(error);
                 return res.status(400).send({ 'error': 'Unable to enroll in courses' });
             })
         }).catch(function(error) {
-            debug(error);
+            logger.error(error);
             return res.status(400).send({ 'error': 'Unable to enroll in courses' });
         })
     }).catch(function(error) {
-        debug(error);
+        logger.error(error);
         return res.status(400).send({ 'error': 'Unable to enroll in courses' });
     });
 };
@@ -90,7 +90,7 @@ module.exports.getSession = function(req, res) {
             return res.status(400).send({ 'error': 'could not retrieve the course'});
         })
     }).catch(function(error) {
-        debug(error);
+        logger.error(error);
         return res.status(400).send({ 'error': 'could not retrieve the course'});
     });
 };
@@ -126,11 +126,11 @@ module.exports.getSessions = function(req, res) {
             });
             return res.status(201).send(result);
         }).catch(function(error) {
-            debug(error);
+            logger.error(error);
             return res.status(400).send({ 'error': 'could not get the sessions' });
         })
     }).catch(function(error) {
-        debug(error);
+        logger.error(error);
         return res.status(400).send({ 'error': 'could not get the sessions' });
     })
 };

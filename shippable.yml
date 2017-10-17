@@ -1,11 +1,12 @@
 language: node_js
 
 node_js:
-  - "6.10.2"
-  - "7.9.0"
+  - "6.11.4"
+  - "8.7.0"
 
 before_script:
   - export NODE_ENV=test
+  - cp config/config.json.sample config/config.json
   - mkdir -p shippable/testresults
 
 script:

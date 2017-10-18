@@ -1,26 +1,19 @@
 # Use Ubuntu as base image
-FROM ubuntu:latest
+FROM node:8.7.0
 
-# Set ENV for resolving debconf error messages
-ENV DEBIAN_FRONTEND=noninteractive
+RUN mkdir -p /data/node_modules
+RUN mkdir -p /data/app
 
-# Update apt-get to latest version
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-# Install node
-RUN apt-get install -y nodejs-legacy
-# Install npm
-RUN apt-get install -y npm
-
-# Add working directory to container and make this working directory in container
-ADD . /client
-WORKDIR /client
-
-# Install sqlite3 manually
-RUN npm uninstall sqlite3
-RUN npm install sqlite3
+WORKDIR /data
+COPY package.json /data
 
 # Install node dependencies
-RUN npm install -d
+RUN npm config set registry http://registry.npmjs.org/ && npm install
+
+ENV PATH /data/node_modules/.bin:$PATH
+
+ADD . /data/app
+WORKDIR /data/app
 
 # Default command
-CMD ["/bin/sh"]
+CMD ["npm", "start"]

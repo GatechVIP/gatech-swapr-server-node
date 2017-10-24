@@ -2,7 +2,7 @@ var assert = require('assert');
 var should = require('should');
 var supertest = require('supertest');
 
-var url = 'http://localhost:3000';
+var url = 'http://localhost:3000/api';
 var request = supertest(url);
 
 var testInstituteId;

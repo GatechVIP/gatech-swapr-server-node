@@ -2,7 +2,7 @@ var assert = require('assert');
 var should = require('should');
 var supertest = require('supertest');
 
-var URL = 'http://localhost:3000';
+var URL = 'http://localhost:3000/api';
 var request = supertest(URL);
 
 var _fixedid = function(res) {

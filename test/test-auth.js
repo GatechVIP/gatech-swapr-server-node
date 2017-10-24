@@ -2,7 +2,7 @@ var should = require('should');
 var assert = require('assert');
 var request = require('supertest');
 
-var url = 'http://localhost:3000';
+var url = 'http://localhost:3000/api';
 
 var testUser = {
     'username': 'tokenTester',
@@ -44,7 +44,7 @@ describe('Auth Token', function() {
             .post('/api-token-auth')
             .send(reqBody)
             .expect(404)
-            .end(done); 
+            .end(done);
     });
 
     it ('should not return a token for an incorrect password', function(done) {

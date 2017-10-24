@@ -40,13 +40,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', routes);
-app.use('/swaprusers', users);
-app.use('/swaprinstructors', instructors);
-app.use('/courses', courses);
-app.use('/api-token-auth', apiAuth);
-app.use('/assignments', assignments);
-app.use('/institutes', institutes);
+app.use('/api/', routes);
+app.use('/api/swaprusers', users);
+app.use('/api/swaprinstructors', instructors);
+app.use('/api/courses', courses);
+app.use('/api/api-token-auth', apiAuth);
+app.use('/api/assignments', assignments);
+app.use('/api/institutes', institutes);
 
 // use EJS as the default view engine
 app.set('view engine', 'ejs');

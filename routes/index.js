@@ -13,6 +13,6 @@ router.get('/', function(req, res, next) {
     }
 });
 
-router.get('/login', passport.authenticate('cas', {'successRedirect': '/'}));
+router.get('/login', passport.authenticate('cas', {'successRedirect': '/api/'}));
 
 module.exports = router;

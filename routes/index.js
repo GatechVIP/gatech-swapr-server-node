@@ -7,7 +7,7 @@ var logger = require('../util/logger');
 router.get('/', function(req, res, next) {
     logger.debug(req.user);
     if (! req.user) {
-        return res.redirect('/login');
+        return res.redirect('/api/login');
     } else {
         return res.render('index', { 'title': 'SWAPR', 'user': req.user });
     }

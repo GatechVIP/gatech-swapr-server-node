@@ -29,7 +29,10 @@ app.use(require('morgan')('combined', { 'stream': logger.stream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
-    'store': new SequelizeStore({ 'db': models.sequelize }),
+    'store': new SequelizeStore({
+        'db': models.sequelize,
+        'table': models.ExpressSession
+    }),
     'secret': config.express.sessionKey,
     'resave': false,
     'saveUninitialized': false,

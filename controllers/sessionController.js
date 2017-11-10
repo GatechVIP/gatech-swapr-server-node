@@ -2,21 +2,21 @@ var models = require('../db/models');
 var logger = require('../util/logger');
 
 module.exports.createSession = function(req, res) {
-    if (isNaN(req.params.courseID)) {
+    if (isNaN(req.params.course_id)) {
         return res.status(400).send({ 'error': 'invalid course id' });
     }
     models.Session.create({
         "name": req.body.name,
-        "startDate": req.body.startDate,
-        "endDate": req.body.endDate,
-        "CourseId": parseInt(req.params.courseID)
+        "start_date": req.body.start_date,
+        "end_date": req.body.end_date,
+        "course_id": parseInt(req.params.course_id)
     }).then(function(newSession) {
         var response = {
             "id": newSession.id,
             "name": newSession.name,
-            "startDate": newSession.startDate,
-            "endDate": newSession.endDate,
-            "CourseId": newSession.CourseId
+            "start_date": newSession.start_date,
+            "end_date": newSession.end_date,
+            "course_id": newSession.course_id
         }
         return res.status(201).send(response);
     }).catch(function(error) {
@@ -25,7 +25,7 @@ module.exports.createSession = function(req, res) {
 };
 
 module.exports.enrollInSession = function(req, res) {
-    if (isNaN(req.params.courseID) || isNaN(req.params.sessionID)) {
+    if (isNaN(req.params.course_id) || isNaN(req.params.course_id)) {
         return res.status(400).send({ 'error': 'Unable to enroll in session' })
     }
     models.User.findAll({ 'where': {
@@ -33,21 +33,21 @@ module.exports.enrollInSession = function(req, res) {
     }}).then(function(students) {
         var enrollments = students.map(function(student) {
             return {
-                'SessionId': parseInt(req.params.sessionID),
-                'UserId': student.id
+                'session_id': parseInt(req.params.session_id),
+                'user_id': student.id
             }
         });
         models.SessionEnrollment.bulkCreate(enrollments).then(function(sessionEnrollments) {
 
-            models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) }}).then(function(theSession) {
-                models.SessionEnrollment.findAll({ 'where': {'SessionId': parseInt(req.params.sessionID)}}).then(function(allEnrollments) {
+            models.Session.findOne({ 'where': { 'id': parseInt(req.params.session_id) }}).then(function(theSession) {
+                models.SessionEnrollment.findAll({ 'where': {'session_id': parseInt(req.params.session_id)}}).then(function(allEnrollments) {
                     var response = {
                         "id": theSession.id,
-                        "CourseId": theSession.CourseId,
-                        "startDate": theSession.startDate,
-                        "endDate": theSession.endDate,
+                        "course_id": theSession.course_id,
+                        "start_date": theSession.start_date,
+                        "end_date": theSession.end_date,
                         "students": allEnrollments.map(function(e) {
-                            return e.UserId;
+                            return e.user_id;
                         })
                     };
                     return res.status(201).send(response);
@@ -70,19 +70,19 @@ module.exports.enrollInSession = function(req, res) {
 };
 
 module.exports.getSession = function(req, res) {
-    if (isNaN(req.params.courseID) || isNaN(req.params.sessionID)) {
+    if (isNaN(req.params.course_id) || isNaN(req.params.session_id)) {
         return res.status(400).send({ 'error': 'invalid id input' });
     }
-    models.Session.findOne({ 'where': { 'id': parseInt(req.params.sessionID) } }).then(function(aSession) {
-        models.SessionEnrollment.findAll({ 'where': { 'SessionId': parseInt(req.params.sessionID) } }).then(function(enrollments) {
+    models.Session.findOne({ 'where': { 'id': parseInt(req.params.session_id) } }).then(function(aSession) {
+        models.SessionEnrollment.findAll({ 'where': { 'session_id': parseInt(req.params.session_id) } }).then(function(enrollments) {
             var result = {
               "id": aSession.id,
               "name": aSession.name,
-              "startDate": aSession.startDate,
-              "endDate": aSession.endDate,
-              "CourseId": aSession.CourseId,
+              "start_date": aSession.start_date,
+              "end_date": aSession.end_date,
+              "course_id": aSession.course_id,
               "students": enrollments.map(function(d) {
-                  return d.UserId;
+                  return d.user_id;
               })
             };
             return res.status(201).send(result);
@@ -96,17 +96,17 @@ module.exports.getSession = function(req, res) {
 };
 
 module.exports.getSessions = function(req, res) {
-    if (isNaN(req.params.courseID)) {
+    if (isNaN(req.params.course_id)) {
         return res.status(400).send({ "error": "Invalid input" });
     }
-    models.Session.findAll({ 'where': { 'CourseId': parseInt(req.params.courseID) } }).then(function(sessions) {
-        var sessionIDs = sessions.map(function(d) {
+    models.Session.findAll({ 'where': { 'course_id': parseInt(req.params.course_id) } }).then(function(sessions) {
+        var session_ids = sessions.map(function(d) {
             return d.id;
         });
         models.SessionEnrollment.findAll({
             'where': {
-                'SessionId': {
-                    '$in': sessionIDs
+                'session_id': {
+                    '$in': session_ids
                 }
             }
         }).then(function(enrollments) {
@@ -114,13 +114,13 @@ module.exports.getSessions = function(req, res) {
                 return {
                   "id": d.id,
                   "name": d.name,
-                  "startDate": d.startDate,
-                  "endDate": d.endDate,
-                  "CourseId": d.CourseId,
+                  "start_date": d.start_date,
+                  "end_date": d.end_date,
+                  "course_id": d.course_id,
                   "students": enrollments.filter(function(s) {
-                      return s.SessionId === d.id;
+                      return s.session_id === d.id;
                   }).map(function(s) {
-                      return s.UserId;
+                      return s.user_id;
                   })
                 };
             });

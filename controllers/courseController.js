@@ -9,15 +9,12 @@ module.exports.createCourse = function(req, res) {
 
   models.Course.create({
       "name": req.body.name,
-      "InstituteId": req.body.institute,
-      "institute": {
-          "id": req.body.institute
-      }
+      "institute_id": req.body.institute
   }).then(function(created) {
       var result = {
           "id": created.id,
           "name": created.name,
-          "InstituteId": created.InstituteId
+          "institude_id": created.institute_id
       };
       return res.status(201).send(result);
   }).catch(function(error) {
@@ -35,7 +32,7 @@ module.exports.getCourse = function(req, res) {
         var result = {
             "id": course.id,
             "name": course.name,
-            "InstituteId": course.InstituteId
+            "institute_id": course.institute_id
         };
         return res.send(result);
     }).catch(function(error) {
@@ -51,7 +48,7 @@ module.exports.getAllCourses = function(req, res) {
             return {
                 "id": course.id,
                 "name": course.name,
-                "InstituteId": course.InstituteId
+                "institute_id": course.institute_id
             }
         });
         return res.send(courseList);

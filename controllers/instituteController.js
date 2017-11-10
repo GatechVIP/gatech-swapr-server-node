@@ -25,7 +25,7 @@ module.exports.getinstitute = function(req, res) {
         return res.status(400).send({ 'error': 'invalid institute id' });
     }
 
-    models.Institute.findOne({'where': {'id': parseInt(req.params.instituteID)}}).then(function(institute) {
+    models.Institute.findOne({'where': {'id': parseInt(req.params.institute_id)}}).then(function(institute) {
         var result = {
             'id': institute.id,
             'name': institute.name

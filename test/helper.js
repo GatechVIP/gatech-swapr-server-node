@@ -2,7 +2,7 @@
 
 var app = require('../app');
 var http = require('http');
-var models =  require('../models');
+var models =  require('../db/models');
 
 var server;
 

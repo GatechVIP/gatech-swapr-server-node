@@ -1,4 +1,4 @@
-var models = require('../models');
+var models = require('../db/models');
 
 module.exports.getActiveAssignments = function(req, res) {
     if (isNaN(req.body.studentID)) {

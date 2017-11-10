@@ -17,7 +17,7 @@ var apiAuth = require('./routes/api-auth');
 var assignments = require('./routes/assignments');
 var institutes = require('./routes/institutes');
 
-var models = require('./models');
+var models = require('./db/models');
 
 var app = express();
 
@@ -36,11 +36,11 @@ app.use(session({
     'proxy': true,
     'cookie': { 'secure': true, 'maxAge': 60 * 60 * 1000 }
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/', routes);
+app.use('/', routes);
 app.use('/api/swaprusers', users);
 app.use('/api/swaprinstructors', instructors);
 app.use('/api/courses', courses);

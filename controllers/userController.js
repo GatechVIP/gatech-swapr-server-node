@@ -1,4 +1,4 @@
-var models = require('../models');
+var models = require('../db/models');
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken');
 var validator = require('email-validator');

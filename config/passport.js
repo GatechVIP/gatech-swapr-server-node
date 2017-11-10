@@ -3,7 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var BearerStrategy = require('passport-http-bearer').Strategy;
 var CASStrategy = require('passport-cas').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-var models = require('../models');
+var models = require('../db/models');
 var logger = require('../util/logger');
 
 var config = require('./config.json');

@@ -1,4 +1,4 @@
-var models = require('../models');
+var models = require('../db/models');
 var logger = require('../util/logger');
 
 module.exports.createCourse = function(req, res) {

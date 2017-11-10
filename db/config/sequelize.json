@@ -1,10 +1,10 @@
 {
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "logging": false
+  },
   "development": {
-    "database": "swapr",
-    "username": "swapr",
-    "password": "secret",
-    "dialect": "sqlite",
-    "storage": ":memory:",
+    "use_env_variable": "DATABASE_URL",
     "logging": false
   },
   "test": {

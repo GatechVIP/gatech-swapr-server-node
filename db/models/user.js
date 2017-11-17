@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         deleted_at: {
           type: DataTypes.DATE
-        },
+        }
     }, {
     classMethods: {
       associate: function(models) {

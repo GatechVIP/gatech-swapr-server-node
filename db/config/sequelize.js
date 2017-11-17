@@ -23,11 +23,12 @@ module.exports = {
     logging: false
   },
   test: {
+    username: getDockerSecret('DB_USERNAME', null),
+    password: getDockerSecret('DB_PASSWORD', null),
+    // database: getDockerSecret('DB_NAME', null),
     database: 'swapr_test',
-    username: 'swapr',
-    password: 'secret_test_password',
-    dialect: 'sqlite',
-    storage: ':memory:',
+    host: 'db',
+    dialect: 'postgresql',
     logging: false
   }
 };

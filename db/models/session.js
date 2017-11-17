@@ -1,9 +1,30 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Session = sequelize.define('Session', {
-    name: DataTypes.STRING,
-    start_date: DataTypes.DATE,
-    end_date: DataTypes.DATE
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    start_date: {
+      type: DataTypes.DATE
+    },
+    end_date: {
+      type: DataTypes.DATE
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    deleted_at: {
+      type: DataTypes.DATE
+    }
   }, {
     classMethods: {
       associate: function(models) {

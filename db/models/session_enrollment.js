@@ -1,7 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var SessionEnrollment = sequelize.define('SessionEnrollment', {
-    
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    deleted_at: {
+      type: DataTypes.DATE
+    }
   }, {
     classMethods: {
       associate: function(models) {

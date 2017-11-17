@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
-        //AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
+        AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
         AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
       }
     },

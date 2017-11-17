@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // TODO: belongsTo Session
+        Assignment.belongsTo(models.Session, {foreignKey: 'session_id'});
         Assignment.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
       }
     },

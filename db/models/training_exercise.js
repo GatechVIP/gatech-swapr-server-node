@@ -1,31 +1,31 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Rubric = sequelize.define('Rubric', {
-    item_num: {
+  var TrainingExercise = sequelize.define('TrainingExercise', {
+    order_served: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    name: {
+    url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        allowEmpty: false
+        notEmpty: true
       }
     },
-    description: {
-      type: DataTypes.STRING,
+    is_calibration: {
+      type: DataTypes.BOOLEAN,
       allowNull: false
     }
   }, {
     classMethods: {
       associate: function(models) {
-        Rubric.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
+        TrainingExercise.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'rubric'
+    tableName: 'training_exercise'
   });
-  return Rubric;
+  return TrainingExercise;
 };

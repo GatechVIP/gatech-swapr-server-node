@@ -28,7 +28,7 @@ router.route('/assignments/active')
     			return res.send(result);
     		})
     	});
-    }
+    
 
 
 module.exports = router;

@@ -4,6 +4,17 @@ module.exports = (sequelize, DataTypes) => {
     is_graded: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    deleted_at: {
+      type: DataTypes.DATE
     }
   }, {
     classMethods: {

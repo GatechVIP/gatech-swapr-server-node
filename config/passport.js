@@ -59,11 +59,14 @@ passport.use('cas', new CASStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-    return done(null, user);
+    return done(null, user.id);
 });
 
-passport.deserializeUser(function(user, done) {
-    return done(null, user);
+passport.deserializeUser(function(id, done) {
+    //return done(null, user);
+    User.findById(id, function(err, user) {
+        done(err, user)
+    });
 });
 
 module.exports = passport;

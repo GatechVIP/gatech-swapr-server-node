@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     },
     token: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(512),
         allowNull: false,
         validate: {
           notEmpty: true

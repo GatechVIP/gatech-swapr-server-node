@@ -11,9 +11,7 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('institute', {
-      name: 'Georgia Tech',
-      created_at: new Date(),
-      updated_at: new Date()
+      name: 'Georgia Tech'
     });
   }
 };

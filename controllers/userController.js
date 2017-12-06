@@ -44,6 +44,7 @@ module.exports.createUser = function(req, res) {
       // Hash the password and create a token
       bcrypt.genSalt(5, function(err, salt) {
           if (err) { return res.status(500).send({ 'error': 'unable to create new user' }); }
+          
           bcrypt.hash(req.body.password, salt, null, function(err, hash) {
               if (err) { return res.status(500).send({ 'error': err }); }
               user['password']= hash;

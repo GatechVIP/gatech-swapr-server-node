@@ -8,7 +8,9 @@ var server;
 
 before(function(done){
     server = http.createServer(app);
-    models.sequelize.sync().then(function() {
+    models.sequelize.sync({
+        force: true
+    }).then(function() {
         server.listen(3000);
         server.on('listening', done);
     });

@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        Session.belongsToMany(models.User, {
+        User.belongsToMany(models.Session, {
           as: 'sessions',
           through: models.SessionEnrollment,
           foreignKey: 'user_id',

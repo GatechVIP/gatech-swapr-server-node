@@ -1,14 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Institute = sequelize.define('Institute', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notEmpty: true
-      }
-    },
+  var SessionEnrollment = sequelize.define('SessionEnrollment', {
     created_at: {
       type: DataTypes.DATE,
       allowNull: false
@@ -29,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'institute'
+    tableName: 'session_enrollment'
   });
-  return Institute;
+  return SessionEnrollment;
 };

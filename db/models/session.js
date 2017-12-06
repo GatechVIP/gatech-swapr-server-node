@@ -1,13 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Institute = sequelize.define('Institute', {
+  var Session = sequelize.define('Session', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notEmpty: true
       }
+    },
+    start_date: {
+      type: DataTypes.DATE
+    },
+    end_date: {
+      type: DataTypes.DATE
     },
     created_at: {
       type: DataTypes.DATE,
@@ -23,13 +28,19 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Session.belongsTo(models.Course, {foreignKey: 'course_id'});
+        Session.belongsToMany(models.User, {
+          as: 'students',
+          through: models.SessionEnrollment,
+          foreignKey: 'session_id',
+          otherKey: 'user_id'
+        });
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'institute'
+    tableName: 'session'
   });
-  return Institute;
+  return Session;
 };

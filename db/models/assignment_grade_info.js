@@ -23,12 +23,23 @@ module.exports = (sequelize, DataTypes) => {
     is_instructor_res: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    deleted_at: {
+      type: DataTypes.DATE
     }
   }, {
     classMethods: {
       associate: function(models) {
         AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
-        //AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
+        AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
         AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
       }
     },

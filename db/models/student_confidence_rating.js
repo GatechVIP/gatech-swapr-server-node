@@ -1,19 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Rubric = sequelize.define('Rubric', {
-    item_num: {
+  var StudentConfidenceRating = sequelize.define('StudentConfidenceRating', {
+    rubric_item_num: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        allowEmpty: false
-      }
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    description: {
-      type: DataTypes.STRING,
+    calibration_weight: {
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     created_at: {
@@ -30,13 +27,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        Rubric.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
+        StudentConfidenceRating.belongsTo(models.User, {foreignKey: 'user_id'});
+        StudentConfidenceRating.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'rubric'
+    tableName: 'student_confidence_rating'
   });
-  return Rubric;
+  return StudentConfidenceRating;
 };

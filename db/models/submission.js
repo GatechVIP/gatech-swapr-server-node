@@ -1,10 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Institute = sequelize.define('Institute', {
-    name: {
+  var Submission = sequelize.define('Submission', {
+    url: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notEmpty: true
       }
@@ -23,13 +22,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        Submission.belongsTo(models.User, {foreignKey: 'user_id'});
+        Submission.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'institute'
+    tableName: 'submission'
   });
-  return Institute;
+  return Submission;
 };

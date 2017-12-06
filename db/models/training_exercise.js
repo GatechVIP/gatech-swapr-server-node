@@ -1,13 +1,20 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Institute = sequelize.define('Institute', {
-    name: {
+  var TrainingExercise = sequelize.define('TrainingExercise', {
+    order_served: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    url: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notEmpty: true
       }
+    },
+    is_calibration: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
@@ -23,13 +30,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        TrainingExercise.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'institute'
+    tableName: 'training_exercise'
   });
-  return Institute;
+  return TrainingExercise;
 };

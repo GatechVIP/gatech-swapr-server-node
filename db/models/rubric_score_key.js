@@ -1,13 +1,20 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Institute = sequelize.define('Institute', {
-    name: {
-      type: DataTypes.STRING,
+  var RubricScoreKey = sequelize.define('RubricScoreKey', {
+    rubric_item_num: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    rating: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
       validate: {
-        notEmpty: true
+        allowEmpty: false
       }
+    },
+    score: {
+      type: DataTypes.FLOAT,
+      allowNull: false
     },
     created_at: {
       type: DataTypes.DATE,
@@ -23,13 +30,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        RubricScoreKey.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'institute'
+    tableName: 'rubric_score_key'
   });
-  return Institute;
+  return RubricScoreKey;
 };

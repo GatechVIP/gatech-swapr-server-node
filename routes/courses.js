@@ -12,19 +12,19 @@ router.route('/')
   .post(courseController.createCourse);
 
 /* Retrieve a Course */
-router.route('/:courseID')
+router.route('/:course_id')
   .get(courseController.getCourse);
 
-router.route('/:courseID/sessions')
+router.route('/:course_id/sessions')
   .post(sessionController.createSession);
 
-router.route('/:courseID/sessions')
+router.route('/:course_id/sessions')
   .get(sessionController.getSessions);
 
-router.route('/:courseID/sessions/:sessionID')
+router.route('/:course_id/sessions/:session_id')
   .post(sessionController.enrollInSession);
 
-router.route('/:courseID/sessions/:sessionID')
+router.route('/:course_id/sessions/:session_id')
     .get(sessionController.getSession);
 
 module.exports = router;

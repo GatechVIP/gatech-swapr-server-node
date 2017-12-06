@@ -39,7 +39,7 @@ describe('Create Course', function testCreateCourse() {
     var expectedResponseBody = {
       'id': 1,
       'name': 'course2',
-      'InstituteId': testInstituteId,
+      'institute_id': testInstituteId,
     };
     request
       .post('/courses')
@@ -101,7 +101,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
             var expectedResponseBody = {
               'id': id,
               'name': 'Chemistry I',
-              'InstituteId': testInstituteId
+              'institute_id': testInstituteId
             };
             request
               .get('/courses/' + id)

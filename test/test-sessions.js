@@ -20,7 +20,7 @@ before(function(done) {
 var createTestSession = function(name, courseId, callback) {
     request(url)
         .post('/courses/' + courseId + '/sessions')
-        .send({'name': name, 'startDate': new Date(2017, 1, 9).toISOString(), 'endDate': new Date(2017, 5, 6).toISOString()})
+        .send({'name': name, 'start_date': new Date(2017, 1, 9).toISOString(), 'end_date': new Date(2017, 5, 6).toISOString()})
         .expect(201)
         .end(callback);
 };
@@ -43,19 +43,19 @@ describe('Session Listing', function() {
                         // do the test
                         var expectedResponseBody = [
                         {
-                            'CourseId': testCourseId,
+                            'course_id': testCourseId,
                             'id': sessId1,
                             'name': 'spring 2017',
-                            'startDate': new Date(2017, 1, 9).toISOString(),
-                            'endDate': new Date(2017, 5, 6).toISOString(),
+                            'start_date': new Date(2017, 1, 9).toISOString(),
+                            'end_date': new Date(2017, 5, 6).toISOString(),
                             'students': []
                         },
                         {
-                            'CourseId': testCourseId,
+                            'course_id': testCourseId,
                             'id': sessId2,
                             'name': 'fall 2017',
-                            'startDate': new Date(2017, 1, 9).toISOString(),
-                            'endDate': new Date(2017, 5, 6).toISOString(),
+                            'start_date': new Date(2017, 1, 9).toISOString(),
+                            'end_date': new Date(2017, 5, 6).toISOString(),
                             'students': []
                         }];
                         request(url)
@@ -82,11 +82,11 @@ describe('Session Listing', function() {
 
                     var expectedResponseBody = [
                     {
-                        'CourseId': testCourseId,
+                        'course_id': testCourseId,
                         'id': sessId,
                         'name': 'spring 2017',
-                        'startDate': new Date(2017, 1, 9).toISOString(),
-                        'endDate': new Date(2017, 5, 6).toISOString(),
+                        'start_date': new Date(2017, 1, 9).toISOString(),
+                        'end_date': new Date(2017, 5, 6).toISOString(),
                         'students': []
                     }
                     ];

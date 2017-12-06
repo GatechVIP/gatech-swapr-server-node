@@ -14,7 +14,7 @@ module.exports.createCourse = function(req, res) {
       var result = {
           "id": created.id,
           "name": created.name,
-          "institude_id": created.institute_id
+          "institute_id": created.institute_id
       };
       return res.status(201).send(result);
   }).catch(function(error) {
@@ -24,11 +24,11 @@ module.exports.createCourse = function(req, res) {
 };
 
 module.exports.getCourse = function(req, res) {
-    if (isNaN(req.params.courseID)) {
+    if (isNaN(req.params.course_id)) {
         return res.status(400).send({ 'error': 'invalid course id' });
     }
 
-    models.Course.findOne({'where': {'id': parseInt(req.params.courseID)}}).then(function(course) {
+    models.Course.findById(parseInt(req.params.course_id)).then(function(course) {
         var result = {
             "id": course.id,
             "name": course.name,
@@ -36,7 +36,6 @@ module.exports.getCourse = function(req, res) {
         };
         return res.send(result);
     }).catch(function(error) {
-        logger.error(error);
         return res.status(404).send({ 'error': 'invalid course id' });
     });
 };

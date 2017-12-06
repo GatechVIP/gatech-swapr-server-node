@@ -3,7 +3,7 @@ var models = require('../db/models');
 module.exports.getActiveAssignments = function(studentID, callback) {
 
 
-    if (isNaN(studentID) {
+    if (isNaN(studentID)) {
         return callback({'status':400, 'message': 'invalid student ID'});
     }
 

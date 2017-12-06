@@ -1,10 +1,13 @@
 var models = require('../db/models');
 
-module.exports.getActiveAssignments = function(req, res) {
-    if (isNaN(req.body.student_id)) {
-        return res.status(400).send({ 'error': 'Invalid student ID'});
+module.exports.getActiveAssignments = function(studentID, callback) {
+
+
+    if (isNaN(studentID) {
+        return callback({'status':400, 'message': 'invalid student ID'});
     }
-    models.SessionEnrollment.findAll({ 'where': { 'user_id': parseInt(req.body.studentID) } }).then(function(sessions) {
+
+    models.SessionEnrollment.findAll({ 'where': { 'user_id': parseInt(studentID) } }).then(function(sessions) {
         var sessionIDs = sessions.map(function(d) {
             return d.session_id;
         });
@@ -21,13 +24,15 @@ module.exports.getActiveAssignments = function(req, res) {
                     session_id: d.session_id
                 };
             })
-            return res.status(200).send(activeAssignments);
+
+            return callback(null, activeAssignments);
+
         }).catch(function(err) {
             console.log(err);
-            return res.status(400).send({ 'error': 'Could not get the active assignments'});
+            return callback({'status':400, 'error': 'Could not get the active assignments'});
         });
     }).catch(function(error) {
         console.log(error);
-        return res.status(400).send({ 'error': 'Could not get the active assignments'});
+        return callback({'status':400, 'error': 'Could not get the active assignments'});
     });
 }

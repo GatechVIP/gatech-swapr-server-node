@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var assignmentController = require('../controllers/assignmentController');
+var passport = require('passport');
 
 // /* List ALL Assignments, no grades */
 // router.route('/assignments')
@@ -18,9 +19,20 @@ var assignmentController = require('../controllers/assignmentController');
 //   .get();
 
 router.route('/assignments/active')
+    .get(passport.authenticate('token'), function(req, res) {
+    	assignmentController.getActiveAssignments(req.user.id, 
+    		function(error, result) {
+    			if (error) {
+    				return res.status(error.status).send(error.message);
+    			}
+    			return res.send(result);
+    		})
+    	});
 
-    .post(function(req, res) {
-    	assignmentController.getActiveAssignments(req.body.studentID, 
+
+router.route('/assignments/:id/submit')
+	.post(passport.authenticate('token'), function(req, res) {
+    	assignmentController.submitURL(req.user.id, req.param.id, req.body.url, 
     		function(error, result) {
     			if (error) {
     				return res.status(error.status).send(error.message);

@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
     }
 ));
 
-passport.use(new BearerStrategy(
+passport.use('token', new BearerStrategy(
     function(token, done) {
         models.User.findOne({'where': {'token': token}}).then(function(user) {
             if (!user) {

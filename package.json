@@ -26,6 +26,7 @@
     "sequelize": "^3.30.4",
     "sequelize-cli": "^3.0.0",
     "serve-favicon": "~2.3.0",
+    "valid-url": "^1.0.9",
     "winston": "^2.4.0"
   },
   "devDependencies": {

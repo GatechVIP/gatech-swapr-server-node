@@ -1,4 +1,32 @@
 var models = require('../db/models');
+var validUrl = require('valid-url');
+
+
+
+module.exports.submitURL = function(studentID, assignmentID, url, callback) {
+    if (isNaN(studentID)) {
+        return callback({'status':400, 'message': 'invalid student ID'});
+    }
+    if (!validUrl.isUri(url)) {
+        return callback({'status':400, 'message': 'invalid url'});
+    }
+
+    var sub = {
+        'url' : url,
+        'assignment_id' : assignmentID,
+        'user_id' : studentID
+    }
+
+    models.Submission.create(sub).then(function(submission) {
+        return callback(null, submission);
+    });
+
+
+}
+
+
+
+
 
 module.exports.getActiveAssignments = function(studentID, callback) {
 

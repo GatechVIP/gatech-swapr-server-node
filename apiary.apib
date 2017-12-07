@@ -17,7 +17,7 @@ Get an Authorization Token, there are three types of users: root, SWAPRInstructo
             "password": "root",
             "username": "root"
         }
-    
+
 + Response 201 (application/json)
 
         {
@@ -279,6 +279,20 @@ make sure type is evaluation! this call is JSON
             "type": "evaluation"
         }
 
+## Submit URL
+submit assignment to be graded as url
+
+### Submit URL [POST]
++ Request (application/json)
+    {
+        "url": "http://example.com/xyz"
+    }
+
++ Response 201
+    {
+        "url": "http://example.com/xyz"
+    }
+
 # Group getURLToGrade
 get assignment meta data
 
@@ -442,7 +456,7 @@ A single course
             "institution": "Georgia Tech",
             "department": "Physics"
         }
-        
+
 + Response 400 (application/json)
 
         {
@@ -490,7 +504,7 @@ Operations for dealing with individual course sessions
                 "students": [10,11,12]
             }
         ]
-            
+
 ### Create Session [POST]
 
 + Request (application/x-www-form-urlencoded)
@@ -501,7 +515,7 @@ Operations for dealing with individual course sessions
             "year": 2017,
             "status": "pending"
         }
-            
+
 + Response 201 (application/json)
 
         {
@@ -512,13 +526,13 @@ Operations for dealing with individual course sessions
             "year": 2017,
             "status": "pending"
         }
-            
+
 + Response 400 (application/json)
 
         {
             "error": "new session could not be created"
         }
-            
+
 
 ## Course Session [/courses/{course_id}/sessions/{session_id}]
 
@@ -565,7 +579,7 @@ Operations for dealing with individual course sessions
             "status": "pending",
             "students": [13,14,15]
         }
-        
+
 + Response 400 (application/json)
 
         {

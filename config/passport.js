@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(
     }
 ));
 
-passport.use(new BearerStrategy(
+passport.use('token', new BearerStrategy(
     function(token, done) {
         models.User.findOne({'where': {'token': token}}).then(function(user) {
             if (!user) {
@@ -43,18 +43,19 @@ passport.use(new BearerStrategy(
     }
 ));
 
-passport.use('cas', new CASStrategy(
+passport.use(/*'cas', */new CASStrategy(
     config.cas,
     function(login, done) {
-        /*User.findOne({login: login}, function (err, user) {
-            if (err) { return done(err); }
+        models.User.findOne({where: {'username': login}}).then(function(user) {
             if (!user) {
                 return done(null, false, {message: 'Unknown user'});
             }
-        return done(null, user);
-        });*/
-        logger.debug({'casLogin': login});
-        return done(null, login);
+            return done(null, user);
+        }).catch(function(err) {
+            return done(err);
+        });
+        /*logger.debug({'casLogin': login});
+        return done(null, login);*/
     }
 ));
 
@@ -64,7 +65,8 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
     //return done(null, user);
-    User.findById(id, function(err, user) {
+    logger.debug({'deserialize ID': id});
+    models.User.findById(id, function(err, user) {
         done(err, user)
     });
 });

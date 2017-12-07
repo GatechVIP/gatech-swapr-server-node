@@ -39,6 +39,7 @@ module.exports.createUser = function(req, res) {
           'first_name': req.body.first_name,
           'last_name': req.body.last_name,
           'email': req.body.email,
+          'role': req.body.role,
       };
 
       // Hash the password and create a token
@@ -56,7 +57,8 @@ module.exports.createUser = function(req, res) {
                     'first_name': created.first_name,
                     'last_name': created.last_name,
                     'id': created.id,
-                    'email': created.email
+                    'email': created.email,
+                    'role': created.role
                 };
                 return res.status(201).send(result);
               }).catch(function(error) {

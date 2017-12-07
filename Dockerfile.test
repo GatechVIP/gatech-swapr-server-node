@@ -1,0 +1,23 @@
+# Use Node 8 as base image
+FROM node:8.7.0
+
+RUN mkdir -p /data/node_modules
+RUN mkdir -p /data/app
+
+WORKDIR /data
+COPY package.json /data
+
+# Install node dependencies
+RUN npm config set registry http://registry.npmjs.org/ && npm install
+
+ENV PATH /data/node_modules/.bin:$PATH
+
+ADD . /data/app
+WORKDIR /data/app
+
+RUN mkdir -p /data/app/logs
+RUN chown -R node:node /data/app/logs
+RUN chmod 777 /data/app/logs
+
+# Default command
+CMD ["npm", "test"]

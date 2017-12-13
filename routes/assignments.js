@@ -21,11 +21,11 @@ var passport = require('passport');
 router.route('/assignments/active')
     .get(passport.authenticate('token'), function(req, res) {
     	assignmentController.getActiveAssignments(req.user.id, 
-    		function(error, result) {
-    			if (error) {
-    				return res.status(error.status).send(error.message);
+    		function(err, token) {
+    			if (err) {
+    				return res.status(err.status).send(err.message);
     			}
-    			return res.send(result);
+    			return res.send(token);
     		})
     	});
 
@@ -33,11 +33,11 @@ router.route('/assignments/active')
 router.route('/assignments/:id/submit')
 	.post(passport.authenticate('token'), function(req, res) {
     	assignmentController.submitURL(req.user.id, req.param.id, req.body.url, 
-    		function(error, result) {
-    			if (error) {
-    				return res.status(error.status).send(error.message);
+    		function(err, token) {
+    			if (err) {
+    				return res.status(err.status).send(err.message);
     			}
-    			return res.send(result);
+    			return res.send(token);
     		})
     	});
     

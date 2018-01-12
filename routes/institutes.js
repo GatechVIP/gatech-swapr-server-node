@@ -4,8 +4,6 @@ var instituteController = require('../controllers/instituteController');
 var passport = require('passport');
 
 /* Create institute */
-/*router.route('/')
-  .post(instituteController.createinstitute);*/
 router.route('/')
     .post(passport.authenticate('token'), function(req, res) {
         instituteController.createInstitute(req.body.name,
@@ -18,8 +16,6 @@ router.route('/')
     });
 
 /* Retrieve a institute */
-/*router.route('/:instituteID')
-  .get(instituteController.getinstitute);*/
 router.route('/:institute_id')
     .get(passport.authenticate('token'), function(req, res) {
         instituteController.getInstitute(req.params.institute_id,
@@ -32,8 +28,6 @@ router.route('/:institute_id')
     });
 
 /* List ALL institutes */
-/*router.route('/')
-  .get(instituteController.getAllinstitutes);*/
 router.route('/')
     .get(passport.authenticate('token'), function(req, res) {
         instituteController.getAllInstitutes(function(err, token) {

@@ -4,8 +4,6 @@ var userController = require('../controllers/userController');
 var passport = require('passport');
 
 /* Create SWAPRUser */
-/*router.route('/')
-  .post(userController.createUser);*/
 router.route('/')
     .post(passport.authenticate('token'), function(req, res) {
       userController.createUser(req.body.username, req.body.first_name, req.body.last_name, req.body.email,

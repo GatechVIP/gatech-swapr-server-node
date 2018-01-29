@@ -1,15 +1,16 @@
 var models = require('../db/models');
 var logger = require('../util/logger');
 
-module.exports.createSession = function(req, res) {
-    if (isNaN(req.params.course_id)) {
-        return res.status(400).send({ 'error': 'invalid course id' });
+module.exports.createSession = function(courseID, name, start_date, end_date, callback) {
+    if (isNaN(courseID)) {
+        return callback({'status': 400, 'message': 'invalid course id'});
     }
+
     models.Session.create({
-        "name": req.body.name,
-        "start_date": req.body.start_date,
-        "end_date": req.body.end_date,
-        "course_id": parseInt(req.params.course_id)
+        "name": name,
+        "start_date": start_date,
+        "end_date": end_date,
+        "course_id": parseInt(courseID)
     }).then(function(newSession) {
         var response = {
             "id": newSession.id,
@@ -18,29 +19,29 @@ module.exports.createSession = function(req, res) {
             "end_date": newSession.end_date,
             "course_id": newSession.course_id
         }
-        return res.status(201).send(response);
+        return callback(null, response);
     }).catch(function(error) {
-        return res.status(500).send({ 'error': 'could not create a session' });
+        return callback({'status': 500, 'message': 'could not create a session'});
     });
 };
 
-module.exports.enrollInSession = function(req, res) {
-    if (isNaN(req.params.course_id) || isNaN(req.params.course_id)) {
-        return res.status(400).send({ 'error': 'Unable to enroll in session' })
+module.exports.enrollInSession = function(courseID, students, sessionID, callback) {
+    if (isNaN(courseID) || isNaN(sessionID)) {
+        return callback({'status': 400, 'message': 'unable to enroll in session'});
     }
+
     models.User.findAll({ 'where': {
-        'username': { '$in': req.body.students}
+        'username': { '$in': students}
     }}).then(function(students) {
         var enrollments = students.map(function(student) {
             return {
-                'session_id': parseInt(req.params.session_id),
+                'session_id': parseInt(sessionID),
                 'user_id': student.id
             }
         });
         models.SessionEnrollment.bulkCreate(enrollments).then(function(sessionEnrollments) {
-
-            models.Session.findOne({ 'where': { 'id': parseInt(req.params.session_id) }}).then(function(theSession) {
-                models.SessionEnrollment.findAll({ 'where': {'session_id': parseInt(req.params.session_id)}}).then(function(allEnrollments) {
+            models.Session.findOne({ 'where': { 'id': parseInt(sessionID)}}).then(function(theSession) {
+                models.SessionEnrollment.findAll({ 'where': {'session_id': parseInt(sessionID)}}).then(function(allEnrollments) {
                     var response = {
                         "id": theSession.id,
                         "course_id": theSession.course_id,
@@ -50,31 +51,31 @@ module.exports.enrollInSession = function(req, res) {
                             return e.user_id;
                         })
                     };
-                    return res.status(201).send(response);
+                    return callback(null, response);
                 }).catch(function(error) {
                     logger.error(error);
-                    return res.status(400).send({ 'error': 'could not complete enrollment'});
+                    return callback({'status': 400, 'message': 'could not complete enrollment'});
                 })
             }).catch(function(error) {
                 logger.error(error);
-                return res.status(400).send({ 'error': 'Unable to enroll in courses' });
+                return callback({'status': 400, 'message': 'unable to enroll in session'});
             })
         }).catch(function(error) {
             logger.error(error);
-            return res.status(400).send({ 'error': 'Unable to enroll in courses' });
+            return callback({'status': 400, 'message': 'unable to enroll in session'});
         })
     }).catch(function(error) {
         logger.error(error);
-        return res.status(400).send({ 'error': 'Unable to enroll in courses' });
+        return callback({'status': 400, 'message': 'unable to enroll in session'});
     });
 };
 
-module.exports.getSession = function(req, res) {
-    if (isNaN(req.params.course_id) || isNaN(req.params.session_id)) {
-        return res.status(400).send({ 'error': 'invalid id input' });
+module.exports.getSession = function(courseID, sessionID, callback) {
+    if (isNaN(courseID) || isNaN(sessionID)) {
+        return callback({'status': 400, 'message': 'invalid id input'});
     }
-    models.Session.findOne({ 'where': { 'id': parseInt(req.params.session_id) } }).then(function(aSession) {
-        models.SessionEnrollment.findAll({ 'where': { 'session_id': parseInt(req.params.session_id) } }).then(function(enrollments) {
+    models.Session.findOne({'where': { 'id': parseInt(sessionID)}}).then(function(aSession) {
+        models.SessionEnrollment.findAll({'where': {'session_id': parseInt(sessionID)}}).then(function(enrollments) {
             var result = {
               "id": aSession.id,
               "name": aSession.name,
@@ -85,21 +86,22 @@ module.exports.getSession = function(req, res) {
                   return d.user_id;
               })
             };
-            return res.status(201).send(result);
+            return callback(null, result);
         }).catch(function(error) {
-            return res.status(400).send({ 'error': 'could not retrieve the course'});
+            return callback({'status': 400, 'message': 'could not retrieve the course'});
         })
     }).catch(function(error) {
         logger.error(error);
-        return res.status(400).send({ 'error': 'could not retrieve the course'});
+        return callback({'status': 400, 'message': 'could not retrieve the course'});
     });
 };
 
-module.exports.getSessions = function(req, res) {
-    if (isNaN(req.params.course_id)) {
-        return res.status(400).send({ "error": "Invalid input" });
+module.exports.getSessions = function(courseID, callback) {
+    if (isNaN(courseID)) {
+        return callback({'status': 400, 'message': 'invalid course id'});
     }
-    models.Session.findAll({ 'where': { 'course_id': parseInt(req.params.course_id) } }).then(function(sessions) {
+
+    models.Session.findAll({'where': {'course_id': parseInt(courseID)}}).then(function(sessions) {
         var session_ids = sessions.map(function(d) {
             return d.id;
         });
@@ -124,13 +126,13 @@ module.exports.getSessions = function(req, res) {
                   })
                 };
             });
-            return res.status(201).send(result);
+            return callback(null, result);
         }).catch(function(error) {
             logger.error(error);
-            return res.status(400).send({ 'error': 'could not get the sessions' });
+            return callback({'status': 400, 'message': 'could not get the sessions'});
         })
     }).catch(function(error) {
         logger.error(error);
-        return res.status(400).send({ 'error': 'could not get the sessions' });
+        return callback({'status': 400, 'message': 'could not get the sessions'});
     })
 };

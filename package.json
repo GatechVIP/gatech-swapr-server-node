@@ -36,6 +36,9 @@
     "sqlite3": "^3.1.8",
     "supertest": "^2.0.0"
   },
+  "nodemonConfig": {
+      "ignore": ["logs/*"]
+  },
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/mocha",
     "start": "nodemon ./bin/www"

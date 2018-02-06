@@ -6,6 +6,7 @@ var passport = require('passport');
 // /* List ALL Assignments, no grades */
 // router.route('/assignments')
 //   .get();
+//
 // /* Make Submission Assignment */
 // router.route('/assignments')
 //   .post();
@@ -18,8 +19,8 @@ var passport = require('passport');
 // router.route('/assignments/:id')
 //   .get();
 
-router.route('/assignments/active')
-    .get(passport.authenticate('token'), function(req, res) {
+router.route('/active')
+    .get(passport.authenticate('bearer'), function(req, res) {
     	assignmentController.getActiveAssignments(req.user.id, 
     		function(err, token) {
     			if (err) {
@@ -30,7 +31,7 @@ router.route('/assignments/active')
     	});
 
 
-router.route('/assignments/:id/submit')
+router.route('/:id/submit')
 	.post(passport.authenticate('token'), function(req, res) {
     	assignmentController.submitURL(req.user.id, req.param.id, req.body.url, 
     		function(err, token) {

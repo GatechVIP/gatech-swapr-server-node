@@ -8,7 +8,7 @@ var logger = require('../util/logger');
 
 var config = require('./config.json');
 
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
     function(username, password, done) {
         models.User.findOne({'where': { 'username': username }}).then(function(user) {
             if (!user) {
@@ -24,7 +24,27 @@ passport.use(new LocalStrategy(
                 });
             }
         }).catch(function(err) {
-            return done(error);
+            return done(err);
+        });
+    }
+));*/
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        models.User.findOne({'where': {'username': username}}).then(function(user) {
+            if (!user) {
+                done(null, false, {message: 'No such username'});
+            } else {
+                bcrypt.compare(password, user.password, function(err, res) {
+                    if (res) {
+                        var result = {'id': user.id, 'username': user.username, 'token': user.token};
+                        done(null, result);
+                    } else {
+                        done(null, false, {message: 'Incorrect password'});
+                    }
+                });
+            }
+        }).catch(function(err) {
+            done(err);
         });
     }
 ));
@@ -54,8 +74,8 @@ passport.use('cas', new CASStrategy(
         }).catch(function(err) {
             return done(err);
         });
-        /*logger.debug({'casLogin': login});
-        return done(null, login);*/
+        logger.debug({'casLogin': login});
+        return done(null, login);
     }
 ));
 
@@ -64,10 +84,10 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    //return done(null, user);
-    models.User.findById(id, function(err, user) {
+    return done(null, user);
+    /*models.User.findById(id, function(err, user) {
         done(err, user)
-    });
+    });*/
 });
 
 module.exports = passport;

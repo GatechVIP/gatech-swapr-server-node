@@ -40,6 +40,7 @@ app.use(session({
     'cookie': { 'secure': true, 'maxAge': 60 * 60 * 1000 }
 }));
 
+// Initialize Passport and restore authentication state, if any, from session
 app.use(passport.initialize());
 app.use(passport.session());
 

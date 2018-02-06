@@ -13,6 +13,17 @@ router.get('/', function(req, res, next) {
     }
 });
 
-router.get('/login', passport.authenticate('cas', {'successRedirect': '/'}));
+//router.get('/login', passport.authenticate('cas', {'successRedirect': '/'}));
+router.post('/login', passport.authenticate(
+    'local', {
+        session: false
+    }),
+    function(req, res) {
+        res.status(200).json({
+            id: req.user.id,
+            username: req.user.username,
+            token: req.user.token
+        });
+    });
 
 module.exports = router;

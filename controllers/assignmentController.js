@@ -1,6 +1,6 @@
 var models = require('../db/models');
 var validUrl = require('valid-url');
-
+var logger = require('../util/logger');
 
 
 module.exports.submitURL = function(studentID, assignmentID, url, callback) {
@@ -23,9 +23,6 @@ module.exports.submitURL = function(studentID, assignmentID, url, callback) {
 
 
 }
-
-
-
 
 
 module.exports.getActiveAssignments = function(studentID, callback) {

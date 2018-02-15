@@ -16,10 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true
       }
     },
-    num_graders: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     prompt: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -34,7 +34,8 @@
     "request": "^2.75.0",
     "should": "^11.2.0",
     "sqlite3": "^3.1.8",
-    "supertest": "^2.0.0"
+    "supertest": "^2.0.0",
+    "yarn": "latest"
   },
   "nodemonConfig": {
     "ignore": [

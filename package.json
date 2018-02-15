@@ -37,7 +37,9 @@
     "supertest": "^2.0.0"
   },
   "nodemonConfig": {
-      "ignore": ["logs/*"]
+    "ignore": [
+      "logs/*"
+    ]
   },
   "scripts": {
     "test": "NODE_ENV=test ./node_modules/.bin/mocha",

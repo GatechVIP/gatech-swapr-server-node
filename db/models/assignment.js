@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false
     },
+    num_graders: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     updated_at: {
       type: DataTypes.DATE,
       allowNull: false

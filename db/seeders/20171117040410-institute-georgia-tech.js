@@ -2,16 +2,14 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('institute', [{
-      name: 'Georgia Tech',
-      created_at: new Date(),
-      updated_at: new Date()
-    }])
+    return Sequelize.models.Institute.create({
+      name: 'Georgia Tech'
+    })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('institute', {
+    return Sequelize.models.findOne({
       name: 'Georgia Tech'
-    });
+    }).destroy();
   }
 };

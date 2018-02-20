@@ -4,7 +4,7 @@ var authController = require('../controllers/authController');
 var passport = require('passport');
 
 /* Get Token */
-router.route('/').post(passport.authenticate('token'), function(req, res) {
+router.route('/').post(passport.authenticate('bearer', {session: false}), function(req, res) {
     var sendRes = function(err, token) {
         if (err) {
             return res.status(err.status).send(err.message);

@@ -6,7 +6,7 @@ var passport = require('passport');
 
 /* Create Course */
 router.route('/')
-    .post(passport.authenticate('token'), function(req, res) {
+    .post(passport.authenticate('bearer', {session: false}), function(req, res) {
         courseController.createCourse(req.body.name, req.body.institute,
             function(err, token) {
                 if (err) {
@@ -18,7 +18,7 @@ router.route('/')
 
 /* Retrieve a Course */
 router.route('/:course_id')
-    .get(passport.authenticate('token'), function(req, res) {
+    .get(passport.authenticate('bearer', {session: false}), function(req, res) {
         courseController.getCourse(req.params.course_id,
             function(err, token) {
                 if (err) {
@@ -30,7 +30,7 @@ router.route('/:course_id')
 
 /* List ALL Courses */
 router.route('/')
-    .get(passport.authenticate('token'), function(req, res) {
+    .get(passport.authenticate('bearer', {session: false}), function(req, res) {
         courseController.getAllCourses(function(err, token) {
             if (err) {
                 return res.status(err.status).send(err.message);
@@ -41,7 +41,7 @@ router.route('/')
 
 /* Create a Course Session */
 router.route('/:course_id/sessions')
-    .post(passport.authenticate('token'), function(req, res) {
+    .post(passport.authenticate('bearer', {session: false}), function(req, res) {
         sessionController.createSession(req.params.course_id, req.body.name, req.body.start_date, req.body.end_date,
             function(err, token) {
                 if (err) {
@@ -53,7 +53,7 @@ router.route('/:course_id/sessions')
 
 /* Enroll in a Particular Course Session */
 router.route('/:course_id/sessions/:session_id')
-    .post(passport.authenticate('token'), function(req, res) {
+    .post(passport.authenticate('bearer', {session: false}), function(req, res) {
         sessionController.enrollInSession(req.params.course_id, req.body.students. req.params.session_id,
             function(err, token) {
                 if (err) {
@@ -65,7 +65,7 @@ router.route('/:course_id/sessions/:session_id')
 
 /* Retrieve a Particular Course Session */
 router.route('/:course_id/sessions/:session_id')
-    .get(passport.authenticate('token'), function(req, res) {
+    .get(passport.authenticate('bearer', {session: false}), function(req, res) {
         sessionController.getSession(req.params.course_id, req.params.session_id,
             function(err, token) {
                 if (err) {
@@ -77,7 +77,7 @@ router.route('/:course_id/sessions/:session_id')
 
 /* List ALL Sessions of a Course */
 router.route('/:course_id/sessions')
-    .get(passport.authenticate('token'), function(req, res) {
+    .get(passport.authenticate('bearer', {session: false}), function(req, res) {
         sessionController.getSessions(req.params.course_id,
             function(err, token) {
                 if (err) {

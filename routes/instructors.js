@@ -5,7 +5,7 @@ var passport = require('passport');
 
 /* Create SWAPRInstructor */
 router.route('/')
-    .post(passport.authenticate('token'), function(req, res) {
+    .post(passport.authenticate('bearer', {session: false}), function(req, res) {
         instructorController.createInstructor(req.body.username, req.body.first_name, req.body.last_name,
             req.body.email, req.body.password, function(err, token) {
                 if (err) {

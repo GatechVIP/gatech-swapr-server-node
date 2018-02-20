@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 });
 
 //router.get('/login', passport.authenticate('cas', {'successRedirect': '/'}));
-router.post('/login', passport.authenticate(
+router.get('/login', passport.authenticate(
     'local', {
         session: false
     }),

@@ -20,7 +20,7 @@ var passport = require('passport');
 //   .get();
 
 router.route('/active')
-    .get(passport.authenticate('bearer'), function(req, res) {
+    .get(passport.authenticate('bearer', {session: false}), function(req, res) {
     	assignmentController.getActiveAssignments(req.user.id, 
     		function(err, token) {
     			if (err) {
@@ -32,7 +32,7 @@ router.route('/active')
 
 
 router.route('/:id/submit')
-	.post(passport.authenticate('token'), function(req, res) {
+	.post(passport.authenticate('bearer', {session: false}), function(req, res) {
     	assignmentController.submitURL(req.user.id, req.param.id, req.body.url, 
     		function(err, token) {
     			if (err) {

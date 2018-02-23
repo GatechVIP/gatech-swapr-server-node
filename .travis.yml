@@ -5,6 +5,9 @@ node_js:
   - "8"
   - "9"
 
+hosts:
+  - db
+
 services:
   - postgresql
 

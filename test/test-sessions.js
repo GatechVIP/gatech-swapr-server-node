@@ -6,14 +6,14 @@ var url = 'http://localhost:3000/api';
 
 var testInstituteId;
 
-before(function(done) {
+before(function() {
     request(url)
         .post('/institutes')
+        .set('Authorization', 'bearer 1234')
         .send({'name': 'SessionTest University'})
         .expect(201)
-        .end(function(err, res){
+        .then(res => {
             testInstituteId = res.body.id;
-            done();
         });
 });
 

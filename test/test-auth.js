@@ -12,13 +12,13 @@ var testUser = {
     'password': 'tokenpass'
 };
 
-before(function(done) {
+before(function() {
     // Set up a test user
-    request(url)
+    return request(url)
         .post('/swaprusers')
+        .set('Authorization', 'bearer 1234')
         .send(testUser)
-        .expect(201)
-        .end(done);
+        .expect(201);
 });
 
 describe('Auth Token', function() {

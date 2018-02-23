@@ -7,14 +7,14 @@ var request = supertest(url);
 
 var testInstituteId;
 
-before(function(done) {
-    request
+before(function() {
+    return request
         .post('/institutes')
+        .set('Authorization', 'bearer 1234')
         .send({'name': 'CourseTest University'})
         .expect(201)
-        .end(function(err, res){
+        .then(res => {
             testInstituteId = res.body.id;
-            done();
         });
 });
 

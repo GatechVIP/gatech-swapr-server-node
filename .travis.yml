@@ -5,9 +5,6 @@ node_js:
   - "8"
   - "9"
 
-hosts:
-  - db
-
 services:
   - postgresql
 
@@ -17,3 +14,9 @@ env:
 before_script:
   - cp config/config.json.sample config/config.json
   - psql -c 'create database swapr_test;' -U postgres
+
+addons:
+  hosts:
+    - db
+
+

@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - "6"
+  - "8"
+  - "9"
+
+services:
+  - postgresql
+
+env:
+  - NODE_ENV=test
+  - DB_USERNAME=postgres
+  - DB_PASSWORD=""
+  - DB_NAME=swapr_test
+
+before_script:
+  - psql -c 'create database swapr_test;' -U postgres

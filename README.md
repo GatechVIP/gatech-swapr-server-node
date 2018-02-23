@@ -1,7 +1,7 @@
 # gatech-swapr-server-node
 Node.js server for SWAPR
 
-[![Run Status](https://api.shippable.com/projects/57f3d13f6d80900e003ab96c/badge?branch=master)](https://app.shippable.com/projects/57f3d13f6d80900e003ab96c)
+[![Build Status](https://travis-ci.org/stuartf/gatech-swapr-server-node.svg?branch=master)](https://travis-ci.org/stuartf/gatech-swapr-server-node)
 
 Our current model frontend lives in [gatech-swapr-client](https://github.gatech.edu/sdouglas6/gatech-swapr-client)
 

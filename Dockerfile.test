@@ -4,11 +4,13 @@ FROM node:8.7.0
 RUN mkdir -p /data/node_modules
 RUN mkdir -p /data/app
 
-WORKDIR /data
-COPY package.json /data
-
 # Install node dependencies
-RUN npm config set registry http://registry.npmjs.org/ && npm install
+RUN npm install yarn
+
+WORKDIR /data
+COPY package.json yarn.lock /data/
+
+RUN yarn --pure-lockfile
 
 ENV PATH /data/node_modules/.bin:$PATH
 
@@ -20,4 +22,4 @@ RUN chown -R node:node /data/app/logs
 RUN chmod 777 /data/app/logs
 
 # Default command
-CMD ["npm", "test"]
+CMD ["yarn", "test"]

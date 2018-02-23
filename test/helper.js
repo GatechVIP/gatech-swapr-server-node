@@ -8,7 +8,7 @@ var server;
 
 before(function(done){
     server = http.createServer(app);
-    return models.sequelize.sync({
+    models.sequelize.sync({
         force: true
     }).then(function() {
         models.User.create({

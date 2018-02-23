@@ -9,10 +9,8 @@ services:
   - postgresql
 
 env:
-  - NODE_ENV=test
-  - DB_USERNAME=postgres
-  - DB_PASSWORD=""
-  - DB_NAME=swapr_test
+  - NODE_ENV=test DB_USERNAME=postgres DB_PASSWORD="" DB_NAME=swapr_test
 
 before_script:
+  - cp config/config.json.sample config/config.json
   - psql -c 'create database swapr_test;' -U postgres

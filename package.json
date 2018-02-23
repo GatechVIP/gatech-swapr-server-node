@@ -44,7 +44,7 @@
   },
   "scripts": {
     "preinstall": "use-yarn || ( npm install --save-dev --no-scripts --no-save use-yarn && use-yarn )",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha",
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit",
     "start": "nodemon ./bin/www"
   },
   "repository": {

@@ -17,7 +17,7 @@ before_script:
 
 addons:
   hosts:
-    - db
+    - test-db
 
 notifications:
   slack: bdvipteam:5dDl4gn1hjGjfzyaGhkLWnRE

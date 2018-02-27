@@ -27,7 +27,7 @@ module.exports = {
     password: getDockerSecret('DB_PASSWORD', null),
     // database: getDockerSecret('DB_NAME', null),
     database: 'swapr_test',
-    host: 'db',
+    host: 'test-db',
     dialect: 'postgresql',
     logging: false
   }

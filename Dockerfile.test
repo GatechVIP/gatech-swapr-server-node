@@ -1,8 +1,10 @@
-# Use Node 8 as base image
+# Use Ubuntu as base image
 FROM node:8.7.0
 
+# Install node dependencies
+RUN npm install yarn
+
 RUN mkdir -p /data/node_modules
-RUN mkdir -p /data/app
 
 # Install node dependencies
 RUN npm install yarn
@@ -14,12 +16,16 @@ RUN yarn --pure-lockfile
 
 ENV PATH /data/node_modules/.bin:$PATH
 
+RUN mkdir -p /data/app
+
 ADD . /data/app
 WORKDIR /data/app
 
-RUN mkdir -p /data/app/logs
-RUN chown -R node:node /data/app/logs
-RUN chmod 777 /data/app/logs
+RUN chmod 777 /data/app
 
 # Default command
+<<<<<<< Updated upstream
 CMD ["yarn", "test"]
+=======
+CMD ["yarn", "run", "--modules-folder /data/node_modules", "docker-test"]
+>>>>>>> Stashed changes

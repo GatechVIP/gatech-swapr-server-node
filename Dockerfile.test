@@ -24,8 +24,4 @@ WORKDIR /data/app
 RUN chmod 777 /data/app
 
 # Default command
-<<<<<<< Updated upstream
 CMD ["yarn", "test"]
-=======
-CMD ["yarn", "run", "--modules-folder /data/node_modules", "docker-test"]
->>>>>>> Stashed changes

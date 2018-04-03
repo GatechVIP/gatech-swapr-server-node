@@ -70,24 +70,22 @@ passport.use('cas', new CASStrategy(
             if (!user) {
                 return done(null, false, {message: 'Unknown user'});
             }
+            logger.debug({'casLogin': login});
             return done(null, user);
         }).catch(function(err) {
             return done(err);
         });
-        logger.debug({'casLogin': login});
-        return done(null, login);
     }
 ));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser = function(user, done) {
     return done(null, user.id);
-});
+};
 
-passport.deserializeUser(function(id, done) {
-    //return done(null, user);
+passport.deserializeUser = function(id, done) {
     models.User.findById(id, function(err, user) {
         return done(err, user)
     });
-});
+};
 
 module.exports = passport;

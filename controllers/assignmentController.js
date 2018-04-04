@@ -15,14 +15,14 @@ module.exports.submitURL = function(studentID, assignmentID, url, callback) {
         'url' : url,
         'assignment_id' : assignmentID,
         'user_id' : studentID
-    }
+    };
 
     models.Submission.create(sub).then(function(submission) {
         return callback(null, submission);
     });
 
 
-}
+};
 
 
 module.exports.getActiveAssignments = function(studentID, callback) {
@@ -46,16 +46,16 @@ module.exports.getActiveAssignments = function(studentID, callback) {
                     exercise_id: d.exercise_id,
                     session_id: d.session_id
                 };
-            })
+            });
 
             return callback(null, activeAssignments);
 
         }).catch(function(err) {
-            console.log(err);
+            logger.error(err);
             return callback({'status': 400, 'message': {'error': 'Could not get the active assignments'}});
         });
     }).catch(function(error) {
-        console.log(error);
+        logger.error(error);
         return callback({'status': 400, 'message': {'error': 'Could not get the active assignments'}});
     });
-}
+};

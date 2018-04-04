@@ -11,7 +11,7 @@ var passport = require('passport');
 // router.route('/assignments')
 //   .post();
 
-//  // Make Evaluation Assignment 
+//  // Make Evaluation Assignment
 // router.route('/evalassignments')
 //   .post();
 
@@ -21,27 +21,27 @@ var passport = require('passport');
 
 router.route('/active')
     .get(passport.authenticate('bearer', {session: false}), function(req, res) {
-    	assignmentController.getActiveAssignments(req.user.id, 
-    		function(err, token) {
-    			if (err) {
-    				return res.status(err.status).send(err.message);
-    			}
-    			return res.send(token);
-    		})
-    	});
+        assignmentController.getActiveAssignments(req.user.id,
+            function(err, token) {
+                if (err) {
+                    return res.status(err.status).send(err.message);
+                }
+                return res.send(token);
+            });
+    });
 
 
 router.route('/:id/submit')
-	.post(passport.authenticate('bearer', {session: false}), function(req, res) {
-    	assignmentController.submitURL(req.user.id, req.param.id, req.body.url, 
-    		function(err, token) {
-    			if (err) {
-    				return res.status(err.status).send(err.message);
-    			}
-    			return res.send(token);
-    		})
-    	});
-    
+    .post(passport.authenticate('bearer', {session: false}), function(req, res) {
+        assignmentController.submitURL(req.user.id, req.param.id, req.body.url,
+            function(err, token) {
+                if (err) {
+                    return res.status(err.status).send(err.message);
+                }
+                return res.send(token);
+            });
+    });
+
 
 
 module.exports = router;

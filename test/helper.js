@@ -1,4 +1,5 @@
 // Global before and after hooks for mocha to start and stop the server
+require('should');
 
 var app = require('../app');
 var http = require('http');

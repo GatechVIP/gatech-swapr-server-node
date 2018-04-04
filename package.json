@@ -14,7 +14,6 @@
     "express-session": "^1.15.6",
     "get-docker-secret": "^0.1.0",
     "jsonwebtoken": "^8.2.0",
-    "minimist": "~1.2.0",
     "morgan": "~1.9.0",
     "passport": "^0.4.0",
     "passport-cas": "^0.1.1",
@@ -28,6 +27,9 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.3",
     "mocha": "^5.0.5",
     "nodemon": "1.17.3",
     "sequelize-cli": "^4.0.0",
@@ -41,10 +43,17 @@
       "logs/*"
     ]
   },
+  "lint-staged": {
+    "*.js": [
+      "eslint --no-ignore --fix",
+      "git add --force"
+    ]
+  },
   "scripts": {
     "preinstall": "use-yarn || ( npm install --save-dev --no-scripts --no-save use-yarn && use-yarn )",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --exit",
-    "docker-test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test mocha --exit",
+    "lint": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
+    "precommit": "lint-staged",
     "start": "nodemon ./bin/www"
   },
   "repository": {

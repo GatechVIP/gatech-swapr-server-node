@@ -1,5 +1,3 @@
-var should = require('should');
-var assert = require('assert');
 var request = require('supertest');
 
 var url = 'http://localhost:3000/api';
@@ -35,7 +33,7 @@ describe('Instructor Creation', function() {
             .set('Authorization', 'bearer 1234')
             .send(reqBody)
             .expect(201)
-            .end(function(err, res) {
+            .end(function() {
                 request(url)
                     .post('/swaprinstructors')
                     .set('Authorization', 'bearer 1234')

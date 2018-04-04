@@ -1,6 +1,6 @@
 const winston = require('winston');
 const fs = require('fs');
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || 'development';
 
 const fileTransport = new winston.transports.File({
     'level': 'info',
@@ -37,7 +37,7 @@ if (env === 'development') {
 }
 
 logger.stream = {
-    'write': function(message, encoding) {
+    'write': function(message) {
         logger.info(message);
     }
 };

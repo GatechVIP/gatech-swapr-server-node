@@ -13,7 +13,7 @@ router.route('/')
                     return res.status(err.status).send(err.message);
                 }
                 return res.status(201).send(token);
-            })
+            });
     });
 
 /* Retrieve a Course */
@@ -25,7 +25,7 @@ router.route('/:course_id')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 /* List ALL Courses */
@@ -36,7 +36,7 @@ router.route('/')
                 return res.status(err.status).send(err.message);
             }
             return res.send(token);
-        })
+        });
     });
 
 /* Create a Course Session */
@@ -48,7 +48,7 @@ router.route('/:course_id/sessions')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 /* Enroll in a Particular Course Session */
@@ -60,7 +60,7 @@ router.route('/:course_id/sessions/:session_id')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 /* Retrieve a Particular Course Session */
@@ -72,7 +72,7 @@ router.route('/:course_id/sessions/:session_id')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 /* List ALL Sessions of a Course */
@@ -84,7 +84,7 @@ router.route('/:course_id/sessions')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 module.exports = router;

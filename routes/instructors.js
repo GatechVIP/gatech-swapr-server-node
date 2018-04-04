@@ -12,7 +12,7 @@ router.route('/')
                     return res.status(err.status).send(err.message);
                 }
                 return res.status(201).send(token);
-            })
+            });
     });
 
 

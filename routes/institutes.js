@@ -12,7 +12,7 @@ router.route('/')
                     return res.status(err.status).send(err.message);
                 }
                 return res.status(201).send(token);
-            })
+            });
     });
 
 /* Retrieve a institute */
@@ -24,7 +24,7 @@ router.route('/:institute_id')
                     return res.status(err.status).send(err.message);
                 }
                 return res.send(token);
-            })
+            });
     });
 
 /* List ALL institutes */
@@ -35,7 +35,7 @@ router.route('/')
                 return res.status(err.status).send(err.message);
             }
             return res.send(token);
-        })
+        });
     });
 
 module.exports = router;

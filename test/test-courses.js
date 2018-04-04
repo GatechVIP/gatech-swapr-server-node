@@ -1,5 +1,3 @@
-var assert = require('assert');
-var should = require('should');
 var supertest = require('supertest');
 
 var url = 'http://localhost:3000/api';
@@ -25,41 +23,41 @@ var _fixedid = function(res){
 
 describe('Create Course', function testCreateCourse() {
 
-  /*it('does not let users create courses unless they are instructors');*/
+    /*it('does not let users create courses unless they are instructors');*/
 
-  // it('only lets instructors create courses for the institution and ' +
-  //   'department they belong to');
+    // it('only lets instructors create courses for the institution and ' +
+    //   'department they belong to');
 
-  it('returns id, name, and institute of new course ' +
+    it('returns id, name, and institute of new course ' +
     'when given valid input', function(done) {
-    var reqBody = {
-      'name': 'course2',
-      'institute': testInstituteId,
-    };
-    var expectedResponseBody = {
-      'id': 1,
-      'name': 'course2',
-      'institute_id': testInstituteId,
-    };
-    request
-      .post('/courses')
-      .set('Authorization', 'bearer 1234')
-      .send(reqBody)
-      .expect(_fixedid)
-      .expect(201, expectedResponseBody)
-      .expect('Content-Type', 'application/json; charset=utf-8')
-      .end(function(err, res) {
-        if (err) {
-          return done(err);
-        } else {
-          done();
-        }
-      });
-  });
+        var reqBody = {
+            'name': 'course2',
+            'institute': testInstituteId,
+        };
+        var expectedResponseBody = {
+            'id': 1,
+            'name': 'course2',
+            'institute_id': testInstituteId,
+        };
+        request
+            .post('/courses')
+            .set('Authorization', 'bearer 1234')
+            .send(reqBody)
+            .expect(_fixedid)
+            .expect(201, expectedResponseBody)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err) {
+                if (err) {
+                    return done(err);
+                } else {
+                    done();
+                }
+            });
+    });
 
-  //.expect('Content-Type', 'application/json')
+    //.expect('Content-Type', 'application/json')
 
-  /*it('does not allow duplicate entries');
+    /*it('does not allow duplicate entries');
 
   it('requires that a course name be specified');
 
@@ -77,76 +75,76 @@ describe('Create Course', function testCreateCourse() {
 
 describe('Retrieve a Course', function testRetrieveCourse() {
 
-  it('returns an error if given a non-numeric string for id', function(done) {
-    var id = 'This is definitely not a number';
-    request
-      .get('/courses/' + id)
-      .set('Authorization', 'bearer 1234')
-      .end(function expectErrorResponse(err, res) {
-        res.status.should.be.exactly(400);
-        res.body.should.have.property('error', 'invalid course id');
-        done();
-      });
-  });
+    it('returns an error if given a non-numeric string for id', function(done) {
+        var id = 'This is definitely not a number';
+        request
+            .get('/courses/' + id)
+            .set('Authorization', 'bearer 1234')
+            .end(function expectErrorResponse(err, res) {
+                res.status.should.be.exactly(400);
+                res.body.should.have.property('error', 'invalid course id');
+                done();
+            });
+    });
 
-  /*it('returns an error if given a string containing non-numeric characters '
+    /*it('returns an error if given a string containing non-numeric characters '
       + 'for id');*/
 
-  it('should return information about the course with the specified id',
-      function(done) {
-    request
-        .post('/courses/')
-        .set('Authorization', 'bearer 1234')
-        .send({'name': 'Chemistry I', 'institute': testInstituteId})
-        .expect(201)
-        .end(function(err, res) {
-            var id = res.body.id;
-            var expectedResponseBody = {
-              'id': id,
-              'name': 'Chemistry I',
-              'institute_id': testInstituteId
-            };
+    it('should return information about the course with the specified id',
+        function(done) {
             request
-              .get('/courses/' + id)
-              .set('Authorization', 'bearer 1234')
-              .expect(200, expectedResponseBody)
-              .expect('Content-Type', 'application/json; charset=utf-8')
-              .end(function(err, res) {
-                if (err) {
-                  return done(err);
-                } else {
-                  done();
-                }
-              });
+                .post('/courses/')
+                .set('Authorization', 'bearer 1234')
+                .send({'name': 'Chemistry I', 'institute': testInstituteId})
+                .expect(201)
+                .end(function(err, res) {
+                    var id = res.body.id;
+                    var expectedResponseBody = {
+                        'id': id,
+                        'name': 'Chemistry I',
+                        'institute_id': testInstituteId
+                    };
+                    request
+                        .get('/courses/' + id)
+                        .set('Authorization', 'bearer 1234')
+                        .expect(200, expectedResponseBody)
+                        .expect('Content-Type', 'application/json; charset=utf-8')
+                        .end(function(err) {
+                            if (err) {
+                                return done(err);
+                            } else {
+                                done();
+                            }
+                        });
+                });
         });
-  });
 
-  it('returns an error if no course exists with the given id', function(done) {
-    var id = '82';
-    request
-      .get('/courses/' + id)
-      .set('Authorization', 'bearer 1234')
-      .end(function expectErrorResponse(err, res) {
-        res.status.should.be.exactly(404);
-        res.body.should.have.property('error', 'invalid course id');
-        done();
-      });
-  });
+    it('returns an error if no course exists with the given id', function(done) {
+        var id = '82';
+        request
+            .get('/courses/' + id)
+            .set('Authorization', 'bearer 1234')
+            .end(function expectErrorResponse(err, res) {
+                res.status.should.be.exactly(404);
+                res.body.should.have.property('error', 'invalid course id');
+                done();
+            });
+    });
 
 });
 
 describe('Course Listing', function() {
-  it ('should return information about all courses and which students are taking them', function(done) {
-    request
-      .get('/courses')
-      .set('Authorization', 'bearer 1234')
-      .end(function(err, res) {
-        res.status.should.be.exactly(200);
-        res.body.should.be.an.Array();
-        res.body.length.should.be.above(1);
-        res.body[0].id.should.be.a.Number();
-        res.body[0].name.should.be.a.String();
-        done();
-      });
-  });
+    it ('should return information about all courses and which students are taking them', function(done) {
+        request
+            .get('/courses')
+            .set('Authorization', 'bearer 1234')
+            .end(function(err, res) {
+                res.status.should.be.exactly(200);
+                res.body.should.be.an.Array();
+                res.body.length.should.be.above(1);
+                res.body[0].id.should.be.a.Number();
+                res.body[0].name.should.be.a.String();
+                done();
+            });
+    });
 });

@@ -1,5 +1,3 @@
-var should = require('should');
-var assert = require('assert');
 var request = require('supertest');
 
 var url = 'http://localhost:3000/api';
@@ -44,22 +42,22 @@ describe('Session Listing', function() {
 
                         // do the test
                         var expectedResponseBody = [
-                        {
-                            'course_id': testCourseId,
-                            'id': sessId1,
-                            'name': 'spring 2017',
-                            'start_date': new Date(2017, 1, 9).toISOString(),
-                            'end_date': new Date(2017, 5, 6).toISOString(),
-                            'students': []
-                        },
-                        {
-                            'course_id': testCourseId,
-                            'id': sessId2,
-                            'name': 'fall 2017',
-                            'start_date': new Date(2017, 1, 9).toISOString(),
-                            'end_date': new Date(2017, 5, 6).toISOString(),
-                            'students': []
-                        }];
+                            {
+                                'course_id': testCourseId,
+                                'id': sessId1,
+                                'name': 'spring 2017',
+                                'start_date': new Date(2017, 1, 9).toISOString(),
+                                'end_date': new Date(2017, 5, 6).toISOString(),
+                                'students': []
+                            },
+                            {
+                                'course_id': testCourseId,
+                                'id': sessId2,
+                                'name': 'fall 2017',
+                                'start_date': new Date(2017, 1, 9).toISOString(),
+                                'end_date': new Date(2017, 5, 6).toISOString(),
+                                'students': []
+                            }];
                         request(url)
                             .get('/courses/' + testCourseId + '/sessions')
                             .set('Authorization', 'bearer 1234')
@@ -85,14 +83,14 @@ describe('Session Listing', function() {
                     var sessId = res.body.id;
 
                     var expectedResponseBody = [
-                    {
-                        'course_id': testCourseId,
-                        'id': sessId,
-                        'name': 'spring 2017',
-                        'start_date': new Date(2017, 1, 9).toISOString(),
-                        'end_date': new Date(2017, 5, 6).toISOString(),
-                        'students': []
-                    }
+                        {
+                            'course_id': testCourseId,
+                            'id': sessId,
+                            'name': 'spring 2017',
+                            'start_date': new Date(2017, 1, 9).toISOString(),
+                            'end_date': new Date(2017, 5, 6).toISOString(),
+                            'students': []
+                        }
                     ];
                     request(url)
                         .get('/courses/' + testCourseId + '/sessions')

@@ -21,7 +21,6 @@ module.exports.getToken = function(username, password, callback) {
                         return callback({'status': 401, 'message': {'error': 'Token could not be retrieved'}});
                     }
                     if (isMatch) {
-                        var response = {'token': user.token};
                         return callback(null, {'token': user.token});
                     } else {
                         return callback({'status': 401, 'message': {'error': 'Token could not be retrieved'}});

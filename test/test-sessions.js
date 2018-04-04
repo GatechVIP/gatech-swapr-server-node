@@ -20,6 +20,7 @@ before(function() {
 var createTestSession = function(name, courseId, callback) {
     request(url)
         .post('/courses/' + courseId + '/sessions')
+        .set('Authorization', 'bearer 1234')
         .send({'name': name, 'start_date': new Date(2017, 1, 9).toISOString(), 'end_date': new Date(2017, 5, 6).toISOString()})
         .expect(201)
         .end(callback);
@@ -31,6 +32,7 @@ describe('Session Listing', function() {
         // setup a test course with 2 sessions
         request(url)
             .post('/courses')
+            .set('Authorization', 'bearer 1234')
             .send({'name': 'multiSessionTest Course', 'institute': testInstituteId})
             .expect(201)
             .end(function(err, res) {
@@ -60,7 +62,8 @@ describe('Session Listing', function() {
                         }];
                         request(url)
                             .get('/courses/' + testCourseId + '/sessions')
-                            .expect(201, expectedResponseBody)
+                            .set('Authorization', 'bearer 1234')
+                            .expect(200, expectedResponseBody)
                             .expect('Content-Type', 'application/json; charset=utf-8')
                             .end(done);
                     });
@@ -73,6 +76,7 @@ describe('Session Listing', function() {
         // setup a test course with 1 session
         request(url)
             .post('/courses')
+            .set('Authorization', 'bearer 1234')
             .send({'name': 'singleSessionTest Course', 'institute': testInstituteId})
             .expect(201)
             .end(function(err, res) {
@@ -92,7 +96,8 @@ describe('Session Listing', function() {
                     ];
                     request(url)
                         .get('/courses/' + testCourseId + '/sessions')
-                        .expect(201, expectedResponseBody)
+                        .set('Authorization', 'bearer 1234')
+                        .expect(200, expectedResponseBody)
                         .expect('Content-Type', 'application/json; charset=utf-8')
                         .end(done);
                 });
@@ -102,9 +107,10 @@ describe('Session Listing', function() {
     it('Returns an error if given a non-numeric string for the course ID', function(done) {
         request(url)
             .get('/courses/NotANumber/sessions')
+            .set('Authorization', 'bearer 1234')
             .end(function expectErrorResponse(err, res) {
                 res.status.should.be.exactly(400);
-                res.body.should.have.property('error', 'Invalid input');
+                res.body.should.have.property('error', 'invalid course id');
                 done();
             });
     });

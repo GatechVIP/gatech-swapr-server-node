@@ -43,6 +43,7 @@ describe('Create Course', function testCreateCourse() {
     };
     request
       .post('/courses')
+      .set('Authorization', 'bearer 1234')
       .send(reqBody)
       .expect(_fixedid)
       .expect(201, expectedResponseBody)
@@ -80,6 +81,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     var id = 'This is definitely not a number';
     request
       .get('/courses/' + id)
+      .set('Authorization', 'bearer 1234')
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
         res.body.should.have.property('error', 'invalid course id');
@@ -94,6 +96,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
       function(done) {
     request
         .post('/courses/')
+        .set('Authorization', 'bearer 1234')
         .send({'name': 'Chemistry I', 'institute': testInstituteId})
         .expect(201)
         .end(function(err, res) {
@@ -105,6 +108,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
             };
             request
               .get('/courses/' + id)
+              .set('Authorization', 'bearer 1234')
               .expect(200, expectedResponseBody)
               .expect('Content-Type', 'application/json; charset=utf-8')
               .end(function(err, res) {
@@ -121,6 +125,7 @@ describe('Retrieve a Course', function testRetrieveCourse() {
     var id = '82';
     request
       .get('/courses/' + id)
+      .set('Authorization', 'bearer 1234')
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(404);
         res.body.should.have.property('error', 'invalid course id');
@@ -134,6 +139,7 @@ describe('Course Listing', function() {
   it ('should return information about all courses and which students are taking them', function(done) {
     request
       .get('/courses')
+      .set('Authorization', 'bearer 1234')
       .end(function(err, res) {
         res.status.should.be.exactly(200);
         res.body.should.be.an.Array();

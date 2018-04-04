@@ -3,7 +3,7 @@ var logger = require('../util/logger');
 
 module.exports.createInstitute = function(name, callback) {
   if (typeof name !== 'string') {
-      return callback({'status': 500, 'message': 'institute name must be a string'});
+      return callback({'status': 500, 'message': {'error': 'institute name must be a string'}});
   }
 
   models.Institute.create({
@@ -16,13 +16,13 @@ module.exports.createInstitute = function(name, callback) {
       return callback(null, result);
   }).catch(function(error) {
       logger.error(error);
-      return callback({'status': 500, 'message': 'unable to create new institute'});
+      return callback({'status': 500, 'message': {'error': 'unable to create new institute'}});
   });
 };
 
 module.exports.getInstitute = function(instituteID, callback) {
     if (isNaN(instituteID)) {
-        return callback({'status': 400, 'message': 'invalid institute id'});
+        return callback({'status': 400, 'message': {'error': 'invalid institute id'}});
     }
 
     models.Institute.findOne({'where': {'id': parseInt(instituteID)}}).then(function(institute) {
@@ -33,7 +33,7 @@ module.exports.getInstitute = function(instituteID, callback) {
         return callback(null, result);
     }).catch(function(error) {
         logger.error(error);
-        return callback({'status': 404, 'message': 'invalid institute id'});
+        return callback({'status': 404, 'message': {'error': 'invalid institute id'}});
     });
 };
 
@@ -47,6 +47,6 @@ module.exports.getAllInstitutes = function(callback) {
         });
         return callback(null, instituteList);
     }).catch(function(error) {
-        return callback({'status': 400, 'message': 'could not get all institutes'});
+        return callback({'status': 400, 'message': {'error': 'could not get all institutes'}});
     });
 };

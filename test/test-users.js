@@ -26,10 +26,12 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_7",
       "first_name": "User",
       "last_name": "Seven",
-      "email": "test7@email.com"
+      "email": "test7@email.com",
+      "role": null
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .expect(_fixedid)
       .expect(201, expectedResponseBody)
@@ -53,6 +55,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(201);
@@ -65,6 +68,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
         };
         request
           .post('/swaprusers')
+          .set('Authorization', 'bearer 1234')
           .send(dupRequestBody)
           .end(function expectErrorResponse(err, res) {
             res.status.should.be.exactly(400);
@@ -84,6 +88,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(201);
@@ -96,6 +101,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
         };
         request
           .post('/swaprusers')
+          .set('Authorization', 'bearer 1234')
           .send(dupRequestBody)
           .end(function expectErrorResponse(err, res) {
             res.status.should.be.exactly(400);
@@ -118,10 +124,12 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_9",
       "first_name": "Userman",
       "last_name": "Nine",
-      "email": "test9@email.com"
+      "email": "test9@email.com",
+      "role": null
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .expect(_fixedid)
       .expect(201, expectedResponseBody)
@@ -148,10 +156,12 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_9a",
       "first_name": "User",
       "last_name": "Nine",
-      "email": "test9a@email.com"
+      "email": "test9a@email.com",
+      "role": null
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .expect(_fixedid)
       .expect(201, expectedResponseBody)
@@ -178,10 +188,12 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
       "username": "user_9b",
       "first_name": "Bob",
       "last_name": "Nine",
-      "email": "test9b@email.com"
+      "email": "test9b@email.com",
+      "role": null
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .expect(_fixedid)
       .expect(201, expectedResponseBody)
@@ -205,6 +217,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -223,6 +236,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -241,6 +255,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -259,6 +274,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -278,6 +294,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -296,6 +313,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -314,6 +332,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -332,6 +351,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -350,6 +370,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -368,6 +389,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -386,6 +408,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -404,6 +427,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -422,6 +446,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -440,6 +465,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -458,6 +484,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -476,6 +503,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -494,6 +522,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -512,6 +541,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -530,6 +560,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -548,6 +579,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -566,6 +598,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -583,6 +616,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -600,6 +634,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -617,6 +652,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -634,6 +670,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);
@@ -651,6 +688,7 @@ describe('Create SWAPRUser', function testCreateSWAPRUser() {
     };
     request
       .post('/swaprusers')
+      .set('Authorization', 'bearer 1234')
       .send(requestBody)
       .end(function expectErrorResponse(err, res) {
         res.status.should.be.exactly(400);

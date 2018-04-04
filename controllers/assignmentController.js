@@ -5,10 +5,10 @@ var logger = require('../util/logger');
 
 module.exports.submitURL = function(studentID, assignmentID, url, callback) {
     if (isNaN(studentID)) {
-        return callback({'status': 400, 'message': 'invalid student ID'});
+        return callback({'status': 400, 'message': {'error': 'invalid student ID'}});
     }
     if (!validUrl.isUri(url)) {
-        return callback({'status': 400, 'message': 'invalid url'});
+        return callback({'status': 400, 'message': {'error': 'invalid url'}});
     }
 
     var sub = {
@@ -27,7 +27,7 @@ module.exports.submitURL = function(studentID, assignmentID, url, callback) {
 
 module.exports.getActiveAssignments = function(studentID, callback) {
     if (isNaN(studentID)) {
-        return callback({'status': 400, 'message': 'invalid student ID'});
+        return callback({'status': 400, 'message': {'error': 'invalid student ID'}});
     }
 
     models.SessionEnrollment.findAll({ 'where': { 'user_id': parseInt(studentID) } }).then(function(sessions) {
@@ -52,10 +52,10 @@ module.exports.getActiveAssignments = function(studentID, callback) {
 
         }).catch(function(err) {
             console.log(err);
-            return callback({'status': 400, 'error': 'Could not get the active assignments'});
+            return callback({'status': 400, 'message': {'error': 'Could not get the active assignments'}});
         });
     }).catch(function(error) {
         console.log(error);
-        return callback({'status': 400, 'error': 'Could not get the active assignments'});
+        return callback({'status': 400, 'message': {'error': 'Could not get the active assignments'}});
     });
 }

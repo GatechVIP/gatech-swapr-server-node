@@ -5,17 +5,17 @@ var validator = require('email-validator');
 
 module.exports.createUser = function(username, first_name, last_name, email, password, role, callback) {
     if (username == null || first_name == null || last_name == null || email == null || password == null) {
-        return callback({'status': 400, 'message': 'unable to create new user'});
+        return callback({'status': 400, 'message': {'error': 'unable to create new user'}});
     }
     if (username === '' || first_name === '' || last_name === '' || email === '' || password === '') {
-        return callback({'status': 400, 'message': 'unable to create new user'});
+        return callback({'status': 400, 'message': {'error': 'unable to create new user'}});
     }
     if (typeof username !== 'string' || typeof first_name !== 'string' || typeof last_name !== 'string' ||
             typeof email !== 'string' || typeof password !== 'string') {
-        return callback({'status': 400, 'message': 'unable to create new user'});
+        return callback({'status': 400, 'message': {'error': 'unable to create new user'}});
     }
     if (!validator.validate(email)) {
-        return callback({'status': 400, 'message': 'unable to create new user'});
+        return callback({'status': 400, 'message': {'error': 'unable to create new user'}});
     }
 
     // Check that no one else has claimed this username or email address
@@ -29,7 +29,7 @@ module.exports.createUser = function(username, first_name, last_name, email, pas
               error = 'username in use';
           }
 
-          return callback({'status': 400, 'message': error});
+          return callback({'status': 400, 'message': {'error': error}});
       }
 
       var user = {
@@ -42,10 +42,10 @@ module.exports.createUser = function(username, first_name, last_name, email, pas
 
       // Hash the password and create a token
       bcrypt.genSalt(5, function(err, salt) {
-          if (err) { return callback({'status': 500, 'message': 'unable to create new user'}); }
-          
+          if (err) { return callback({'status': 500, 'message': {'error': 'unable to create new user'}}); }
+
           bcrypt.hash(password, salt, null, function(err, hash) {
-              if (err) { return callback({'status': 500, 'message': err}); }
+              if (err) { return callback({'status': 500, 'message': {'error': err}}); }
               user['password']= hash;
               user['token'] = jwt.sign(user, 'app_secret');
 
@@ -60,11 +60,11 @@ module.exports.createUser = function(username, first_name, last_name, email, pas
                 };
                 return callback(null, result);
               }).catch(function(error) {
-                return callback({'status': 500, 'message': 'unable to create new user'});
+                return callback({'status': 500, 'message': {'error': 'unable to create new user'}});
               });
           });
       });
     }).catch(function(error) {
-        return callback({'status': 500, 'message': 'unable to create new user'});
+        return callback({'status': 500, 'message': {'error': 'unable to create new user'}});
     });
 };

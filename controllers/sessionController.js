@@ -3,7 +3,7 @@ var logger = require('../util/logger');
 
 module.exports.createSession = function(courseID, name, start_date, end_date, callback) {
     if (isNaN(courseID)) {
-        return callback({'status': 400, 'message': 'invalid course id'});
+        return callback({'status': 400, 'message': {'error': 'invalid course id'}});
     }
 
     models.Session.create({
@@ -21,13 +21,13 @@ module.exports.createSession = function(courseID, name, start_date, end_date, ca
         }
         return callback(null, response);
     }).catch(function(error) {
-        return callback({'status': 500, 'message': 'could not create a session'});
+        return callback({'status': 500, 'message': {'error': 'could not create a session'}});
     });
 };
 
 module.exports.enrollInSession = function(courseID, students, sessionID, callback) {
     if (isNaN(courseID) || isNaN(sessionID)) {
-        return callback({'status': 400, 'message': 'unable to enroll in session'});
+        return callback({'status': 400, 'message': {'error': 'unable to enroll in session'}});
     }
 
     models.User.findAll({ 'where': {
@@ -54,25 +54,25 @@ module.exports.enrollInSession = function(courseID, students, sessionID, callbac
                     return callback(null, response);
                 }).catch(function(error) {
                     logger.error(error);
-                    return callback({'status': 400, 'message': 'could not complete enrollment'});
+                    return callback({'status': 400, 'message': {'error': 'could not complete enrollment'}});
                 })
             }).catch(function(error) {
                 logger.error(error);
-                return callback({'status': 400, 'message': 'unable to enroll in session'});
+                return callback({'status': 400, 'message': {'error': 'unable to enroll in session'}});
             })
         }).catch(function(error) {
             logger.error(error);
-            return callback({'status': 400, 'message': 'unable to enroll in session'});
+            return callback({'status': 400, 'message': {'error': 'unable to enroll in session'}});
         })
     }).catch(function(error) {
         logger.error(error);
-        return callback({'status': 400, 'message': 'unable to enroll in session'});
+        return callback({'status': 400, 'message': {'error': 'unable to enroll in session'}});
     });
 };
 
 module.exports.getSession = function(courseID, sessionID, callback) {
     if (isNaN(courseID) || isNaN(sessionID)) {
-        return callback({'status': 400, 'message': 'invalid id input'});
+        return callback({'status': 400, 'message': {'error': 'invalid id input'}});
     }
     models.Session.findOne({'where': { 'id': parseInt(sessionID)}}).then(function(aSession) {
         models.SessionEnrollment.findAll({'where': {'session_id': parseInt(sessionID)}}).then(function(enrollments) {
@@ -88,17 +88,17 @@ module.exports.getSession = function(courseID, sessionID, callback) {
             };
             return callback(null, result);
         }).catch(function(error) {
-            return callback({'status': 400, 'message': 'could not retrieve the course'});
+            return callback({'status': 400, 'message': {'error': 'could not retrieve the course'}});
         })
     }).catch(function(error) {
         logger.error(error);
-        return callback({'status': 400, 'message': 'could not retrieve the course'});
+        return callback({'status': 400, 'message': {'error': 'could not retrieve the course'}});
     });
 };
 
 module.exports.getSessions = function(courseID, callback) {
     if (isNaN(courseID)) {
-        return callback({'status': 400, 'message': 'invalid course id'});
+        return callback({'status': 400, 'message': {'error': 'invalid course id'}});
     }
 
     models.Session.findAll({'where': {'course_id': parseInt(courseID)}}).then(function(sessions) {
@@ -129,10 +129,10 @@ module.exports.getSessions = function(courseID, callback) {
             return callback(null, result);
         }).catch(function(error) {
             logger.error(error);
-            return callback({'status': 400, 'message': 'could not get the sessions'});
+            return callback({'status': 400, 'message': {'error': 'could not get the sessions'}});
         })
     }).catch(function(error) {
         logger.error(error);
-        return callback({'status': 400, 'message': 'could not get the sessions'});
+        return callback({'status': 400, 'message': {'error': 'could not get the sessions'}});
     })
 };

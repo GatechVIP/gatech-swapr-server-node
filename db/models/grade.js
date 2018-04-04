@@ -17,16 +17,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        Grade.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
-        Grade.belongsTo(models.User, {foreignKey: 'user_id'});
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'grade'
   });
+
+  Grade.associate = function(models) {
+    Grade.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
+    Grade.belongsTo(models.User, {foreignKey: 'user_id'});
+  };
+
   return Grade;
 };

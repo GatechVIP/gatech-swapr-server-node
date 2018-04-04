@@ -28,15 +28,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        Rubric.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'rubric'
   });
+
+  Rubric.associate = function(models) {
+    Rubric.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
+  };
+
   return Rubric;
 };

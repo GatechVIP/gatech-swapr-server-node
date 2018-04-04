@@ -36,17 +36,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
-        AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
-        AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'assignment_grade_info'
   });
+
+  AssignmentGradeInfo.associate = function(models) {
+    AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
+    AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
+    AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
+  };
+
   return AssignmentGradeInfo;
 };

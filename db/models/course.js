@@ -21,15 +21,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        Course.belongsTo(models.Institute, {foreignKey: 'institute_id'})
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'course'
   });
+
+  Course.associate = function(models) {
+    Course.belongsTo(models.Institute, {foreignKey: 'institute_id'})
+  };
+
   return Course;
 };

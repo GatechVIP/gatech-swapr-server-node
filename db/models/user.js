@@ -58,20 +58,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        User.belongsToMany(models.Session, {
-          as: 'sessions',
-          through: models.SessionEnrollment,
-          foreignKey: 'user_id',
-          otherKey: 'session_id'
-        });
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'user'
   });
+
+  User.associate = function(models) {
+    User.belongsToMany(models.Session, {
+      as: 'sessions',
+      through: models.SessionEnrollment,
+      foreignKey: 'user_id',
+      otherKey: 'session_id'
+    });
+ };
+
   return User;
 };

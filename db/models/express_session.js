@@ -8,11 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     expires: DataTypes.DATE,
     data: DataTypes.TEXT
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    },
     timestamps: false,
     freezeTableName: true,
     tableName: 'express_session'

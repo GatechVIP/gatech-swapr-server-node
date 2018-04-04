@@ -13,11 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,

@@ -17,15 +17,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        ExerciseSecretVideo.belongsTo(models.Exercise, {foreignKey: 'exercise_id'})
-      }
-    },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
     tableName: 'exercise_secret_video'
   });
+
+  ExerciseSecretVideo.associate = function(models) {
+    ExerciseSecretVideo.belongsTo(models.Exercise, {foreignKey: 'exercise_id'})
+  };
+
   return ExerciseSecretVideo;
 };

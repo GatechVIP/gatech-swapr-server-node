@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 });
 
 //router.get('/login', passport.authenticate('cas', {'successRedirect': '/'}));
-router.get('/login', passport.authenticate(
+/*router.get('/login', passport.authenticate(
     'cas', {
         session: false
     }),
@@ -24,6 +24,16 @@ function(req, res) {
         username: req.user.username,
         token: req.user.token
     });
-});
+});*/
+router.get('/login', passport.authenticate(
+    'local', { session: false }),
+    function(req, res) {
+        res.status(200).json({
+            id: req.user.id,
+            username: req.user.username,
+            token: req.user.token
+        });
+    }
+);
 
 module.exports = router;

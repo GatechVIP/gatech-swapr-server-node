@@ -1,6 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var ExerciseSecretVideo = sequelize.define('ExerciseSecretVideo', {
+    exercise_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     url: {
       type: DataTypes.STRING,
       allowNull: false

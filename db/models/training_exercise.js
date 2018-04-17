@@ -1,6 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var TrainingExercise = sequelize.define('TrainingExercise', {
+    exercise_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     order_served: {
       type: DataTypes.INTEGER,
       allowNull: false

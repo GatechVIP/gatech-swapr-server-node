@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var UrlState = sequelize.define('UrlState', {
+    submission_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    grader_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     is_graded: {
       type: DataTypes.BOOLEAN,
       allowNull: false

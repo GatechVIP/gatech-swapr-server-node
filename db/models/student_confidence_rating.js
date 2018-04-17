@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var StudentConfidenceRating = sequelize.define('StudentConfidenceRating', {
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    exercise_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     rubric_item_num: {
       type: DataTypes.INTEGER,
       allowNull: false

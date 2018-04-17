@@ -1,23 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Rubric = sequelize.define('Rubric', {
-    exercise_id: {
+  var AssignmentGradingSecretTask = sequelize.define('AssignmentGradingSecretTask', {
+    order: {
       type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    item_num: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        allowEmpty: false
-      }
-    },
-    description: {
-      type: DataTypes.STRING,
       allowNull: false
     },
     created_at: {
@@ -30,17 +15,19 @@ module.exports = (sequelize, DataTypes) => {
     },
     deleted_at: {
       type: DataTypes.DATE
-    }
+    } 
   }, {
     classMethods: {
       associate: function(models) {
-        Rubric.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
+        // AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
+        // AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
+        // AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
       }
     },
     paranoid: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'rubric'
+    tableName: 'assignment_grading_secret_task'
   });
-  return Rubric;
+  return AssignmentGradingSecretTask;
 };

@@ -1,6 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var RubricScoreKey = sequelize.define('RubricScoreKey', {
+    exercise_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     rubric_item_num: {
       type: DataTypes.INTEGER,
       allowNull: false

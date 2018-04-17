@@ -66,6 +66,12 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'user_id',
           otherKey: 'session_id'
         });
+        User.belongsToMany(models.Assignment, {
+          as: 'grading_assignments',
+          through: models.AssignmentGrader,
+          foreignKey: 'user_id',
+          otherKey: 'assignment_id'
+        });
       }
     },
     paranoid: true,

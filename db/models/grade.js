@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Grade = sequelize.define('Grade', {
+    assignment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     grade: {
       type: DataTypes.FLOAT,
       allowNull: false

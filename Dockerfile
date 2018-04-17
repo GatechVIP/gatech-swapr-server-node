@@ -1,5 +1,5 @@
 # Use Ubuntu as base image
-FROM node:8.7.0
+FROM node:8.7.0-alpine
 
 # Install node dependencies
 RUN npm install yarn

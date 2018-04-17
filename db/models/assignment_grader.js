@@ -1,6 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var AssignmentGrader = sequelize.define('AssignmentGrader', {
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    assignment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     current_position: {
       type: DataTypes.INTEGER,
       allowNull: false

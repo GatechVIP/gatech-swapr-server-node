@@ -35,12 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         RubricScoreKey.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
-      }
-    },
-    paranoid: true,
-    underscored: true,
-    freezeTableName: true,
-    tableName: 'rubric_score_key'
-  });
-  return RubricScoreKey;
+    };
+
+    return RubricScoreKey;
 };

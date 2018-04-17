@@ -34,14 +34,20 @@ passport.use(new LocalStrategy(
             if (!user) {
                 done(null, false, {message: 'No such username'});
             } else {
-                bcrypt.compare(password, user.password, function(err, res) {
+                /*bcrypt.compare(password, user.password, function(err, res) {
                     if (res) {
                         var result = {'id': user.id, 'username': user.username, 'token': user.token};
                         done(null, result);
                     } else {
                         done(null, false, {message: 'Incorrect password'});
                     }
-                });
+                });*/
+                if (password == user.password) {
+                    var result = {'id': user.id, 'username': user.username, 'token': user.token};
+                    done(null, result);
+                } else {
+                    done(null, false, {message: 'Incorrect password'});
+                }
             }
         }).catch(function(err) {
             done(err);
@@ -70,24 +76,22 @@ passport.use('cas', new CASStrategy(
             if (!user) {
                 return done(null, false, {message: 'Unknown user'});
             }
+            logger.debug({'casLogin': login});
             return done(null, user);
         }).catch(function(err) {
             return done(err);
         });
-        logger.debug({'casLogin': login});
-        return done(null, login);
     }
 ));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser = function(user, done) {
     return done(null, user.id);
-});
+};
 
-passport.deserializeUser(function(id, done) {
-    //return done(null, user);
+passport.deserializeUser = function(id, done) {
     models.User.findById(id, function(err, user) {
-        return done(err, user)
+        return done(err, user);
     });
-});
+};
 
 module.exports = passport;

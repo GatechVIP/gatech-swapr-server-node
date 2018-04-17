@@ -1,15 +1,17 @@
 version: "3.3"
 services:
-  db:
+  test-db:
     image: postgres:9.6
     networks:
-      - db
+      - swapr-test
     environment:
       POSTGRES_USER: swapr
       POSTGRES_PASSWORD: changeme_devpasswd
       POSTGRES_DB: swapr_test
+    ports:
+        - "5432:5432"
 
-  stu:
+  test:
     build:
       context: .
       dockerfile: Dockerfile.test
@@ -19,10 +21,9 @@ services:
       - /data/node_modules
     working_dir: /data/app
     depends_on:
-      - db
+      - test-db
     networks:
-      - backend
-      - db
+      - swapr-test
     environment:
       PORT: 8001
       NODE_ENV: development
@@ -31,8 +32,7 @@ services:
       DB_NAME: swapr_test
 
 networks:
-  backend:
-  db:
+  swapr-test:
 
 volumes:
   db-data:

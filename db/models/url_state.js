@@ -29,15 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         UrlState.belongsTo(models.Submission, {foreignKey: 'submission_id'});
         UrlState.belongsTo(models.User, {
-          as: 'grader',
-          foreignKey: 'grader_id'
+            as: 'grader',
+            foreignKey: 'grader_id'
         });
-      }
-    },
-    paranoid: true,
-    underscored: true,
-    freezeTableName: true,
-    tableName: 'url_state'
-  });
-  return UrlState;
+    };
+
+    return UrlState;
 };

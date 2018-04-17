@@ -1,6 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var AssignmentGradingSecretTask = sequelize.define('AssignmentGradingSecretTask', {
+    grader_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    submission_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    grade_info_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     order: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -19,9 +31,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // AssignmentGradeInfo.belongsTo(models.User, {foreignKey: 'user_id'});
-        // AssignmentGradeInfo.belongsTo(models.Session, {foreignKey: 'session_id'});
-        // AssignmentGradeInfo.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
+        AssignmentGradingSecretTask.belongsTo(models.AssignmentGrader, {foreignKey: 'grader_id'});
+        AssignmentGradingSecretTask.belongsTo(models.Submission, {foreignKey: 'submission_id'});
+        AssignmentGradingSecretTask.belongsTo(models.AssignmentGradeInfo, {foreignKey: 'grade_info_id'});
       }
     },
     paranoid: true,

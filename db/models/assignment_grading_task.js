@@ -1,6 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var AssignmentGradingTask = sequelize.define('AssignmentGradingTask', {
+    grader_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
+    secret_video_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
+    grade_info_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
     order: {
       type: DataTypes.INTEGER,
       allowNull: false

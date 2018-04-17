@@ -29,12 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         Grade.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
         Grade.belongsTo(models.User, {foreignKey: 'user_id'});
-      }
-    },
-    paranoid: true,
-    underscored: true,
-    freezeTableName: true,
-    tableName: 'grade'
-  });
-  return Grade;
+    };
+
+    return Grade;
 };

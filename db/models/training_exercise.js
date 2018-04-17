@@ -35,12 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         TrainingExercise.belongsTo(models.Exercise, {foreignKey: 'exercise_id'});
-      }
-    },
-    paranoid: true,
-    underscored: true,
-    freezeTableName: true,
-    tableName: 'training_exercise'
-  });
-  return TrainingExercise;
+    };
+
+    return TrainingExercise;
 };

@@ -1,6 +1,5 @@
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -20,8 +19,6 @@ var institutes = require('./routes/institutes');
 var models = require('./db/models');
 
 var app = express();
-
-var argv = require('minimist')(process.argv.slice(2));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -57,13 +54,13 @@ app.set('view engine', 'ejs');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
     logger.debug(err);
     res.status(err.status || 500);
     res.render('error', {

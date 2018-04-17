@@ -11,8 +11,8 @@ router.route('/')
                 if (err) {
                     return res.status(err.status).send(err.message);
                 }
-                return res.send(token);
-            })
+                return res.status(201).send(token);
+            });
     });
 
 

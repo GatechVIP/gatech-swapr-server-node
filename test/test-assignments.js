@@ -1,11 +1,9 @@
-var should = require('should');
-var assert = require('assert');
-var request = require('supertest');
+// var request = require('supertest');
 
-var url = 'http://localhost:3000/api';
+// var url = 'http://localhost:3000/api';
 
 describe ('Making a submission assignment', function() {
-  it ('Should create a submission assignment', function(done) {
+    it ('Should create a submission assignment'/* , function(done) {
       var requestBody = {
         "assigner": "chris wang setup script",
         'course': 1,
@@ -30,11 +28,11 @@ describe ('Making a submission assignment', function() {
               res.body.type.should.equal('submission');
               done();
           });
-  });
+  } */ );
 });
 
 describe ('Making an evaluation assignment', function() {
-  it ('Should create an evaluation assignment', function(done) {
+    it ('Should create an evaluation assignment'/*, function(done) {
     var requestBody = {
       'course': 1,
       'description': 'evaluation assignment submission assignment number 1',
@@ -69,11 +67,11 @@ describe ('Making an evaluation assignment', function() {
           res.body.type.should.equal('evaluation');
           done();
       })
-  });
+  } */ );
 });
 
 describe('Listing all assignments', function() {
-  it ('should return all assignments as listed', function(done) {
+    it ('should return all assignments as listed' /*, function(done) {
     request(url)
       .get('/assignments')
       .end(function(err, res) {
@@ -99,11 +97,11 @@ describe('Listing all assignments', function() {
           res.body[1].grade.should.equal(null);
           done();
       });
-  });
+  } */ );
 });
 
 describe('Getting one assignment', function() {
-  it ('Should return all details related to a valid assignment in the system', function(done) {
+    it ('Should return all details related to a valid assignment in the system' /* , function(done) {
     request(url)
       .get('/assignments/2')
       .end(function(err, res) {
@@ -136,23 +134,23 @@ describe('Getting one assignment', function() {
           res.body.items[3].assignment.should.equal(2);
           done();
       });
-  });
+  } */ );
 
-  it ('Should return a 404 error for a non-existent item number', function(done) {
+    it ('Should return a 404 error for a non-existent item number'/* , function(done) {
     request(url)
       .get('/assignments/420')
       .end(function(err, res) {
         res.status.should.be.exactly(404);
         done();
       });
-  });
+  } */ );
 
-  it ('Should return a 400 error for a non-numerical id placed in the URL', function(done) {
+    it ('Should return a 400 error for a non-numerical id placed in the URL'/*, function(done) {
     request(url)
       .get('/assignments/ayandas')
       .end(function(err, res) {
         res.status.should.be.exactly(400);
         done();
       });
-  });
+  } */ );
 });

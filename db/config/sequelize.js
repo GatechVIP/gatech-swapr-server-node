@@ -6,29 +6,29 @@ const getDockerSecret = require('get-docker-secret');
 // 3. Returns the default.
 
 module.exports = {
-  development: {
-    username: getDockerSecret('DB_USERNAME', null),
-    password: getDockerSecret('DB_PASSWORD', null),
-    database: getDockerSecret('DB_NAME', null),
-    host: 'db',
-    dialect: 'postgresql',
-    logging: false
-  },
-  production: {
-    username: getDockerSecret('DB_USERNAME', null),
-    password: getDockerSecret('DB_PASSWORD', null),
-    database: getDockerSecret('DB_NAME', null),
-    host: 'db',
-    dialect: 'postgresql',
-    logging: false
-  },
-  test: {
-    username: getDockerSecret('DB_USERNAME', null),
-    password: getDockerSecret('DB_PASSWORD', null),
-    // database: getDockerSecret('DB_NAME', null),
-    database: 'swapr_test',
-    host: 'test-db',
-    dialect: 'postgresql',
-    logging: false
-  }
+    development: {
+        username: getDockerSecret('DB_USERNAME', null),
+        password: getDockerSecret('DB_PASSWORD', null),
+        database: getDockerSecret('DB_NAME', null),
+        host: 'db',
+        dialect: 'postgresql',
+        logging: false
+    },
+    production: {
+        username: getDockerSecret('DB_USERNAME', null),
+        password: getDockerSecret('DB_PASSWORD', null),
+        database: getDockerSecret('DB_NAME', null),
+        host: 'db',
+        dialect: 'postgresql',
+        logging: false
+    },
+    test: {
+        username: getDockerSecret('DB_USERNAME', null),
+        password: getDockerSecret('DB_PASSWORD', null),
+        // database: getDockerSecret('DB_NAME', null),
+        database: 'swapr_test',
+        host: 'test-db',
+        dialect: 'postgresql',
+        logging: false
+    }
 };

@@ -1,5 +1,3 @@
-var should = require('should');
-var assert = require('assert');
 var request = require('supertest');
 
 var url = 'http://localhost:3000/api';
@@ -16,6 +14,7 @@ describe('Instructor Creation', function() {
         };
         request(url)
             .post('/swaprinstructors')
+            .set('Authorization', 'bearer 1234')
             .send(reqBody)
             .expect(201)
             .end(done);
@@ -31,11 +30,13 @@ describe('Instructor Creation', function() {
         };
         request(url)
             .post('/swaprinstructors')
+            .set('Authorization', 'bearer 1234')
             .send(reqBody)
             .expect(201)
-            .end(function(err, res) {
+            .end(function() {
                 request(url)
                     .post('/swaprinstructors')
+                    .set('Authorization', 'bearer 1234')
                     .send(reqBody)
                     .expect(400)
                     .end(done);
@@ -51,12 +52,15 @@ describe('Instructor Creation', function() {
         };
         request(url)
             .post('/swaprinstructors')
+            .set('Authorization', 'bearer 1234')
             .send(reqBody)
             .expect(400)
             .end(done);
     });
-    //TODO: future tests
-    //test for invalid characters in a username
-    //test for blank first/ last name
-    //test for invalid characters in first/ last name
+
+    it ('should not allow invalid characters in username');
+    it ('should not allow blank first name');
+    it ('should not allow blank last name');
+    it ('should not allow invalid characters in first name');
+    it ('should not allow invalid characters in last name');
 });

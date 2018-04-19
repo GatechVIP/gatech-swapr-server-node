@@ -5,9 +5,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    submission_id: {
+    secret_video_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     grade_info_id: {
       type: DataTypes.INTEGER,

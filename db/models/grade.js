@@ -5,8 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    user_id: {
-      type: DataTypes.INTEGER,
+    user_id: { type: DataTypes.INTEGER,
       allowNull: false
     },
     grade: {
@@ -29,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         Grade.belongsTo(models.Assignment, {foreignKey: 'assignment_id'});
         Grade.belongsTo(models.User, {foreignKey: 'user_id'});
-    };
+      }
+    }});
 
     return Grade;
 };

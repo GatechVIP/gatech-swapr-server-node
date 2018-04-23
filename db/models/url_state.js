@@ -32,7 +32,8 @@ module.exports = (sequelize, DataTypes) => {
             as: 'grader',
             foreignKey: 'grader_id'
         });
-    };
+      }
+    }});
 
     return UrlState;
 };

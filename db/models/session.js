@@ -39,7 +39,8 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'session_id',
             otherKey: 'user_id'
         });
-    };
+      }
+    }});
 
     return Session;
 };

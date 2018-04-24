@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var assignmentController = require('../controllers/gradeController');
+var gradesController = require('../controllers/gradeController');
 var passport = require('passport');
 
-router.route('/grades')
+router.route('/')
     .get(passport.authenticate('bearer', {session: false}), function(req, res) {
         gradesController.getGrades(req.user.id,
             function(err, token) {

@@ -15,6 +15,7 @@ var courses = require('./routes/courses');
 var apiAuth = require('./routes/api-auth');
 var assignments = require('./routes/assignments');
 var institutes = require('./routes/institutes');
+var grades = require('./routes/grades');
 
 var models = require('./db/models');
 
@@ -48,6 +49,7 @@ app.use('/api/courses', courses);
 app.use('/api/api-token-auth', apiAuth);
 app.use('/api/assignments', assignments);
 app.use('/api/institutes', institutes);
+app.use('/api/grades', grades);
 
 // use EJS as the default view engine
 app.set('view engine', 'ejs');
